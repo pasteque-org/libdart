@@ -4,23 +4,25 @@ import 'dart:typed_data';
 import 'package:archethic_lib_dart/src/model/on_chain_wallet_data.dart';
 import 'package:archethic_lib_dart/src/utils/utils.dart';
 import 'package:elliptic/ecdh.dart' as ecdh show computeSecret;
-import 'package:elliptic/elliptic.dart' as elliptic
-    show getSecp256k1, PrivateKey, PublicKey;
-import 'package:pointycastle/export.dart' as pc
+import 'package:elliptic/elliptic.dart'
+    as elliptic
+    show PrivateKey, PublicKey, getSecp256k1;
+import 'package:pointycastle/export.dart'
+    as pc
     show
-        Digest,
-        CTRStreamCipher,
         AESEngine,
-        ParametersWithIV,
-        KeyParameter,
         CBCBlockCipher,
-        SHA256Digest,
-        HMac;
+        CTRStreamCipher,
+        Digest,
+        HMac,
+        KeyParameter,
+        ParametersWithIV,
+        SHA256Digest;
 
 /// Archethic Onchain Wallet Generator and Encoder, using V1 specifications
 ///
 /// https://archethic-foundation.github.io/archethic-docs/build/clients/wallet-spec
-OnChainWalletData walletEncoderTest(String originPublicKey) {
+OnChainWalletData walletEncoderTest(final String originPublicKey) {
   final sha256 = pc.Digest('SHA-256');
   final sha512 = pc.Digest('SHA-512');
 
@@ -78,19 +80,17 @@ OnChainWalletData walletEncoderTest(String originPublicKey) {
 
   /// Encryption of Encoded Wallet (AES256 CTR)
   dev.log('Encryption of Encoded Wallet (AES256 CTR)');
-  final ctr = pc.CTRStreamCipher(pc.AESEngine())
-    ..init(
-      false,
-      pc.ParametersWithIV(
-        pc.KeyParameter(
-          Uint8List.fromList(hexToUint8List(walletEncryptionKey)),
-        ),
-        Uint8List.fromList(hexToUint8List(walletEncryptionIv)),
-      ),
-    );
-  final encryptedWallet = uint8ListToHex(
-    ctr.process(Uint8List.fromList(hexToUint8List(encodedWallet))),
-  ).toUpperCase();
+  final ctr = pc.CTRStreamCipher(pc.AESEngine())..init(
+    false,
+    pc.ParametersWithIV(
+      pc.KeyParameter(Uint8List.fromList(hexToUint8List(walletEncryptionKey))),
+      Uint8List.fromList(hexToUint8List(walletEncryptionIv)),
+    ),
+  );
+  final encryptedWallet =
+      uint8ListToHex(
+        ctr.process(Uint8List.fromList(hexToUint8List(encodedWallet))),
+      ).toUpperCase();
   dev.log(encryptedWallet);
 
   /// ECDH Curve (0:ed25519, 1:nistp256, 2:secp256k1)
@@ -112,16 +112,19 @@ OnChainWalletData walletEncoderTest(String originPublicKey) {
 
   /// Origin Device Public Key
   dev.log('Origin Device Public Key');
-  final ledger =
-      elliptic.PublicKey.fromHex(curve, originPublicKey.toUpperCase());
+  final ledger = elliptic.PublicKey.fromHex(
+    curve,
+    originPublicKey.toUpperCase(),
+  );
   dev.log(ledger.toHex());
 
   /// ECDH Point x: ECDH(Origin Device Public Key, Ephemeral Private Key)
   dev.log(
     'ECDH Point x: ECDH(Origin Device Public Key, Ephemeral Private Key)',
   );
-  final ecdhSecret =
-      Uint8List.fromList(ecdh.computeSecret(ephemeralPrivKey, ledger));
+  final ecdhSecret = Uint8List.fromList(
+    ecdh.computeSecret(ephemeralPrivKey, ledger),
+  );
   dev.log(uint8ListToHex(ecdhSecret));
 
   final ecdhSecretEncrypted = sha512.process(sha512.process(ecdhSecret));
@@ -138,20 +141,19 @@ OnChainWalletData walletEncoderTest(String originPublicKey) {
 
   /// Encryption of Wallet Key (AES256 CBC)
   dev.log('Encryption of Wallet Key (AES256 CBC)');
-  final cbc = pc.CBCBlockCipher(pc.AESEngine())
-    ..init(
-      true,
-      pc.ParametersWithIV(
-        pc.KeyParameter(Uint8List.fromList(hexToUint8List(aesKey))),
-        Uint8List.fromList(hexToUint8List(iv)),
-      ),
-    );
+  final cbc = pc.CBCBlockCipher(pc.AESEngine())..init(
+    true,
+    pc.ParametersWithIV(
+      pc.KeyParameter(Uint8List.fromList(hexToUint8List(aesKey))),
+      Uint8List.fromList(hexToUint8List(iv)),
+    ),
+  );
   final encryptedWalletKey = Uint8List(
     Uint8List.fromList(hexToUint8List(walletEncryptionKey)).length,
   ); // allocate space
   var offset = 0;
-  while (
-      offset < Uint8List.fromList(hexToUint8List(walletEncryptionKey)).length) {
+  while (offset <
+      Uint8List.fromList(hexToUint8List(walletEncryptionKey)).length) {
     offset += cbc.processBlock(
       Uint8List.fromList(hexToUint8List(walletEncryptionKey)),
       offset,
@@ -179,8 +181,9 @@ OnChainWalletData walletEncoderTest(String originPublicKey) {
   );
 
   final hmac = pc.HMac(pc.SHA256Digest(), 64)..init(pc.KeyParameter(authKey));
-  final authTag =
-      uint8ListToHex(hmac.process(encryptedWalletKey).sublist(0, 16));
+  final authTag = uint8ListToHex(
+    hmac.process(encryptedWalletKey).sublist(0, 16),
+  );
   dev.log(authTag);
 
   /// Encoding of Encrypted Wallet Key(ephemeral public key, authentication tag, encrypted wallet key):

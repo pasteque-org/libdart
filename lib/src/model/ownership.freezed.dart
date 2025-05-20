@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,188 +10,148 @@ part of 'ownership.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Ownership _$OwnershipFromJson(Map<String, dynamic> json) {
-  return _Ownership.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Ownership {
-  List<AuthorizedKey> get authorizedPublicKeys =>
-      throw _privateConstructorUsedError;
-  String? get secret => throw _privateConstructorUsedError;
+
+ List<AuthorizedKey> get authorizedPublicKeys; String? get secret;
+/// Create a copy of Ownership
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$OwnershipCopyWith<Ownership> get copyWith => _$OwnershipCopyWithImpl<Ownership>(this as Ownership, _$identity);
 
   /// Serializes this Ownership to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Ownership
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $OwnershipCopyWith<Ownership> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Ownership&&const DeepCollectionEquality().equals(other.authorizedPublicKeys, authorizedPublicKeys)&&(identical(other.secret, secret) || other.secret == secret));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(authorizedPublicKeys),secret);
+
+@override
+String toString() {
+  return 'Ownership(authorizedPublicKeys: $authorizedPublicKeys, secret: $secret)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $OwnershipCopyWith<$Res> {
-  factory $OwnershipCopyWith(Ownership value, $Res Function(Ownership) then) =
-      _$OwnershipCopyWithImpl<$Res, Ownership>;
-  @useResult
-  $Res call({List<AuthorizedKey> authorizedPublicKeys, String? secret});
-}
+abstract mixin class $OwnershipCopyWith<$Res>  {
+  factory $OwnershipCopyWith(Ownership value, $Res Function(Ownership) _then) = _$OwnershipCopyWithImpl;
+@useResult
+$Res call({
+ List<AuthorizedKey> authorizedPublicKeys, String? secret
+});
 
+
+
+
+}
 /// @nodoc
-class _$OwnershipCopyWithImpl<$Res, $Val extends Ownership>
+class _$OwnershipCopyWithImpl<$Res>
     implements $OwnershipCopyWith<$Res> {
-  _$OwnershipCopyWithImpl(this._value, this._then);
+  _$OwnershipCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Ownership _self;
+  final $Res Function(Ownership) _then;
 
-  /// Create a copy of Ownership
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? authorizedPublicKeys = null,
-    Object? secret = freezed,
-  }) {
-    return _then(_value.copyWith(
-      authorizedPublicKeys: null == authorizedPublicKeys
-          ? _value.authorizedPublicKeys
-          : authorizedPublicKeys // ignore: cast_nullable_to_non_nullable
-              as List<AuthorizedKey>,
-      secret: freezed == secret
-          ? _value.secret
-          : secret // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of Ownership
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? authorizedPublicKeys = null,Object? secret = freezed,}) {
+  return _then(_self.copyWith(
+authorizedPublicKeys: null == authorizedPublicKeys ? _self.authorizedPublicKeys : authorizedPublicKeys // ignore: cast_nullable_to_non_nullable
+as List<AuthorizedKey>,secret: freezed == secret ? _self.secret : secret // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$OwnershipImplCopyWith<$Res>
-    implements $OwnershipCopyWith<$Res> {
-  factory _$$OwnershipImplCopyWith(
-          _$OwnershipImpl value, $Res Function(_$OwnershipImpl) then) =
-      __$$OwnershipImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<AuthorizedKey> authorizedPublicKeys, String? secret});
 }
 
-/// @nodoc
-class __$$OwnershipImplCopyWithImpl<$Res>
-    extends _$OwnershipCopyWithImpl<$Res, _$OwnershipImpl>
-    implements _$$OwnershipImplCopyWith<$Res> {
-  __$$OwnershipImplCopyWithImpl(
-      _$OwnershipImpl _value, $Res Function(_$OwnershipImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Ownership
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? authorizedPublicKeys = null,
-    Object? secret = freezed,
-  }) {
-    return _then(_$OwnershipImpl(
-      authorizedPublicKeys: null == authorizedPublicKeys
-          ? _value._authorizedPublicKeys
-          : authorizedPublicKeys // ignore: cast_nullable_to_non_nullable
-              as List<AuthorizedKey>,
-      secret: freezed == secret
-          ? _value.secret
-          : secret // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$OwnershipImpl extends _Ownership {
-  const _$OwnershipImpl(
-      {final List<AuthorizedKey> authorizedPublicKeys = const [], this.secret})
-      : _authorizedPublicKeys = authorizedPublicKeys,
-        super._();
 
-  factory _$OwnershipImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OwnershipImplFromJson(json);
+class _Ownership extends Ownership {
+  const _Ownership({final  List<AuthorizedKey> authorizedPublicKeys = const [], this.secret}): _authorizedPublicKeys = authorizedPublicKeys,super._();
+  factory _Ownership.fromJson(Map<String, dynamic> json) => _$OwnershipFromJson(json);
 
-  final List<AuthorizedKey> _authorizedPublicKeys;
-  @override
-  @JsonKey()
-  List<AuthorizedKey> get authorizedPublicKeys {
-    if (_authorizedPublicKeys is EqualUnmodifiableListView)
-      return _authorizedPublicKeys;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_authorizedPublicKeys);
-  }
-
-  @override
-  final String? secret;
-
-  @override
-  String toString() {
-    return 'Ownership(authorizedPublicKeys: $authorizedPublicKeys, secret: $secret)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OwnershipImpl &&
-            const DeepCollectionEquality()
-                .equals(other._authorizedPublicKeys, _authorizedPublicKeys) &&
-            (identical(other.secret, secret) || other.secret == secret));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_authorizedPublicKeys), secret);
-
-  /// Create a copy of Ownership
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OwnershipImplCopyWith<_$OwnershipImpl> get copyWith =>
-      __$$OwnershipImplCopyWithImpl<_$OwnershipImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OwnershipImplToJson(
-      this,
-    );
-  }
+ final  List<AuthorizedKey> _authorizedPublicKeys;
+@override@JsonKey() List<AuthorizedKey> get authorizedPublicKeys {
+  if (_authorizedPublicKeys is EqualUnmodifiableListView) return _authorizedPublicKeys;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_authorizedPublicKeys);
 }
 
-abstract class _Ownership extends Ownership {
-  const factory _Ownership(
-      {final List<AuthorizedKey> authorizedPublicKeys,
-      final String? secret}) = _$OwnershipImpl;
-  const _Ownership._() : super._();
+@override final  String? secret;
 
-  factory _Ownership.fromJson(Map<String, dynamic> json) =
-      _$OwnershipImpl.fromJson;
+/// Create a copy of Ownership
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$OwnershipCopyWith<_Ownership> get copyWith => __$OwnershipCopyWithImpl<_Ownership>(this, _$identity);
 
-  @override
-  List<AuthorizedKey> get authorizedPublicKeys;
-  @override
-  String? get secret;
-
-  /// Create a copy of Ownership
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OwnershipImplCopyWith<_$OwnershipImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$OwnershipToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Ownership&&const DeepCollectionEquality().equals(other._authorizedPublicKeys, _authorizedPublicKeys)&&(identical(other.secret, secret) || other.secret == secret));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_authorizedPublicKeys),secret);
+
+@override
+String toString() {
+  return 'Ownership(authorizedPublicKeys: $authorizedPublicKeys, secret: $secret)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$OwnershipCopyWith<$Res> implements $OwnershipCopyWith<$Res> {
+  factory _$OwnershipCopyWith(_Ownership value, $Res Function(_Ownership) _then) = __$OwnershipCopyWithImpl;
+@override @useResult
+$Res call({
+ List<AuthorizedKey> authorizedPublicKeys, String? secret
+});
+
+
+
+
+}
+/// @nodoc
+class __$OwnershipCopyWithImpl<$Res>
+    implements _$OwnershipCopyWith<$Res> {
+  __$OwnershipCopyWithImpl(this._self, this._then);
+
+  final _Ownership _self;
+  final $Res Function(_Ownership) _then;
+
+/// Create a copy of Ownership
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? authorizedPublicKeys = null,Object? secret = freezed,}) {
+  return _then(_Ownership(
+authorizedPublicKeys: null == authorizedPublicKeys ? _self._authorizedPublicKeys : authorizedPublicKeys // ignore: cast_nullable_to_non_nullable
+as List<AuthorizedKey>,secret: freezed == secret ? _self.secret : secret // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

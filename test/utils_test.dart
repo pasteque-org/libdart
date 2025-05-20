@@ -161,18 +161,12 @@ void main() {
     });
 
     test('should not change anything if already ordered', () {
-      final a = sortObjectKeysAsc({
-        'a': 'hello',
-        'b': 'world',
-      });
+      final a = sortObjectKeysAsc({'a': 'hello', 'b': 'world'});
       expect(a.keys, equals(['a', 'b']));
     });
 
     test('should reorder the keys of root level', () {
-      final a = sortObjectKeysAsc({
-        'b': 'world',
-        'a': 'hello',
-      });
+      final a = sortObjectKeysAsc({'b': 'world', 'a': 'hello'});
       expect(a.keys, equals(['a', 'b']));
     });
 
@@ -184,19 +178,11 @@ void main() {
             {
               'a': 1,
               'c': 2,
-              'b': {
-                'c': 'some',
-                'a': 'thing',
-                'b': 'here',
-              },
+              'b': {'c': 'some', 'a': 'thing', 'b': 'here'},
             },
           ],
           'a': 'bar',
-          'c': {
-            'b': 'loulou',
-            'a': 'riri',
-            'c': 'fifi',
-          },
+          'c': {'b': 'loulou', 'a': 'riri', 'c': 'fifi'},
         },
         'c': 'hello',
       });
@@ -225,13 +211,14 @@ void main() {
     });
 
     test(
-        'should return false for an invalid pubKey with incorrect length for curve 0',
-        () {
-      const pubKey =
-          '00017EB361D06C3CB2A0102F664422542E9AB6E88C9867A4EAE082C86274B83AD0413433'; // Too long
-      final result = verifyArchethicKey(pubKey);
-      expect(result, false);
-    });
+      'should return false for an invalid pubKey with incorrect length for curve 0',
+      () {
+        const pubKey =
+            '00017EB361D06C3CB2A0102F664422542E9AB6E88C9867A4EAE082C86274B83AD0413433'; // Too long
+        final result = verifyArchethicKey(pubKey);
+        expect(result, false);
+      },
+    );
 
     test('should return false for an invalid pubKey with unknown curve', () {
       const pubKey =
@@ -247,12 +234,14 @@ void main() {
       expect(result, false);
     });
 
-    test('should return false for an invalid pubKey with insufficient length',
-        () {
-      const pubKey = '0001'; // Too short to contain a valid public key
-      final result = verifyArchethicKey(pubKey);
-      expect(result, false);
-    });
+    test(
+      'should return false for an invalid pubKey with insufficient length',
+      () {
+        const pubKey = '0001'; // Too short to contain a valid public key
+        final result = verifyArchethicKey(pubKey);
+        expect(result, false);
+      },
+    );
 
     test('should return false for an empty pubKey', () {
       const pubKey = '';

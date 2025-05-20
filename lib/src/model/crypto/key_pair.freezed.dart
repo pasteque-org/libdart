@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,168 +10,140 @@ part of 'key_pair.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$KeyPair {
-  @Uint8ListConverter()
-  Uint8List? get privateKey => throw _privateConstructorUsedError;
-  @Uint8ListConverter()
-  Uint8List? get publicKey => throw _privateConstructorUsedError;
 
-  /// Create a copy of KeyPair
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $KeyPairCopyWith<KeyPair> get copyWith => throw _privateConstructorUsedError;
+/// The private key, stored as a [Uint8List]. This should be kept secret.
+@Uint8ListConverter() Uint8List? get privateKey;/// The public key, stored as a [Uint8List]. This can be shared openly.
+@Uint8ListConverter() Uint8List? get publicKey;
+/// Create a copy of KeyPair
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$KeyPairCopyWith<KeyPair> get copyWith => _$KeyPairCopyWithImpl<KeyPair>(this as KeyPair, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is KeyPair&&const DeepCollectionEquality().equals(other.privateKey, privateKey)&&const DeepCollectionEquality().equals(other.publicKey, publicKey));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(privateKey),const DeepCollectionEquality().hash(publicKey));
+
+@override
+String toString() {
+  return 'KeyPair(privateKey: $privateKey, publicKey: $publicKey)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $KeyPairCopyWith<$Res> {
-  factory $KeyPairCopyWith(KeyPair value, $Res Function(KeyPair) then) =
-      _$KeyPairCopyWithImpl<$Res, KeyPair>;
-  @useResult
-  $Res call(
-      {@Uint8ListConverter() Uint8List? privateKey,
-      @Uint8ListConverter() Uint8List? publicKey});
-}
+abstract mixin class $KeyPairCopyWith<$Res>  {
+  factory $KeyPairCopyWith(KeyPair value, $Res Function(KeyPair) _then) = _$KeyPairCopyWithImpl;
+@useResult
+$Res call({
+@Uint8ListConverter() Uint8List? privateKey,@Uint8ListConverter() Uint8List? publicKey
+});
 
+
+
+
+}
 /// @nodoc
-class _$KeyPairCopyWithImpl<$Res, $Val extends KeyPair>
+class _$KeyPairCopyWithImpl<$Res>
     implements $KeyPairCopyWith<$Res> {
-  _$KeyPairCopyWithImpl(this._value, this._then);
+  _$KeyPairCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final KeyPair _self;
+  final $Res Function(KeyPair) _then;
 
-  /// Create a copy of KeyPair
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? privateKey = freezed,
-    Object? publicKey = freezed,
-  }) {
-    return _then(_value.copyWith(
-      privateKey: freezed == privateKey
-          ? _value.privateKey
-          : privateKey // ignore: cast_nullable_to_non_nullable
-              as Uint8List?,
-      publicKey: freezed == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as Uint8List?,
-    ) as $Val);
-  }
+/// Create a copy of KeyPair
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? privateKey = freezed,Object? publicKey = freezed,}) {
+  return _then(_self.copyWith(
+privateKey: freezed == privateKey ? _self.privateKey : privateKey // ignore: cast_nullable_to_non_nullable
+as Uint8List?,publicKey: freezed == publicKey ? _self.publicKey : publicKey // ignore: cast_nullable_to_non_nullable
+as Uint8List?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$KeyPairImplCopyWith<$Res> implements $KeyPairCopyWith<$Res> {
-  factory _$$KeyPairImplCopyWith(
-          _$KeyPairImpl value, $Res Function(_$KeyPairImpl) then) =
-      __$$KeyPairImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@Uint8ListConverter() Uint8List? privateKey,
-      @Uint8ListConverter() Uint8List? publicKey});
 }
 
-/// @nodoc
-class __$$KeyPairImplCopyWithImpl<$Res>
-    extends _$KeyPairCopyWithImpl<$Res, _$KeyPairImpl>
-    implements _$$KeyPairImplCopyWith<$Res> {
-  __$$KeyPairImplCopyWithImpl(
-      _$KeyPairImpl _value, $Res Function(_$KeyPairImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of KeyPair
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? privateKey = freezed,
-    Object? publicKey = freezed,
-  }) {
-    return _then(_$KeyPairImpl(
-      privateKey: freezed == privateKey
-          ? _value.privateKey
-          : privateKey // ignore: cast_nullable_to_non_nullable
-              as Uint8List?,
-      publicKey: freezed == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as Uint8List?,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$KeyPairImpl extends _KeyPair {
-  const _$KeyPairImpl(
-      {@Uint8ListConverter() this.privateKey,
-      @Uint8ListConverter() this.publicKey})
-      : super._();
 
-  @override
-  @Uint8ListConverter()
-  final Uint8List? privateKey;
-  @override
-  @Uint8ListConverter()
-  final Uint8List? publicKey;
+class _KeyPair extends KeyPair {
+  const _KeyPair({@Uint8ListConverter() this.privateKey, @Uint8ListConverter() this.publicKey}): super._();
+  
 
-  @override
-  String toString() {
-    return 'KeyPair(privateKey: $privateKey, publicKey: $publicKey)';
-  }
+/// The private key, stored as a [Uint8List]. This should be kept secret.
+@override@Uint8ListConverter() final  Uint8List? privateKey;
+/// The public key, stored as a [Uint8List]. This can be shared openly.
+@override@Uint8ListConverter() final  Uint8List? publicKey;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$KeyPairImpl &&
-            const DeepCollectionEquality()
-                .equals(other.privateKey, privateKey) &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey));
-  }
+/// Create a copy of KeyPair
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$KeyPairCopyWith<_KeyPair> get copyWith => __$KeyPairCopyWithImpl<_KeyPair>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(privateKey),
-      const DeepCollectionEquality().hash(publicKey));
 
-  /// Create a copy of KeyPair
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$KeyPairImplCopyWith<_$KeyPairImpl> get copyWith =>
-      __$$KeyPairImplCopyWithImpl<_$KeyPairImpl>(this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _KeyPair&&const DeepCollectionEquality().equals(other.privateKey, privateKey)&&const DeepCollectionEquality().equals(other.publicKey, publicKey));
 }
 
-abstract class _KeyPair extends KeyPair {
-  const factory _KeyPair(
-      {@Uint8ListConverter() final Uint8List? privateKey,
-      @Uint8ListConverter() final Uint8List? publicKey}) = _$KeyPairImpl;
-  const _KeyPair._() : super._();
 
-  @override
-  @Uint8ListConverter()
-  Uint8List? get privateKey;
-  @override
-  @Uint8ListConverter()
-  Uint8List? get publicKey;
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(privateKey),const DeepCollectionEquality().hash(publicKey));
 
-  /// Create a copy of KeyPair
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$KeyPairImplCopyWith<_$KeyPairImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'KeyPair(privateKey: $privateKey, publicKey: $publicKey)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$KeyPairCopyWith<$Res> implements $KeyPairCopyWith<$Res> {
+  factory _$KeyPairCopyWith(_KeyPair value, $Res Function(_KeyPair) _then) = __$KeyPairCopyWithImpl;
+@override @useResult
+$Res call({
+@Uint8ListConverter() Uint8List? privateKey,@Uint8ListConverter() Uint8List? publicKey
+});
+
+
+
+
+}
+/// @nodoc
+class __$KeyPairCopyWithImpl<$Res>
+    implements _$KeyPairCopyWith<$Res> {
+  __$KeyPairCopyWithImpl(this._self, this._then);
+
+  final _KeyPair _self;
+  final $Res Function(_KeyPair) _then;
+
+/// Create a copy of KeyPair
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? privateKey = freezed,Object? publicKey = freezed,}) {
+  return _then(_KeyPair(
+privateKey: freezed == privateKey ? _self.privateKey : privateKey // ignore: cast_nullable_to_non_nullable
+as Uint8List?,publicKey: freezed == publicKey ? _self.publicKey : publicKey // ignore: cast_nullable_to_non_nullable
+as Uint8List?,
+  ));
+}
+
+
+}
+
+// dart format on

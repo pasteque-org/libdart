@@ -6,31 +6,26 @@ part of 'blockchain_version.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BlockchainVersionModelImpl _$$BlockchainVersionModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$BlockchainVersionModelImpl(
-      version:
-          BlockchainVersion.fromJson(json['version'] as Map<String, dynamic>),
-    );
+_BlockchainVersionModel _$BlockchainVersionModelFromJson(
+  Map<String, dynamic> json,
+) => _BlockchainVersionModel(
+  version: BlockchainVersion.fromJson(json['version'] as Map<String, dynamic>),
+);
 
-Map<String, dynamic> _$$BlockchainVersionModelImplToJson(
-        _$BlockchainVersionModelImpl instance) =>
-    <String, dynamic>{
-      'version': instance.version,
-    };
+Map<String, dynamic> _$BlockchainVersionModelToJson(
+  _BlockchainVersionModel instance,
+) => <String, dynamic>{'version': instance.version};
 
-_$BlockchainVersionImpl _$$BlockchainVersionImplFromJson(
-        Map<String, dynamic> json) =>
-    _$BlockchainVersionImpl(
-      code: json['code'] as String?,
+_BlockchainVersion _$BlockchainVersionFromJson(Map<String, dynamic> json) =>
+    _BlockchainVersion(
       protocol: json['protocol'] as String,
       transaction: json['transaction'] as String,
+      code: json['code'] as String?,
     );
 
-Map<String, dynamic> _$$BlockchainVersionImplToJson(
-        _$BlockchainVersionImpl instance) =>
+Map<String, dynamic> _$BlockchainVersionToJson(_BlockchainVersion instance) =>
     <String, dynamic>{
-      'code': instance.code,
       'protocol': instance.protocol,
       'transaction': instance.transaction,
+      'code': instance.code,
     };

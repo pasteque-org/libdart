@@ -1,29 +1,39 @@
+// ignore_for_file: type_annotate_public_apis, strict_top_level_inference
+
 import 'dart:convert' show utf8;
 import 'dart:math' show Random;
 
-import 'package:archethic_lib_dart/crypto_keys/crypto_keys.dart' as crypto_keys
-    show EncryptionResult, SymmetricKey, KeyPair, algorithms;
+import 'package:archethic_lib_dart/crypto_keys/crypto_keys.dart'
+    as crypto_keys
+    show EncryptionResult, KeyPair, SymmetricKey, algorithms;
 import 'package:archethic_lib_dart/src/model/crypto/aes_auth_encrypt_infos.dart';
 import 'package:archethic_lib_dart/src/model/crypto/key_pair.dart';
 import 'package:archethic_lib_dart/src/model/crypto/secret.dart';
 import 'package:archethic_lib_dart/src/utils/utils.dart';
 import 'package:crypto/crypto.dart' as crypto show Hmac, sha256, sha512;
-import 'package:ecdsa/ecdsa.dart' as ecdsa
+import 'package:ecdsa/ecdsa.dart'
+    as ecdsa
     show Signature, deterministicSign, verify;
 import 'package:elliptic/ecdh.dart' as ecdh show computeSecret;
-import 'package:elliptic/elliptic.dart' as elliptic
-    show PrivateKey, PublicKey, getSecp256k1, getP256;
+import 'package:elliptic/elliptic.dart'
+    as elliptic
+    show PrivateKey, PublicKey, getP256, getSecp256k1;
 import 'package:pinenacl/api.dart';
-import 'package:pinenacl/ed25519.dart' as ed25519
-    show SigningKey, VerifyKey, Signature;
+import 'package:pinenacl/ed25519.dart'
+    as ed25519
+    show Signature, SigningKey, VerifyKey;
 import 'package:pinenacl/tweetnacl.dart' as tweetnacl show TweetNaClExt;
 import 'package:pointycastle/export.dart' show Digest;
-import 'package:x25519/x25519.dart' as x25519 show generateKeyPair, X25519;
+import 'package:x25519/x25519.dart' as x25519 show X25519, generateKeyPair;
 
-const int softwareId = 1;
+/// Identifier for software-based key origins.
+const softwareId = 1;
 
 /// Get the ID of a given hash algorithm.
-int hashAlgoToID(String hashAlgo) {
+///
+/// Supported algorithms: 'sha256', 'sha512', 'sha3-256', 'sha3-512', 'blake2b', 'keccak256'.
+/// Throws an error if the algorithm is not supported.
+int hashAlgoToID(final String hashAlgo) {
   switch (hashAlgo) {
     case 'sha256':
       return 0;
@@ -43,7 +53,10 @@ int hashAlgoToID(String hashAlgo) {
 }
 
 /// Get the hash algo name from the hash algorithm ID.
-String idToHashAlgo(int id) {
+///
+/// Supported IDs: 0 (sha256), 1 (sha512), 2 (sha3-256), 3 (sha3-512), 4 (blake2b), 5 (keccak256).
+/// Throws an error if the ID is not supported.
+String idToHashAlgo(final int id) {
   switch (id) {
     case 0:
       return 'sha256';
@@ -63,7 +76,10 @@ String idToHashAlgo(int id) {
 }
 
 /// Get the ID of a given Elliptic curve.
-int curveToID(String curve) {
+///
+/// Supported curves: 'ed25519', 'P256', 'secp256k1'.
+/// Throws an error if the curve is not supported.
+int curveToID(final String curve) {
   switch (curve) {
     case 'ed25519':
       return 0;
@@ -77,7 +93,10 @@ int curveToID(String curve) {
 }
 
 /// Get the curve name from the curve ID.
-String idToCurve(int id) {
+///
+/// Supported IDs: 0 (ed25519), 1 (P256), 2 (secp256k1).
+/// Throws an error if the ID is not supported.
+String idToCurve(final int id) {
   switch (id) {
     case 0:
       return 'ed25519';
@@ -90,21 +109,28 @@ String idToCurve(int id) {
   }
 }
 
-/// Create a hash digest from the data with an hash algorithm identification prepending the digest.
+/// Create a hash digest from the data with a hash algorithm identification prepending the digest.
 ///
-/// - [seed] : Keypair derivation seed
-/// - [index] : Number to identify the order of keys to generate
-/// - [curve] : Elliptic curve to use ("ed25519", "P256", "secp256k1")
-/// - [hashAlgo] : Hash algorithm ("sha256", "sha512", "sha3-256", "sha3-512", "blake2b")
+/// The resulting address is a hex string composed of the curve ID and the hashed public key.
+///
+/// - [seed] : Keypair derivation seed (hex string by default).
+/// - [index] : Number to identify the order of keys to generate.
+/// - [curve] : Elliptic curve to use (default: 'ed25519'). Supported: "ed25519", "P256", "secp256k1".
+/// - [hashAlgo] : Hash algorithm (default: 'sha256'). Supported: "sha256", "sha512", "sha3-256", "sha3-512", "blake2b".
+/// - [isSeedHexa] : Whether the provided [seed] is a hexadecimal string (default: true).
 String deriveAddress(
-  String seed,
-  int index, {
-  String curve = 'ed25519',
-  String hashAlgo = 'sha256',
-  bool isSeedHexa = true,
+  final String seed,
+  final int index, {
+  final String curve = 'ed25519',
+  final String hashAlgo = 'sha256',
+  final bool isSeedHexa = true,
 }) {
-  final keypair =
-      deriveKeyPair(seed, index, curve: curve, isSeedHexa: isSeedHexa);
+  final keypair = deriveKeyPair(
+    seed,
+    index,
+    curve: curve,
+    isSeedHexa: isSeedHexa,
+  );
 
   final curveID = curveToID(curve);
   final hashedPublicKey = hash(keypair.publicKey, algo: hashAlgo);
@@ -116,14 +142,15 @@ String deriveAddress(
   );
 }
 
-/// Create a hash digest from the data with an hash algorithm identification prepending the digest
+/// Create a hash digest from the [content] with a hash algorithm identification prepending the digest.
 ///
-/// - [content] : Data to hash (string or buffer)
-/// - [algo] : Hash algorithm ("sha256", "sha512", "sha3-256", "sha3-512", "blake2b")
+/// - [content] : Data to hash (String or Uint8List). If String, [isContentHexa] determines its format.
+/// - [algo] : Hash algorithm (default: 'sha256'). Supported: "sha256", "sha512", "sha3-256", "sha3-512", "blake2b".
+/// - [isContentHexa] : Whether the provided [content] (if it's a String) is a hexadecimal string (default: true).
 Uint8List hash(
-  dynamic content, {
-  String algo = 'sha256',
-  bool isContentHexa = true,
+  content, {
+  final String algo = 'sha256',
+  final bool isContentHexa = true,
 }) {
   if (content is! List<int> && content is! String) {
     throw "'content' must be a string or Uint8List";
@@ -150,7 +177,9 @@ Uint8List hash(
   ]);
 }
 
-Uint8List getHashDigest(dynamic content, dynamic algo) {
+/// Computes the raw hash digest for the given [content] using the specified [algo].
+/// This is an internal helper for [hash] and does not prepend the algorithm ID.
+Uint8List getHashDigest(final content, final algo) {
   switch (algo) {
     case 'sha256':
       final sha256 = Digest('SHA-256');
@@ -172,18 +201,20 @@ Uint8List getHashDigest(dynamic content, dynamic algo) {
   }
 }
 
-/// Generate a keypair using a derivation function with a seed and an index. Each keys is prepending with a curve identification.
+/// Generate a keypair using a derivation function with a [seed] and an [index].
+/// Each key in the pair is prepended with a curve identification and origin ID.
 ///
-/// - [seed] : Keypair derivation seed
-/// - [index] : Number to identify the order of keys to generate
-/// - [curve] : Elliptic curve to use ("P256", "secp256k1", "ed25519")
-/// - [originId] : Origin id of the public key (0, 1, 2) = ("on chain wallet", "software", "tpm")
+/// - [seed] : Keypair derivation seed (hex string by default).
+/// - [index] : Number to identify the order of keys to generate (must be positive).
+/// - [curve] : Elliptic curve to use (default: 'ed25519'). Supported: "P256", "secp256k1", "ed25519".
+/// - [isSeedHexa] : Whether the provided [seed] is a hexadecimal string (default: true).
+/// - [originId] : Origin id of the public key (default: [softwareId]). Example values: 0 (on-chain wallet), 1 (software), 2 (TPM).
 KeyPair deriveKeyPair(
-  String seed,
-  int index, {
-  String curve = 'ed25519',
-  bool isSeedHexa = true,
-  int originId = softwareId,
+  final String seed,
+  final int index, {
+  final String curve = 'ed25519',
+  final bool isSeedHexa = true,
+  final int originId = softwareId,
 }) {
   if (index < 0) {
     throw "index' must be a positive number";
@@ -193,15 +224,16 @@ KeyPair deriveKeyPair(
   return generateDeterministicKeyPair(pvBuf, curve, originId);
 }
 
-/// Generate a new keypair deterministically with a given private key, curve and origin id.
+/// Generate a new keypair deterministically with a given private key bytes [pvKey], [curve] name, and [originID].
+/// Keys are prepended with curve and origin IDs.
 ///
-/// - [pvKey] : Private key
-/// - [curve] : Elliptic curve
-/// - [originID] : Origin identification
+/// - [pvKey] : Raw private key bytes.
+/// - [curve] : Elliptic curve name. Supported: "P256", "secp256k1", "ed25519".
+/// - [originID] : Origin identification for the key.
 KeyPair generateDeterministicKeyPair(
-  Uint8List pvKey,
-  String curve,
-  int originID,
+  final Uint8List pvKey,
+  final String curve,
+  final int originID,
 ) {
   final curveID = curveToID(curve);
   final keyPair = getKeypair(pvKey, curve);
@@ -219,7 +251,9 @@ KeyPair generateDeterministicKeyPair(
   );
 }
 
-KeyPair getKeypair(Uint8List pvKey, String curve) {
+/// Generates a [KeyPair] (raw private and public keys) from raw private key bytes [pvKey] for the specified [curve].
+/// This is an internal helper and does not prepend any IDs.
+KeyPair getKeypair(final Uint8List pvKey, final String curve) {
   switch (curve) {
     case 'ed25519':
       final signingKey = ed25519.SigningKey(seed: pvKey);
@@ -246,12 +280,19 @@ KeyPair getKeypair(Uint8List pvKey, String curve) {
   }
 }
 
-/// Sign the data.
+/// Sign the [data] using the [privateKey].
+///
+/// The private key should be in the library's format (prepended with curve ID and origin ID).
+/// - [data] : Data to sign (String or Uint8List). If String, [isDataHexa] determines its format.
+/// - [privateKey] : Private key for signing (String or Uint8List). If String, [isPrivateKeyHexa] determines its format.
+/// - [isDataHexa] : Whether the [data] (if String) is hex encoded (default: true).
+/// - [isPrivateKeyHexa] : Whether the [privateKey] (if String) is hex encoded (default: true).
+/// Returns the signature as [Uint8List].
 Uint8List sign(
-  dynamic data,
-  dynamic privateKey, {
-  bool isDataHexa = true,
-  bool isPrivateKeyHexa = true,
+  data,
+  privateKey, {
+  final bool isDataHexa = true,
+  final bool isPrivateKeyHexa = true,
 }) {
   if (data is! Uint8List && data is! String) {
     throw "'data' must be a string or Uint8List";
@@ -285,9 +326,7 @@ Uint8List sign(
     }
   }
 
-  final curveBuf = Uint8List.fromList(
-    privateKey.sublist(0, 1),
-  );
+  final curveBuf = Uint8List.fromList(privateKey.sublist(0, 1));
   final pvBuf = Uint8List.fromList(privateKey.sublist(2, privateKey.length));
 
   switch (curveBuf[0]) {
@@ -315,13 +354,23 @@ Uint8List sign(
   }
 }
 
+/// Verify the [sig] (signature) of [data] using the [publicKey].
+///
+/// The public key should be in the library's format (prepended with curve ID and origin ID).
+/// - [sig] : Signature to verify (String or Uint8List). If String, [isSigHexa] determines its format.
+/// - [data] : Data that was signed (String or Uint8List). If String, [isDataHexa] determines its format.
+/// - [publicKey] : Public key for verification (String or Uint8List). If String, [isPublicKeyHexa] determines its format.
+/// - [isSigHexa] : Whether the [sig] (if String) is hex encoded (default: true).
+/// - [isDataHexa] : Whether the [data] (if String) is hex encoded (default: true).
+/// - [isPublicKeyHexa] : Whether the [publicKey] (if String) is hex encoded (default: true).
+/// Returns true if the signature is valid, false otherwise.
 bool verify(
-  dynamic sig,
-  dynamic data,
-  dynamic publicKey, {
-  bool isSigHexa = true,
-  bool isDataHexa = true,
-  bool isPublicKeyHexa = true,
+  sig,
+  data,
+  publicKey, {
+  final bool isSigHexa = true,
+  final bool isDataHexa = true,
+  final bool isPublicKeyHexa = true,
 }) {
   if (sig is! Uint8List && sig is! String) {
     throw "'sig' must be a string or Uint8List";
@@ -400,12 +449,19 @@ bool verify(
   }
 }
 
-/// Encrypt a data for a given public key using ECIES algorithm
+/// Encrypt [data] for a given [publicKey] using the ECIES (Elliptic Curve Integrated Encryption Scheme) algorithm.
+///
+/// The public key should be in the library's format (prepended with curve ID and origin ID).
+/// - [data] : Data to encrypt (String or Uint8List). If String, [isDataHexa] determines its format.
+/// - [publicKey] : Public key for encryption (String or Uint8List). If String, [isPublicKeyHexa] determines its format.
+/// - [isDataHexa] : Whether the [data] (if String) is hex encoded (default: true).
+/// - [isPublicKeyHexa] : Whether the [publicKey] (if String) is hex encoded (default: true).
+/// Returns the encrypted data as [Uint8List], typically containing ephemeral public key, tag, and ciphertext.
 Uint8List ecEncrypt(
-  dynamic data,
-  dynamic publicKey, {
-  bool isDataHexa = true,
-  bool isPublicKeyHexa = true,
+  data,
+  publicKey, {
+  final bool isDataHexa = true,
+  final bool isPublicKeyHexa = true,
 }) {
   if (data is! Uint8List && data is! String) {
     throw "'data' must be a string or Uint8List";
@@ -472,8 +528,9 @@ Uint8List ecEncrypt(
       final ec = elliptic.getP256();
       final privateKey = ec.generatePrivateKey();
       final publicKey = elliptic.PublicKey.fromHex(ec, uint8ListToHex(pubBuf));
-      final sharedKey =
-          Uint8List.fromList(ecdh.computeSecret(privateKey, publicKey));
+      final sharedKey = Uint8List.fromList(
+        ecdh.computeSecret(privateKey, publicKey),
+      );
       final secret = deriveSecret(sharedKey);
       final aesAuthEncryptInfos = aesAuthEncrypt(
         data,
@@ -490,21 +547,18 @@ Uint8List ecEncrypt(
       final ec = elliptic.getSecp256k1();
       final privateKey = ec.generatePrivateKey();
       final publicKey = elliptic.PublicKey.fromHex(ec, uint8ListToHex(pubBuf));
-      final sharedKey =
-          Uint8List.fromList(ecdh.computeSecret(privateKey, publicKey));
+      final sharedKey = Uint8List.fromList(
+        ecdh.computeSecret(privateKey, publicKey),
+      );
       final secret = deriveSecret(sharedKey);
       final aesAuthEncryptInfos = aesAuthEncrypt(
         data,
         Uint8List.fromList(secret.aesKey!),
-        Uint8List.fromList(
-          secret.iv!,
-        ),
+        Uint8List.fromList(secret.iv!),
       );
       return concatUint8List(<Uint8List>[
         Uint8List.fromList(hexToUint8List(privateKey.publicKey.toHex())),
-        Uint8List.fromList(
-          aesAuthEncryptInfos.tag!,
-        ),
+        Uint8List.fromList(aesAuthEncryptInfos.tag!),
         Uint8List.fromList(aesAuthEncryptInfos.encrypted!),
       ]);
 
@@ -513,12 +567,19 @@ Uint8List ecEncrypt(
   }
 }
 
-/// Decrypt a ciphertext for a given private key using ECIES algorithm
+/// Decrypt [cipherText] for a given [privateKey] using the ECIES algorithm.
+///
+/// The private key should be in the library's format (prepended with curve ID and origin ID).
+/// - [cipherText] : Ciphertext to decrypt (String or Uint8List). If String, [isCipherTextHexa] determines its format.
+/// - [privateKey] : Private key for decryption (String or Uint8List). If String, [isPrivateKeyHexa] determines its format.
+/// - [isCipherTextHexa] : Whether the [cipherText] (if String) is hex encoded (default: true).
+/// - [isPrivateKeyHexa] : Whether the [privateKey] (if String) is hex encoded (default: true).
+/// Returns the decrypted data as [Uint8List].
 Uint8List ecDecrypt(
-  dynamic cipherText,
-  dynamic privateKey, {
-  bool isCipherTextHexa = true,
-  bool isPrivateKeyHexa = true,
+  cipherText,
+  privateKey, {
+  final bool isCipherTextHexa = true,
+  final bool isPrivateKeyHexa = true,
 }) {
   if (cipherText is! Uint8List && cipherText is! String) {
     throw "'cipherText' must be a string or Uint8List";
@@ -559,8 +620,10 @@ Uint8List ecDecrypt(
     case 0:
       final Uint8List ephemeralPubKey = cipherText.sublist(0, 32);
       final Uint8List tag = cipherText.sublist(32, 32 + 16);
-      final Uint8List encrypted =
-          cipherText.sublist(32 + 16, cipherText.length);
+      final Uint8List encrypted = cipherText.sublist(
+        32 + 16,
+        cipherText.length,
+      );
 
       final curve25519pv = Uint8List(32);
       tweetnacl.TweetNaClExt.crypto_sign_ed25519_sk_to_x25519_sk(
@@ -580,14 +643,19 @@ Uint8List ecDecrypt(
     case 1:
       final Uint8List ephemeralPubKey = cipherText.sublist(0, 65);
       final Uint8List tag = cipherText.sublist(65, 65 + 16);
-      final Uint8List encrypted =
-          cipherText.sublist(65 + 16, cipherText.length);
+      final Uint8List encrypted = cipherText.sublist(
+        65 + 16,
+        cipherText.length,
+      );
       final ec = elliptic.getP256();
       final privateKey = elliptic.PrivateKey.fromBytes(ec, pvBuf);
-      final publicKey =
-          elliptic.PublicKey.fromHex(ec, uint8ListToHex(ephemeralPubKey));
-      final sharedKey =
-          Uint8List.fromList(ecdh.computeSecret(privateKey, publicKey));
+      final publicKey = elliptic.PublicKey.fromHex(
+        ec,
+        uint8ListToHex(ephemeralPubKey),
+      );
+      final sharedKey = Uint8List.fromList(
+        ecdh.computeSecret(privateKey, publicKey),
+      );
       final secret = deriveSecret(sharedKey);
 
       return aesAuthDecrypt(
@@ -600,15 +668,20 @@ Uint8List ecDecrypt(
     case 2:
       final Uint8List ephemeralPubKey = cipherText.sublist(0, 65);
       final Uint8List tag = cipherText.sublist(65, 65 + 16);
-      final Uint8List encrypted =
-          cipherText.sublist(65 + 16, cipherText.length);
+      final Uint8List encrypted = cipherText.sublist(
+        65 + 16,
+        cipherText.length,
+      );
 
       final ec = elliptic.getSecp256k1();
       final privateKey = elliptic.PrivateKey.fromBytes(ec, pvBuf);
-      final publicKey =
-          elliptic.PublicKey.fromHex(ec, uint8ListToHex(ephemeralPubKey));
-      final sharedKey =
-          Uint8List.fromList(ecdh.computeSecret(privateKey, publicKey));
+      final publicKey = elliptic.PublicKey.fromHex(
+        ec,
+        uint8ListToHex(ephemeralPubKey),
+      );
+      final sharedKey = Uint8List.fromList(
+        ecdh.computeSecret(privateKey, publicKey),
+      );
       final secret = deriveSecret(sharedKey);
 
       return aesAuthDecrypt(
@@ -623,12 +696,17 @@ Uint8List ecDecrypt(
   }
 }
 
-/// Encrypt a data for a given public key using AES algorithm.
+/// Encrypt [data] using AES-GCM with the given symmetric [key].
+/// - [data] : Data to encrypt (String or Uint8List). If String, [isDataHexa] determines its format.
+/// - [key] : Symmetric key for encryption (String or Uint8List). If String, [isKeyHexa] determines its format.
+/// - [isDataHexa] : Whether the [data] (if String) is hex encoded (default: true).
+/// - [isKeyHexa] : Whether the [key] (if String) is hex encoded (default: true).
+/// Returns the encrypted data as [Uint8List], formatted as IV + Authentication Tag + Ciphertext.
 Uint8List aesEncrypt(
-  dynamic data,
-  dynamic key, {
-  bool isDataHexa = true,
-  bool isKeyHexa = true,
+  data,
+  key, {
+  final bool isDataHexa = true,
+  final bool isKeyHexa = true,
 }) {
   if (data is! Uint8List && data is! String) {
     throw "'data' must be a string or Uint8List";
@@ -666,23 +744,33 @@ Uint8List aesEncrypt(
     crypto_keys.SymmetricKey(keyValue: Uint8List.fromList(key)),
   );
   final iv = Uint8List.fromList(
-    List<int>.generate(12, (int i) => Random.secure().nextInt(256)),
+    List<int>.generate(12, (final i) => Random.secure().nextInt(256)),
   );
-  final encrypter = keyPair.publicKey!
-      .createEncrypter(crypto_keys.algorithms.encryption.aes.gcm);
+  final encrypter = keyPair.publicKey!.createEncrypter(
+    crypto_keys.algorithms.encryption.aes.gcm,
+  );
   final v = encrypter.encrypt(data, initializationVector: iv);
 
-  final result = concatUint8List(
-    <Uint8List>[v.initializationVector!, v.authenticationTag!, v.data],
-  );
+  final result = concatUint8List(<Uint8List>[
+    v.initializationVector!,
+    v.authenticationTag!,
+    v.data,
+  ]);
   return result;
 }
 
+/// Decrypt [cipherText] using AES-GCM with the given symmetric [key].
+/// The [cipherText] is expected to be formatted as IV (12 bytes) + Authentication Tag (16 bytes) + Actual Ciphertext.
+/// - [cipherText] : Ciphertext to decrypt (String or Uint8List). If String, [isCipherTextHexa] determines its format.
+/// - [key] : Symmetric key for decryption (String or Uint8List). If String, [isKeyHexa] determines its format.
+/// - [isCipherTextHexa] : Whether the [cipherText] (if String) is hex encoded (default: true).
+/// - [isKeyHexa] : Whether the [key] (if String) is hex encoded (default: true).
+/// Returns the decrypted data as [Uint8List].
 Uint8List aesDecrypt(
-  dynamic cipherText,
-  dynamic key, {
-  bool isCipherTextHexa = true,
-  bool isKeyHexa = true,
+  cipherText,
+  key, {
+  final bool isCipherTextHexa = true,
+  final bool isKeyHexa = true,
 }) {
   if (cipherText is! Uint8List && cipherText is! String) {
     throw "'cipherText' must be a string or Uint8List";
@@ -722,8 +810,9 @@ Uint8List aesDecrypt(
   final Uint8List iv = cipherText.sublist(0, 12);
   final Uint8List tag = cipherText.sublist(12, 12 + 16);
   final Uint8List encrypted = cipherText.sublist(28, cipherText.length);
-  final encrypter = keyPair.privateKey!
-      .createEncrypter(crypto_keys.algorithms.encryption.aes.gcm);
+  final encrypter = keyPair.privateKey!.createEncrypter(
+    crypto_keys.algorithms.encryption.aes.gcm,
+  );
   final decrypted = encrypter.decrypt(
     crypto_keys.EncryptionResult(
       encrypted,
@@ -735,7 +824,17 @@ Uint8List aesDecrypt(
   return decrypted;
 }
 
-Uint8List derivePrivateKey(dynamic seed, int index, {bool isSeedHexa = true}) {
+/// Derives a raw private key from a [seed] and an [index].
+///
+/// - [seed] : Derivation seed (hex string by default).
+/// - [index] : Index for derivation.
+/// - [isSeedHexa] : Whether the [seed] (if String) is hex encoded (default: true).
+/// Returns the derived private key as [Uint8List] (32 bytes).
+Uint8List derivePrivateKey(
+  seed,
+  final int index, {
+  final bool isSeedHexa = true,
+}) {
   if (seed is String) {
     if (isSeedHexa && !isHex(seed)) {
       throw const FormatException("'seed' must be an hexadecimal string");
@@ -765,7 +864,12 @@ Uint8List derivePrivateKey(dynamic seed, int index, {bool isSeedHexa = true}) {
   return hmacBuf;
 }
 
-Secret deriveSecret(dynamic sharedKey, {bool isSharedKey = true}) {
+/// Derives a [Secret] (containing an AES key and an IV) from a [sharedKey].
+///
+/// - [sharedKey] : Shared key material (hex string by default).
+/// - [isSharedKey] : Whether the [sharedKey] (if String) is hex encoded (default: true).
+/// Returns a [Secret] object.
+Secret deriveSecret(sharedKey, {final bool isSharedKey = true}) {
   if (sharedKey is! Uint8List && sharedKey is! String) {
     throw "'sharedKey' must be a string or Uint8List";
   }
@@ -796,33 +900,45 @@ Secret deriveSecret(dynamic sharedKey, {bool isSharedKey = true}) {
   return Secret(iv: iv, aesKey: aesKey);
 }
 
+/// Performs AES-GCM authenticated encryption on [data] using [aesKey] and initialization vector [iv].
+/// Returns [AesAuthEncryptInfos] containing the authentication tag and the encrypted data.
 AesAuthEncryptInfos aesAuthEncrypt(
-  Uint8List data,
-  Uint8List aesKey,
-  Uint8List iv,
+  final Uint8List data,
+  final Uint8List aesKey,
+  final Uint8List iv,
 ) {
-  final keyPair =
-      crypto_keys.KeyPair.symmetric(crypto_keys.SymmetricKey(keyValue: aesKey));
+  final keyPair = crypto_keys.KeyPair.symmetric(
+    crypto_keys.SymmetricKey(keyValue: aesKey),
+  );
 
-  final encrypter = keyPair.publicKey!
-      .createEncrypter(crypto_keys.algorithms.encryption.aes.gcm);
+  final encrypter = keyPair.publicKey!.createEncrypter(
+    crypto_keys.algorithms.encryption.aes.gcm,
+  );
 
   final v = encrypter.encrypt(data, initializationVector: iv);
 
   return AesAuthEncryptInfos(tag: v.authenticationTag, encrypted: v.data);
 }
 
+/// Performs AES-GCM authenticated decryption.
+/// - [encrypted] : The encrypted data (ciphertext).
+/// - [aesKey] : The symmetric AES key.
+/// - [iv] : The initialization vector used for encryption.
+/// - [tag] : The authentication tag.
+/// Returns the decrypted data as [Uint8List].
 Uint8List aesAuthDecrypt(
-  Uint8List encrypted,
-  Uint8List aesKey,
-  Uint8List iv,
-  Uint8List tag,
+  final Uint8List encrypted,
+  final Uint8List aesKey,
+  final Uint8List iv,
+  final Uint8List tag,
 ) {
-  final keyPair =
-      crypto_keys.KeyPair.symmetric(crypto_keys.SymmetricKey(keyValue: aesKey));
+  final keyPair = crypto_keys.KeyPair.symmetric(
+    crypto_keys.SymmetricKey(keyValue: aesKey),
+  );
 
-  final encrypter = keyPair.publicKey!
-      .createEncrypter(crypto_keys.algorithms.encryption.aes.gcm);
+  final encrypter = keyPair.publicKey!.createEncrypter(
+    crypto_keys.algorithms.encryption.aes.gcm,
+  );
 
   final decrypted = encrypter.decrypt(
     crypto_keys.EncryptionResult(

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,160 +10,139 @@ part of 'token_ledger.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TokenLedger _$TokenLedgerFromJson(Map<String, dynamic> json) {
-  return _TokenLedger.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TokenLedger {
-  List<TokenTransfer> get transfers => throw _privateConstructorUsedError;
+
+ List<TokenTransfer> get transfers;
+/// Create a copy of TokenLedger
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TokenLedgerCopyWith<TokenLedger> get copyWith => _$TokenLedgerCopyWithImpl<TokenLedger>(this as TokenLedger, _$identity);
 
   /// Serializes this TokenLedger to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of TokenLedger
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $TokenLedgerCopyWith<TokenLedger> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TokenLedger&&const DeepCollectionEquality().equals(other.transfers, transfers));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(transfers));
+
+@override
+String toString() {
+  return 'TokenLedger(transfers: $transfers)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $TokenLedgerCopyWith<$Res> {
-  factory $TokenLedgerCopyWith(
-          TokenLedger value, $Res Function(TokenLedger) then) =
-      _$TokenLedgerCopyWithImpl<$Res, TokenLedger>;
-  @useResult
-  $Res call({List<TokenTransfer> transfers});
-}
+abstract mixin class $TokenLedgerCopyWith<$Res>  {
+  factory $TokenLedgerCopyWith(TokenLedger value, $Res Function(TokenLedger) _then) = _$TokenLedgerCopyWithImpl;
+@useResult
+$Res call({
+ List<TokenTransfer> transfers
+});
 
+
+
+
+}
 /// @nodoc
-class _$TokenLedgerCopyWithImpl<$Res, $Val extends TokenLedger>
+class _$TokenLedgerCopyWithImpl<$Res>
     implements $TokenLedgerCopyWith<$Res> {
-  _$TokenLedgerCopyWithImpl(this._value, this._then);
+  _$TokenLedgerCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final TokenLedger _self;
+  final $Res Function(TokenLedger) _then;
 
-  /// Create a copy of TokenLedger
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? transfers = null,
-  }) {
-    return _then(_value.copyWith(
-      transfers: null == transfers
-          ? _value.transfers
-          : transfers // ignore: cast_nullable_to_non_nullable
-              as List<TokenTransfer>,
-    ) as $Val);
-  }
+/// Create a copy of TokenLedger
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? transfers = null,}) {
+  return _then(_self.copyWith(
+transfers: null == transfers ? _self.transfers : transfers // ignore: cast_nullable_to_non_nullable
+as List<TokenTransfer>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$TokenLedgerImplCopyWith<$Res>
-    implements $TokenLedgerCopyWith<$Res> {
-  factory _$$TokenLedgerImplCopyWith(
-          _$TokenLedgerImpl value, $Res Function(_$TokenLedgerImpl) then) =
-      __$$TokenLedgerImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<TokenTransfer> transfers});
 }
 
-/// @nodoc
-class __$$TokenLedgerImplCopyWithImpl<$Res>
-    extends _$TokenLedgerCopyWithImpl<$Res, _$TokenLedgerImpl>
-    implements _$$TokenLedgerImplCopyWith<$Res> {
-  __$$TokenLedgerImplCopyWithImpl(
-      _$TokenLedgerImpl _value, $Res Function(_$TokenLedgerImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TokenLedger
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? transfers = null,
-  }) {
-    return _then(_$TokenLedgerImpl(
-      transfers: null == transfers
-          ? _value.transfers
-          : transfers // ignore: cast_nullable_to_non_nullable
-              as List<TokenTransfer>,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$TokenLedgerImpl extends _TokenLedger {
-  const _$TokenLedgerImpl({this.transfers = const []}) : super._();
 
-  factory _$TokenLedgerImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenLedgerImplFromJson(json);
+class _TokenLedger extends TokenLedger {
+  const _TokenLedger({this.transfers = const []}): super._();
+  factory _TokenLedger.fromJson(Map<String, dynamic> json) => _$TokenLedgerFromJson(json);
 
-  @override
-  @JsonKey()
-  final List<TokenTransfer> transfers;
+@override@JsonKey() final  List<TokenTransfer> transfers;
 
-  @override
-  String toString() {
-    return 'TokenLedger(transfers: $transfers)';
-  }
+/// Create a copy of TokenLedger
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TokenLedgerCopyWith<_TokenLedger> get copyWith => __$TokenLedgerCopyWithImpl<_TokenLedger>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TokenLedgerImpl &&
-            const DeepCollectionEquality().equals(other.transfers, transfers));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(transfers));
-
-  /// Create a copy of TokenLedger
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TokenLedgerImplCopyWith<_$TokenLedgerImpl> get copyWith =>
-      __$$TokenLedgerImplCopyWithImpl<_$TokenLedgerImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TokenLedgerImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$TokenLedgerToJson(this, );
 }
 
-abstract class _TokenLedger extends TokenLedger {
-  const factory _TokenLedger({final List<TokenTransfer> transfers}) =
-      _$TokenLedgerImpl;
-  const _TokenLedger._() : super._();
-
-  factory _TokenLedger.fromJson(Map<String, dynamic> json) =
-      _$TokenLedgerImpl.fromJson;
-
-  @override
-  List<TokenTransfer> get transfers;
-
-  /// Create a copy of TokenLedger
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TokenLedgerImplCopyWith<_$TokenLedgerImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TokenLedger&&const DeepCollectionEquality().equals(other.transfers, transfers));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(transfers));
+
+@override
+String toString() {
+  return 'TokenLedger(transfers: $transfers)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$TokenLedgerCopyWith<$Res> implements $TokenLedgerCopyWith<$Res> {
+  factory _$TokenLedgerCopyWith(_TokenLedger value, $Res Function(_TokenLedger) _then) = __$TokenLedgerCopyWithImpl;
+@override @useResult
+$Res call({
+ List<TokenTransfer> transfers
+});
+
+
+
+
+}
+/// @nodoc
+class __$TokenLedgerCopyWithImpl<$Res>
+    implements _$TokenLedgerCopyWith<$Res> {
+  __$TokenLedgerCopyWithImpl(this._self, this._then);
+
+  final _TokenLedger _self;
+  final $Res Function(_TokenLedger) _then;
+
+/// Create a copy of TokenLedger
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? transfers = null,}) {
+  return _then(_TokenLedger(
+transfers: null == transfers ? _self.transfers : transfers // ignore: cast_nullable_to_non_nullable
+as List<TokenTransfer>,
+  ));
+}
+
+
+}
+
+// dart format on

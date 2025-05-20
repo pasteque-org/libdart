@@ -4,11 +4,20 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'secret.freezed.dart';
 
+/// Represents a cryptographic secret, typically containing an AES key and an Initialization Vector (IV).
+///
+/// This class is used to encapsulate components necessary for symmetric encryption operations.
 @freezed
-class Secret with _$Secret {
+abstract class Secret with _$Secret {
+  /// Creates a [Secret] instance.
+  ///
+  /// The [iv] is the Initialization Vector.
+  /// The [aesKey] is the AES symmetric key.
   const factory Secret({
-    @Uint8ListConverter() Uint8List? iv,
-    @Uint8ListConverter() Uint8List? aesKey,
+    /// The Initialization Vector (IV) for AES encryption, stored as a [Uint8List].
+    @Uint8ListConverter() final Uint8List? iv,
+
+    /// The AES symmetric key, stored as a [Uint8List].
+    @Uint8ListConverter() final Uint8List? aesKey,
   }) = _Secret;
-  const Secret._();
 }

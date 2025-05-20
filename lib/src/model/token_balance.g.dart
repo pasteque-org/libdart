@@ -6,14 +6,14 @@ part of 'token_balance.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TokenBalanceImpl _$$TokenBalanceImplFromJson(Map<String, dynamic> json) =>
-    _$TokenBalanceImpl(
+_TokenBalance _$TokenBalanceFromJson(Map<String, dynamic> json) =>
+    _TokenBalance(
       address: json['address'] as String?,
       amount: (json['amount'] as num?)?.toInt(),
       tokenId: (json['tokenId'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$$TokenBalanceImplToJson(_$TokenBalanceImpl instance) =>
+Map<String, dynamic> _$TokenBalanceToJson(_TokenBalance instance) =>
     <String, dynamic>{
       'address': instance.address,
       'amount': instance.amount,

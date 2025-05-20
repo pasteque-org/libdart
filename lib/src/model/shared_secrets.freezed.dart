@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,165 +10,143 @@ part of 'shared_secrets.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SharedSecrets _$SharedSecretsFromJson(Map<String, dynamic> json) {
-  return _SharedSecrets.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SharedSecrets {
-  /// The storage nonce public key: Public Key to encrypt data for the node,
-  /// so they will be able to decrypt it (mostly for smart contract authorized key)
-  String? get storageNoncePublicKey => throw _privateConstructorUsedError;
+
+/// The storage nonce public key: Public Key to encrypt data for the node,
+/// so they will be able to decrypt it (mostly for smart contract authorized key)
+ String? get storageNoncePublicKey;
+/// Create a copy of SharedSecrets
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SharedSecretsCopyWith<SharedSecrets> get copyWith => _$SharedSecretsCopyWithImpl<SharedSecrets>(this as SharedSecrets, _$identity);
 
   /// Serializes this SharedSecrets to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of SharedSecrets
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $SharedSecretsCopyWith<SharedSecrets> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SharedSecrets&&(identical(other.storageNoncePublicKey, storageNoncePublicKey) || other.storageNoncePublicKey == storageNoncePublicKey));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,storageNoncePublicKey);
+
+@override
+String toString() {
+  return 'SharedSecrets(storageNoncePublicKey: $storageNoncePublicKey)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SharedSecretsCopyWith<$Res> {
-  factory $SharedSecretsCopyWith(
-          SharedSecrets value, $Res Function(SharedSecrets) then) =
-      _$SharedSecretsCopyWithImpl<$Res, SharedSecrets>;
-  @useResult
-  $Res call({String? storageNoncePublicKey});
-}
+abstract mixin class $SharedSecretsCopyWith<$Res>  {
+  factory $SharedSecretsCopyWith(SharedSecrets value, $Res Function(SharedSecrets) _then) = _$SharedSecretsCopyWithImpl;
+@useResult
+$Res call({
+ String? storageNoncePublicKey
+});
 
+
+
+
+}
 /// @nodoc
-class _$SharedSecretsCopyWithImpl<$Res, $Val extends SharedSecrets>
+class _$SharedSecretsCopyWithImpl<$Res>
     implements $SharedSecretsCopyWith<$Res> {
-  _$SharedSecretsCopyWithImpl(this._value, this._then);
+  _$SharedSecretsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SharedSecrets _self;
+  final $Res Function(SharedSecrets) _then;
 
-  /// Create a copy of SharedSecrets
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? storageNoncePublicKey = freezed,
-  }) {
-    return _then(_value.copyWith(
-      storageNoncePublicKey: freezed == storageNoncePublicKey
-          ? _value.storageNoncePublicKey
-          : storageNoncePublicKey // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of SharedSecrets
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? storageNoncePublicKey = freezed,}) {
+  return _then(_self.copyWith(
+storageNoncePublicKey: freezed == storageNoncePublicKey ? _self.storageNoncePublicKey : storageNoncePublicKey // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SharedSecretsImplCopyWith<$Res>
-    implements $SharedSecretsCopyWith<$Res> {
-  factory _$$SharedSecretsImplCopyWith(
-          _$SharedSecretsImpl value, $Res Function(_$SharedSecretsImpl) then) =
-      __$$SharedSecretsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? storageNoncePublicKey});
 }
 
-/// @nodoc
-class __$$SharedSecretsImplCopyWithImpl<$Res>
-    extends _$SharedSecretsCopyWithImpl<$Res, _$SharedSecretsImpl>
-    implements _$$SharedSecretsImplCopyWith<$Res> {
-  __$$SharedSecretsImplCopyWithImpl(
-      _$SharedSecretsImpl _value, $Res Function(_$SharedSecretsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SharedSecrets
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? storageNoncePublicKey = freezed,
-  }) {
-    return _then(_$SharedSecretsImpl(
-      storageNoncePublicKey: freezed == storageNoncePublicKey
-          ? _value.storageNoncePublicKey
-          : storageNoncePublicKey // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$SharedSecretsImpl extends _SharedSecrets {
-  const _$SharedSecretsImpl({this.storageNoncePublicKey}) : super._();
 
-  factory _$SharedSecretsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SharedSecretsImplFromJson(json);
+class _SharedSecrets extends SharedSecrets {
+  const _SharedSecrets({this.storageNoncePublicKey}): super._();
+  factory _SharedSecrets.fromJson(Map<String, dynamic> json) => _$SharedSecretsFromJson(json);
 
-  /// The storage nonce public key: Public Key to encrypt data for the node,
-  /// so they will be able to decrypt it (mostly for smart contract authorized key)
-  @override
-  final String? storageNoncePublicKey;
+/// The storage nonce public key: Public Key to encrypt data for the node,
+/// so they will be able to decrypt it (mostly for smart contract authorized key)
+@override final  String? storageNoncePublicKey;
 
-  @override
-  String toString() {
-    return 'SharedSecrets(storageNoncePublicKey: $storageNoncePublicKey)';
-  }
+/// Create a copy of SharedSecrets
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SharedSecretsCopyWith<_SharedSecrets> get copyWith => __$SharedSecretsCopyWithImpl<_SharedSecrets>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SharedSecretsImpl &&
-            (identical(other.storageNoncePublicKey, storageNoncePublicKey) ||
-                other.storageNoncePublicKey == storageNoncePublicKey));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, storageNoncePublicKey);
-
-  /// Create a copy of SharedSecrets
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SharedSecretsImplCopyWith<_$SharedSecretsImpl> get copyWith =>
-      __$$SharedSecretsImplCopyWithImpl<_$SharedSecretsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SharedSecretsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SharedSecretsToJson(this, );
 }
 
-abstract class _SharedSecrets extends SharedSecrets {
-  const factory _SharedSecrets({final String? storageNoncePublicKey}) =
-      _$SharedSecretsImpl;
-  const _SharedSecrets._() : super._();
-
-  factory _SharedSecrets.fromJson(Map<String, dynamic> json) =
-      _$SharedSecretsImpl.fromJson;
-
-  /// The storage nonce public key: Public Key to encrypt data for the node,
-  /// so they will be able to decrypt it (mostly for smart contract authorized key)
-  @override
-  String? get storageNoncePublicKey;
-
-  /// Create a copy of SharedSecrets
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SharedSecretsImplCopyWith<_$SharedSecretsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SharedSecrets&&(identical(other.storageNoncePublicKey, storageNoncePublicKey) || other.storageNoncePublicKey == storageNoncePublicKey));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,storageNoncePublicKey);
+
+@override
+String toString() {
+  return 'SharedSecrets(storageNoncePublicKey: $storageNoncePublicKey)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SharedSecretsCopyWith<$Res> implements $SharedSecretsCopyWith<$Res> {
+  factory _$SharedSecretsCopyWith(_SharedSecrets value, $Res Function(_SharedSecrets) _then) = __$SharedSecretsCopyWithImpl;
+@override @useResult
+$Res call({
+ String? storageNoncePublicKey
+});
+
+
+
+
+}
+/// @nodoc
+class __$SharedSecretsCopyWithImpl<$Res>
+    implements _$SharedSecretsCopyWith<$Res> {
+  __$SharedSecretsCopyWithImpl(this._self, this._then);
+
+  final _SharedSecrets _self;
+  final $Res Function(_SharedSecrets) _then;
+
+/// Create a copy of SharedSecrets
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? storageNoncePublicKey = freezed,}) {
+  return _then(_SharedSecrets(
+storageNoncePublicKey: freezed == storageNoncePublicKey ? _self.storageNoncePublicKey : storageNoncePublicKey // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

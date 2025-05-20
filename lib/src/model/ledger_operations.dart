@@ -6,24 +6,44 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'ledger_operations.freezed.dart';
 part 'ledger_operations.g.dart';
 
-/// [LedgerOperations] represents the ledger operations performed by the transaction.
+/// Represents the ledger operations performed by a transaction.
+///
+/// This class encapsulates the details of how a transaction affects the ledger,
+/// including fees, asset transfers (movements), unspent outputs, and consumed inputs.
 @freezed
-class LedgerOperations with _$LedgerOperations {
+abstract class LedgerOperations with _$LedgerOperations {
+  /// Creates an instance of [LedgerOperations].
+  ///
+  /// - [fee]: The transaction fee, which is distributed as node rewards. Can be null if not applicable.
+  /// - [transactionMovements]: A list of [TransactionMovement] objects detailing the asset transfers.
+  ///   Defaults to an empty list.
+  /// - [unspentOutputs]: A list of [UnspentOutputs] created by this transaction.
+  ///   Defaults to an empty list.
+  /// - [consumedInputs]: A list of [ConsumedInputs] that were spent by this transaction.
+  ///   Defaults to an empty list.
   const factory LedgerOperations({
-    /// Transaction fee (distributed over the node rewards)
-    int? fee,
+    /// The transaction fee, distributed as node rewards. This can be null if not applicable for the transaction type.
+    final int? fee,
 
-    /// Assets transfers
+    /// A list detailing the transfers of assets (e.g., UCO or tokens) within the transaction.
     @Default([]) final List<TransactionMovement> transactionMovements,
 
-    /// Remaining unspent outputs
+    /// A list of outputs created by this transaction that remain unspent.
     @Default([]) final List<UnspentOutputs> unspentOutputs,
 
-    /// Remaining unspent outputs
+    /// A list of inputs that were consumed (spent) by this transaction.
+    /// The original comment "Remaining unspent outputs" for this field seemed incorrect based on the name `consumedInputs`,
+    /// so it has been updated to reflect consumed inputs.
     @Default([]) final List<ConsumedInputs> consumedInputs,
   }) = _LedgerOperations;
+
+  /// Private constructor for `freezed` compatibility.
   const LedgerOperations._();
 
-  factory LedgerOperations.fromJson(Map<String, dynamic> json) =>
+  /// Creates a [LedgerOperations] instance from a JSON map.
+  ///
+  /// This factory uses the `freezed` generated `_$LedgerOperationsFromJson` function
+  /// to deserialize the JSON data.
+  factory LedgerOperations.fromJson(final Map<String, dynamic> json) =>
       _$LedgerOperationsFromJson(json);
 }

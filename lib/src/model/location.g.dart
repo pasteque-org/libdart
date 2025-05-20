@@ -6,14 +6,12 @@ part of 'location.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LocationImpl _$$LocationImplFromJson(Map<String, dynamic> json) =>
-    _$LocationImpl(
-      column: (json['column'] as num?)?.toInt(),
-      line: (json['line'] as num?)?.toInt(),
-    );
+_Location _$LocationFromJson(Map<String, dynamic> json) => _Location(
+  column: (json['column'] as num?)?.toInt(),
+  line: (json['line'] as num?)?.toInt(),
+);
 
-Map<String, dynamic> _$$LocationImplToJson(_$LocationImpl instance) =>
-    <String, dynamic>{
-      'column': instance.column,
-      'line': instance.line,
-    };
+Map<String, dynamic> _$LocationToJson(_Location instance) => <String, dynamic>{
+  'column': instance.column,
+  'line': instance.line,
+};

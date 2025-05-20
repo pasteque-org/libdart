@@ -21,7 +21,10 @@ mixin KeychainUtil {
   /// - [pubkey]: The public key as a `Uint8List`.
   ///
   /// Returns `true` if the keychain exists, `false` otherwise.
-  Future<bool> checkKeychain(String endpoint, Uint8List pubkey) async {
+  Future<bool> checkKeychain(
+    final String endpoint,
+    final Uint8List pubkey,
+  ) async {
     final genesisAddress = await _findKeychainGenesisAddress(endpoint, pubkey);
     if (genesisAddress == null || genesisAddress.isEmpty) {
       return false;
@@ -41,8 +44,8 @@ mixin KeychainUtil {
   ///
   /// Returns a list of keychain addresses as hexadecimal strings.
   Future<List<String>> keychainAddresses(
-    String endpoint,
-    Uint8List pubkey,
+    final String endpoint,
+    final Uint8List pubkey,
   ) async {
     // We hardcode the curve ID (0 = ed25519 by default)
     final genesisAddress = await _findKeychainGenesisAddress(endpoint, pubkey);
@@ -58,7 +61,7 @@ mixin KeychainUtil {
     }
 
     final publicKeys = <String>[];
-    final json = jsonDecode(transaction.data!.content!);
+    final json = jsonDecode(transaction.data!.content!) as Map<String, dynamic>;
 
     if (json.containsKey('verificationMethod')) {
       for (final method in json['verificationMethod']) {
@@ -71,9 +74,7 @@ mixin KeychainUtil {
               final publicKey = jwkToKey(publicKeyJwk);
               publicKeys.add(uint8ListToHex(publicKey));
             } catch (e) {
-              _logger.severe(
-                'Error converting JWK to public key: $e',
-              );
+              _logger.severe('Error converting JWK to public key: $e');
             }
           }
         }
@@ -82,9 +83,7 @@ mixin KeychainUtil {
 
     final addressList = <String>[];
     for (final publicKey in publicKeys) {
-      addressList.add(
-        '00${uint8ListToHex(hash(hexToUint8List(publicKey)))}',
-      );
+      addressList.add('00${uint8ListToHex(hash(hexToUint8List(publicKey)))}');
     }
 
     return addressList;
@@ -97,14 +96,14 @@ mixin KeychainUtil {
   ///
   /// Returns the genesis address as a `String`, or `null` if not found.
   Future<String?> _findKeychainGenesisAddress(
-    String endpoint,
-    Uint8List pubkey,
+    final String endpoint,
+    final Uint8List pubkey,
   ) async {
     // We hardcode the curve ID (0 = ed25519 by default)
     final address = '00${uint8ListToHex(hash(pubkey))}';
-    final genesisAddress = await ApiService(endpoint).getGenesisAddress(
-      address,
-    );
+    final genesisAddress = await ApiService(
+      endpoint,
+    ).getGenesisAddress(address);
     return genesisAddress.address;
   }
 
@@ -115,13 +114,12 @@ mixin KeychainUtil {
   ///
   /// Returns a `Transaction` object if found, or `null` otherwise.
   Future<Transaction?> _searchKeychain(
-    String endpoint,
-    String genesisAddress,
+    final String endpoint,
+    final String genesisAddress,
   ) async {
-    final transactionMap = await ApiService(endpoint).getLastTransaction(
-      [genesisAddress],
-      request: 'address data { content } type',
-    );
+    final transactionMap = await ApiService(endpoint).getLastTransaction([
+      genesisAddress,
+    ], request: 'address data { content } type');
 
     if (transactionMap[genesisAddress] == null ||
         transactionMap[genesisAddress]!.type != 'keychain') {

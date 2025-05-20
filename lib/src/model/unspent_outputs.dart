@@ -3,33 +3,43 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'unspent_outputs.freezed.dart';
 part 'unspent_outputs.g.dart';
 
-/// [UnspentOutputs] represents the remaining unspent output of the transaction.
+/// Represents an Unspent Transaction Output (UTXO).
+///
+/// UTXOs are the fundamental building blocks of transactions in UTXO-based blockchains like Archethic.
+/// They represent assets (UCO or tokens) or contract states that have not yet been spent and can be used as inputs in new transactions.
 @freezed
-class UnspentOutputs with _$UnspentOutputs {
+abstract class UnspentOutputs with _$UnspentOutputs {
+  /// Creates an [UnspentOutputs] instance.
+  ///
+  /// All parameters are optional and describe the characteristics of the UTXO.
   const factory UnspentOutputs({
-    /// Asset amount
-    int? amount,
+    /// The amount of the asset (UCO or token) in this UTXO.
+    final int? amount,
 
-    /// Address of the token if the type is token
-    String? tokenAddress,
+    /// The address of the token, if this UTXO represents a token.
+    final String? tokenAddress,
 
-    /// Type of the token: UCO/Token
-    String? type,
+    /// The type of asset this UTXO represents, e.g., 'UCO' or 'Token'.
+    final String? type,
 
-    /// Transaction which send the amount of assets
-    String? from,
+    /// The transaction hash that created this UTXO.
+    final String? from,
 
-    /// Id for a token which is allocated when the token is minted.
-    int? tokenId,
+    /// The unique identifier for a token, relevant if this UTXO is a specific token instance (e.g., an NFT).
+    final int? tokenId,
 
-    /// Date time when the UTXO created/manipulated
-    int? timestamp,
+    /// The timestamp indicating when this UTXO was created or last modified.
+    final int? timestamp,
 
-    /// State of a smart contract
-    Map<String, dynamic>? state,
+    /// The state of a smart contract, if this UTXO represents a contract state.
+    /// The structure of the state is a dynamic map.
+    final Map<String, dynamic>? state,
   }) = _UnspentOutputs;
+
+  /// Private constructor for [UnspentOutputs].
   const UnspentOutputs._();
 
-  factory UnspentOutputs.fromJson(Map<String, dynamic> json) =>
+  /// Creates an [UnspentOutputs] instance from a JSON map.
+  factory UnspentOutputs.fromJson(final Map<String, dynamic> json) =>
       _$UnspentOutputsFromJson(json);
 }

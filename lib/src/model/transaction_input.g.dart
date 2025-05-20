@@ -6,9 +6,8 @@ part of 'transaction_input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TransactionInputImpl _$$TransactionInputImplFromJson(
-        Map<String, dynamic> json) =>
-    _$TransactionInputImpl(
+_TransactionInput _$TransactionInputFromJson(Map<String, dynamic> json) =>
+    _TransactionInput(
       amount: (json['amount'] as num?)?.toInt(),
       from: json['from'] as String?,
       tokenAddress: json['tokenAddress'] as String?,
@@ -18,8 +17,7 @@ _$TransactionInputImpl _$$TransactionInputImplFromJson(
       tokenId: (json['tokenId'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$$TransactionInputImplToJson(
-        _$TransactionInputImpl instance) =>
+Map<String, dynamic> _$TransactionInputToJson(_TransactionInput instance) =>
     <String, dynamic>{
       'amount': instance.amount,
       'from': instance.from,

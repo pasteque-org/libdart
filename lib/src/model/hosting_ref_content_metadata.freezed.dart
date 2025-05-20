@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,233 +10,163 @@ part of 'hosting_ref_content_metadata.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-HostingRefContentMetaData _$HostingRefContentMetaDataFromJson(
-    Map<String, dynamic> json) {
-  return _HostingRefContentMetaData.fromJson(json);
-}
 
 /// @nodoc
 mixin _$HostingRefContentMetaData {
-  String get hash => throw _privateConstructorUsedError;
-  int get size => throw _privateConstructorUsedError;
-  String get encoding => throw _privateConstructorUsedError;
-  List<String> get addresses => throw _privateConstructorUsedError;
+
+/// The hash of the content, used for integrity verification.
+ String get hash;/// The size of the content in bytes.
+ int get size;/// The encoding of the content (e.g., 'utf-8', 'gzip').
+ String get encoding;/// A list of addresses (e.g., transaction hashes or storage node identifiers) where the content is stored or can be retrieved from.
+ List<String> get addresses;
+/// Create a copy of HostingRefContentMetaData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$HostingRefContentMetaDataCopyWith<HostingRefContentMetaData> get copyWith => _$HostingRefContentMetaDataCopyWithImpl<HostingRefContentMetaData>(this as HostingRefContentMetaData, _$identity);
 
   /// Serializes this HostingRefContentMetaData to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of HostingRefContentMetaData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $HostingRefContentMetaDataCopyWith<HostingRefContentMetaData> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HostingRefContentMetaData&&(identical(other.hash, hash) || other.hash == hash)&&(identical(other.size, size) || other.size == size)&&(identical(other.encoding, encoding) || other.encoding == encoding)&&const DeepCollectionEquality().equals(other.addresses, addresses));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,hash,size,encoding,const DeepCollectionEquality().hash(addresses));
+
+@override
+String toString() {
+  return 'HostingRefContentMetaData(hash: $hash, size: $size, encoding: $encoding, addresses: $addresses)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $HostingRefContentMetaDataCopyWith<$Res> {
-  factory $HostingRefContentMetaDataCopyWith(HostingRefContentMetaData value,
-          $Res Function(HostingRefContentMetaData) then) =
-      _$HostingRefContentMetaDataCopyWithImpl<$Res, HostingRefContentMetaData>;
-  @useResult
-  $Res call({String hash, int size, String encoding, List<String> addresses});
-}
+abstract mixin class $HostingRefContentMetaDataCopyWith<$Res>  {
+  factory $HostingRefContentMetaDataCopyWith(HostingRefContentMetaData value, $Res Function(HostingRefContentMetaData) _then) = _$HostingRefContentMetaDataCopyWithImpl;
+@useResult
+$Res call({
+ String hash, int size, String encoding, List<String> addresses
+});
 
+
+
+
+}
 /// @nodoc
-class _$HostingRefContentMetaDataCopyWithImpl<$Res,
-        $Val extends HostingRefContentMetaData>
+class _$HostingRefContentMetaDataCopyWithImpl<$Res>
     implements $HostingRefContentMetaDataCopyWith<$Res> {
-  _$HostingRefContentMetaDataCopyWithImpl(this._value, this._then);
+  _$HostingRefContentMetaDataCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final HostingRefContentMetaData _self;
+  final $Res Function(HostingRefContentMetaData) _then;
 
-  /// Create a copy of HostingRefContentMetaData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hash = null,
-    Object? size = null,
-    Object? encoding = null,
-    Object? addresses = null,
-  }) {
-    return _then(_value.copyWith(
-      hash: null == hash
-          ? _value.hash
-          : hash // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      encoding: null == encoding
-          ? _value.encoding
-          : encoding // ignore: cast_nullable_to_non_nullable
-              as String,
-      addresses: null == addresses
-          ? _value.addresses
-          : addresses // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
-  }
+/// Create a copy of HostingRefContentMetaData
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? hash = null,Object? size = null,Object? encoding = null,Object? addresses = null,}) {
+  return _then(_self.copyWith(
+hash: null == hash ? _self.hash : hash // ignore: cast_nullable_to_non_nullable
+as String,size: null == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
+as int,encoding: null == encoding ? _self.encoding : encoding // ignore: cast_nullable_to_non_nullable
+as String,addresses: null == addresses ? _self.addresses : addresses // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$HostingRefContentMetaDataImplCopyWith<$Res>
-    implements $HostingRefContentMetaDataCopyWith<$Res> {
-  factory _$$HostingRefContentMetaDataImplCopyWith(
-          _$HostingRefContentMetaDataImpl value,
-          $Res Function(_$HostingRefContentMetaDataImpl) then) =
-      __$$HostingRefContentMetaDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String hash, int size, String encoding, List<String> addresses});
 }
 
-/// @nodoc
-class __$$HostingRefContentMetaDataImplCopyWithImpl<$Res>
-    extends _$HostingRefContentMetaDataCopyWithImpl<$Res,
-        _$HostingRefContentMetaDataImpl>
-    implements _$$HostingRefContentMetaDataImplCopyWith<$Res> {
-  __$$HostingRefContentMetaDataImplCopyWithImpl(
-      _$HostingRefContentMetaDataImpl _value,
-      $Res Function(_$HostingRefContentMetaDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of HostingRefContentMetaData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hash = null,
-    Object? size = null,
-    Object? encoding = null,
-    Object? addresses = null,
-  }) {
-    return _then(_$HostingRefContentMetaDataImpl(
-      hash: null == hash
-          ? _value.hash
-          : hash // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      encoding: null == encoding
-          ? _value.encoding
-          : encoding // ignore: cast_nullable_to_non_nullable
-              as String,
-      addresses: null == addresses
-          ? _value._addresses
-          : addresses // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$HostingRefContentMetaDataImpl extends _HostingRefContentMetaData {
-  const _$HostingRefContentMetaDataImpl(
-      {this.hash = '',
-      this.size = 0,
-      this.encoding = '',
-      final List<String> addresses = const []})
-      : _addresses = addresses,
-        super._();
 
-  factory _$HostingRefContentMetaDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$HostingRefContentMetaDataImplFromJson(json);
+class _HostingRefContentMetaData extends HostingRefContentMetaData {
+  const _HostingRefContentMetaData({this.hash = '', this.size = 0, this.encoding = '', final  List<String> addresses = const []}): _addresses = addresses,super._();
+  factory _HostingRefContentMetaData.fromJson(Map<String, dynamic> json) => _$HostingRefContentMetaDataFromJson(json);
 
-  @override
-  @JsonKey()
-  final String hash;
-  @override
-  @JsonKey()
-  final int size;
-  @override
-  @JsonKey()
-  final String encoding;
-  final List<String> _addresses;
-  @override
-  @JsonKey()
-  List<String> get addresses {
-    if (_addresses is EqualUnmodifiableListView) return _addresses;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_addresses);
-  }
-
-  @override
-  String toString() {
-    return 'HostingRefContentMetaData(hash: $hash, size: $size, encoding: $encoding, addresses: $addresses)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$HostingRefContentMetaDataImpl &&
-            (identical(other.hash, hash) || other.hash == hash) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.encoding, encoding) ||
-                other.encoding == encoding) &&
-            const DeepCollectionEquality()
-                .equals(other._addresses, _addresses));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, hash, size, encoding,
-      const DeepCollectionEquality().hash(_addresses));
-
-  /// Create a copy of HostingRefContentMetaData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$HostingRefContentMetaDataImplCopyWith<_$HostingRefContentMetaDataImpl>
-      get copyWith => __$$HostingRefContentMetaDataImplCopyWithImpl<
-          _$HostingRefContentMetaDataImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$HostingRefContentMetaDataImplToJson(
-      this,
-    );
-  }
+/// The hash of the content, used for integrity verification.
+@override@JsonKey() final  String hash;
+/// The size of the content in bytes.
+@override@JsonKey() final  int size;
+/// The encoding of the content (e.g., 'utf-8', 'gzip').
+@override@JsonKey() final  String encoding;
+/// A list of addresses (e.g., transaction hashes or storage node identifiers) where the content is stored or can be retrieved from.
+ final  List<String> _addresses;
+/// A list of addresses (e.g., transaction hashes or storage node identifiers) where the content is stored or can be retrieved from.
+@override@JsonKey() List<String> get addresses {
+  if (_addresses is EqualUnmodifiableListView) return _addresses;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_addresses);
 }
 
-abstract class _HostingRefContentMetaData extends HostingRefContentMetaData {
-  const factory _HostingRefContentMetaData(
-      {final String hash,
-      final int size,
-      final String encoding,
-      final List<String> addresses}) = _$HostingRefContentMetaDataImpl;
-  const _HostingRefContentMetaData._() : super._();
 
-  factory _HostingRefContentMetaData.fromJson(Map<String, dynamic> json) =
-      _$HostingRefContentMetaDataImpl.fromJson;
+/// Create a copy of HostingRefContentMetaData
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$HostingRefContentMetaDataCopyWith<_HostingRefContentMetaData> get copyWith => __$HostingRefContentMetaDataCopyWithImpl<_HostingRefContentMetaData>(this, _$identity);
 
-  @override
-  String get hash;
-  @override
-  int get size;
-  @override
-  String get encoding;
-  @override
-  List<String> get addresses;
-
-  /// Create a copy of HostingRefContentMetaData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$HostingRefContentMetaDataImplCopyWith<_$HostingRefContentMetaDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$HostingRefContentMetaDataToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HostingRefContentMetaData&&(identical(other.hash, hash) || other.hash == hash)&&(identical(other.size, size) || other.size == size)&&(identical(other.encoding, encoding) || other.encoding == encoding)&&const DeepCollectionEquality().equals(other._addresses, _addresses));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,hash,size,encoding,const DeepCollectionEquality().hash(_addresses));
+
+@override
+String toString() {
+  return 'HostingRefContentMetaData(hash: $hash, size: $size, encoding: $encoding, addresses: $addresses)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$HostingRefContentMetaDataCopyWith<$Res> implements $HostingRefContentMetaDataCopyWith<$Res> {
+  factory _$HostingRefContentMetaDataCopyWith(_HostingRefContentMetaData value, $Res Function(_HostingRefContentMetaData) _then) = __$HostingRefContentMetaDataCopyWithImpl;
+@override @useResult
+$Res call({
+ String hash, int size, String encoding, List<String> addresses
+});
+
+
+
+
+}
+/// @nodoc
+class __$HostingRefContentMetaDataCopyWithImpl<$Res>
+    implements _$HostingRefContentMetaDataCopyWith<$Res> {
+  __$HostingRefContentMetaDataCopyWithImpl(this._self, this._then);
+
+  final _HostingRefContentMetaData _self;
+  final $Res Function(_HostingRefContentMetaData) _then;
+
+/// Create a copy of HostingRefContentMetaData
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? hash = null,Object? size = null,Object? encoding = null,Object? addresses = null,}) {
+  return _then(_HostingRefContentMetaData(
+hash: null == hash ? _self.hash : hash // ignore: cast_nullable_to_non_nullable
+as String,size: null == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
+as int,encoding: null == encoding ? _self.encoding : encoding // ignore: cast_nullable_to_non_nullable
+as String,addresses: null == addresses ? _self._addresses : addresses // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -6,12 +6,10 @@ part of 'shared_secrets.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SharedSecretsImpl _$$SharedSecretsImplFromJson(Map<String, dynamic> json) =>
-    _$SharedSecretsImpl(
+_SharedSecrets _$SharedSecretsFromJson(Map<String, dynamic> json) =>
+    _SharedSecrets(
       storageNoncePublicKey: json['storageNoncePublicKey'] as String?,
     );
 
-Map<String, dynamic> _$$SharedSecretsImplToJson(_$SharedSecretsImpl instance) =>
-    <String, dynamic>{
-      'storageNoncePublicKey': instance.storageNoncePublicKey,
-    };
+Map<String, dynamic> _$SharedSecretsToJson(_SharedSecrets instance) =>
+    <String, dynamic>{'storageNoncePublicKey': instance.storageNoncePublicKey};

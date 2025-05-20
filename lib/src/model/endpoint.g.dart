@@ -6,14 +6,12 @@ part of 'endpoint.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EndpointImpl _$$EndpointImplFromJson(Map<String, dynamic> json) =>
-    _$EndpointImpl(
-      ip: json['ip'] as String? ?? '',
-      port: (json['port'] as num?)?.toInt() ?? 0,
-    );
+_Endpoint _$EndpointFromJson(Map<String, dynamic> json) => _Endpoint(
+  ip: json['ip'] as String? ?? '',
+  port: (json['port'] as num?)?.toInt() ?? 0,
+);
 
-Map<String, dynamic> _$$EndpointImplToJson(_$EndpointImpl instance) =>
-    <String, dynamic>{
-      'ip': instance.ip,
-      'port': instance.port,
-    };
+Map<String, dynamic> _$EndpointToJson(_Endpoint instance) => <String, dynamic>{
+  'ip': instance.ip,
+  'port': instance.port,
+};

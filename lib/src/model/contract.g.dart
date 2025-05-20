@@ -6,73 +6,58 @@ part of 'contract.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ContractManifestImpl _$$ContractManifestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ContractManifestImpl(
+_ContractManifest _$ContractManifestFromJson(Map<String, dynamic> json) =>
+    _ContractManifest(
       abi: WasmABI.fromJson(json['abi'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$ContractManifestImplToJson(
-        _$ContractManifestImpl instance) =>
-    <String, dynamic>{
-      'abi': instance.abi,
-    };
+Map<String, dynamic> _$ContractManifestToJson(_ContractManifest instance) =>
+    <String, dynamic>{'abi': instance.abi};
 
-_$WasmABIImpl _$$WasmABIImplFromJson(Map<String, dynamic> json) =>
-    _$WasmABIImpl(
-      state: Map<String, String>.from(json['state'] as Map),
-      functions: (json['functions'] as Map<String, dynamic>).map(
-        (k, e) =>
-            MapEntry(k, WASMFunctionABI.fromJson(e as Map<String, dynamic>)),
-      ),
-    );
+_WasmABI _$WasmABIFromJson(Map<String, dynamic> json) => _WasmABI(
+  state: Map<String, String>.from(json['state'] as Map),
+  functions: (json['functions'] as Map<String, dynamic>).map(
+    (k, e) => MapEntry(k, WASMFunctionABI.fromJson(e as Map<String, dynamic>)),
+  ),
+);
 
-Map<String, dynamic> _$$WasmABIImplToJson(_$WasmABIImpl instance) =>
-    <String, dynamic>{
-      'state': instance.state,
-      'functions': instance.functions,
-    };
+Map<String, dynamic> _$WasmABIToJson(_WasmABI instance) => <String, dynamic>{
+  'state': instance.state,
+  'functions': instance.functions,
+};
 
-_$WASMFunctionABIImpl _$$WASMFunctionABIImplFromJson(
-        Map<String, dynamic> json) =>
-    _$WASMFunctionABIImpl(
+_WASMFunctionABI _$WASMFunctionABIFromJson(Map<String, dynamic> json) =>
+    _WASMFunctionABI(
       type: json['type'] as String,
       triggerType: json['triggerType'] as String?,
       input: json['input'] as Map<String, dynamic>,
     );
 
-Map<String, dynamic> _$$WASMFunctionABIImplToJson(
-        _$WASMFunctionABIImpl instance) =>
+Map<String, dynamic> _$WASMFunctionABIToJson(_WASMFunctionABI instance) =>
     <String, dynamic>{
       'type': instance.type,
       'triggerType': instance.triggerType,
       'input': instance.input,
     };
 
-_$ContractActionImpl _$$ContractActionImplFromJson(Map<String, dynamic> json) =>
-    _$ContractActionImpl(
+_ContractAction _$ContractActionFromJson(Map<String, dynamic> json) =>
+    _ContractAction(
       name: json['name'] as String,
-      parameters: (json['parameters'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      parameters:
+          (json['parameters'] as List<dynamic>)
+              .map((e) => e as String)
+              .toList(),
     );
 
-Map<String, dynamic> _$$ContractActionImplToJson(
-        _$ContractActionImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'parameters': instance.parameters,
-    };
+Map<String, dynamic> _$ContractActionToJson(_ContractAction instance) =>
+    <String, dynamic>{'name': instance.name, 'parameters': instance.parameters};
 
-_$ContractImpl _$$ContractImplFromJson(Map<String, dynamic> json) =>
-    _$ContractImpl(
-      bytecode: json['bytecode'] as String?,
-      manifest:
-          ContractManifest.fromJson(json['manifest'] as Map<String, dynamic>),
-    );
+_Contract _$ContractFromJson(Map<String, dynamic> json) => _Contract(
+  bytecode: json['bytecode'] as String?,
+  manifest: ContractManifest.fromJson(json['manifest'] as Map<String, dynamic>),
+);
 
-Map<String, dynamic> _$$ContractImplToJson(_$ContractImpl instance) =>
-    <String, dynamic>{
-      'bytecode': instance.bytecode,
-      'manifest': instance.manifest,
-    };
+Map<String, dynamic> _$ContractToJson(_Contract instance) => <String, dynamic>{
+  'bytecode': instance.bytecode,
+  'manifest': instance.manifest,
+};

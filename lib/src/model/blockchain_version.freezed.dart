@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,367 +10,304 @@ part of 'blockchain_version.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-BlockchainVersionModel _$BlockchainVersionModelFromJson(
-    Map<String, dynamic> json) {
-  return _BlockchainVersionModel.fromJson(json);
-}
 
 /// @nodoc
 mixin _$BlockchainVersionModel {
-  BlockchainVersion get version => throw _privateConstructorUsedError;
+
+/// The detailed blockchain version information.
+ BlockchainVersion get version;
+/// Create a copy of BlockchainVersionModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BlockchainVersionModelCopyWith<BlockchainVersionModel> get copyWith => _$BlockchainVersionModelCopyWithImpl<BlockchainVersionModel>(this as BlockchainVersionModel, _$identity);
 
   /// Serializes this BlockchainVersionModel to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of BlockchainVersionModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $BlockchainVersionModelCopyWith<BlockchainVersionModel> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BlockchainVersionModel&&(identical(other.version, version) || other.version == version));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,version);
+
+@override
+String toString() {
+  return 'BlockchainVersionModel(version: $version)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $BlockchainVersionModelCopyWith<$Res> {
-  factory $BlockchainVersionModelCopyWith(BlockchainVersionModel value,
-          $Res Function(BlockchainVersionModel) then) =
-      _$BlockchainVersionModelCopyWithImpl<$Res, BlockchainVersionModel>;
-  @useResult
-  $Res call({BlockchainVersion version});
+abstract mixin class $BlockchainVersionModelCopyWith<$Res>  {
+  factory $BlockchainVersionModelCopyWith(BlockchainVersionModel value, $Res Function(BlockchainVersionModel) _then) = _$BlockchainVersionModelCopyWithImpl;
+@useResult
+$Res call({
+ BlockchainVersion version
+});
 
-  $BlockchainVersionCopyWith<$Res> get version;
+
+$BlockchainVersionCopyWith<$Res> get version;
+
 }
-
 /// @nodoc
-class _$BlockchainVersionModelCopyWithImpl<$Res,
-        $Val extends BlockchainVersionModel>
+class _$BlockchainVersionModelCopyWithImpl<$Res>
     implements $BlockchainVersionModelCopyWith<$Res> {
-  _$BlockchainVersionModelCopyWithImpl(this._value, this._then);
+  _$BlockchainVersionModelCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final BlockchainVersionModel _self;
+  final $Res Function(BlockchainVersionModel) _then;
 
-  /// Create a copy of BlockchainVersionModel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? version = null,
-  }) {
-    return _then(_value.copyWith(
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as BlockchainVersion,
-    ) as $Val);
-  }
-
-  /// Create a copy of BlockchainVersionModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $BlockchainVersionCopyWith<$Res> get version {
-    return $BlockchainVersionCopyWith<$Res>(_value.version, (value) {
-      return _then(_value.copyWith(version: value) as $Val);
-    });
-  }
+/// Create a copy of BlockchainVersionModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? version = null,}) {
+  return _then(_self.copyWith(
+version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as BlockchainVersion,
+  ));
+}
+/// Create a copy of BlockchainVersionModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$BlockchainVersionCopyWith<$Res> get version {
+  
+  return $BlockchainVersionCopyWith<$Res>(_self.version, (value) {
+    return _then(_self.copyWith(version: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$BlockchainVersionModelImplCopyWith<$Res>
-    implements $BlockchainVersionModelCopyWith<$Res> {
-  factory _$$BlockchainVersionModelImplCopyWith(
-          _$BlockchainVersionModelImpl value,
-          $Res Function(_$BlockchainVersionModelImpl) then) =
-      __$$BlockchainVersionModelImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({BlockchainVersion version});
-
-  @override
-  $BlockchainVersionCopyWith<$Res> get version;
-}
-
-/// @nodoc
-class __$$BlockchainVersionModelImplCopyWithImpl<$Res>
-    extends _$BlockchainVersionModelCopyWithImpl<$Res,
-        _$BlockchainVersionModelImpl>
-    implements _$$BlockchainVersionModelImplCopyWith<$Res> {
-  __$$BlockchainVersionModelImplCopyWithImpl(
-      _$BlockchainVersionModelImpl _value,
-      $Res Function(_$BlockchainVersionModelImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BlockchainVersionModel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? version = null,
-  }) {
-    return _then(_$BlockchainVersionModelImpl(
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as BlockchainVersion,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$BlockchainVersionModelImpl implements _BlockchainVersionModel {
-  const _$BlockchainVersionModelImpl({required this.version});
 
-  factory _$BlockchainVersionModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BlockchainVersionModelImplFromJson(json);
+class _BlockchainVersionModel implements BlockchainVersionModel {
+  const _BlockchainVersionModel({required this.version});
+  factory _BlockchainVersionModel.fromJson(Map<String, dynamic> json) => _$BlockchainVersionModelFromJson(json);
 
-  @override
-  final BlockchainVersion version;
+/// The detailed blockchain version information.
+@override final  BlockchainVersion version;
 
-  @override
-  String toString() {
-    return 'BlockchainVersionModel(version: $version)';
-  }
+/// Create a copy of BlockchainVersionModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BlockchainVersionModelCopyWith<_BlockchainVersionModel> get copyWith => __$BlockchainVersionModelCopyWithImpl<_BlockchainVersionModel>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BlockchainVersionModelImpl &&
-            (identical(other.version, version) || other.version == version));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, version);
-
-  /// Create a copy of BlockchainVersionModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BlockchainVersionModelImplCopyWith<_$BlockchainVersionModelImpl>
-      get copyWith => __$$BlockchainVersionModelImplCopyWithImpl<
-          _$BlockchainVersionModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BlockchainVersionModelImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$BlockchainVersionModelToJson(this, );
 }
 
-abstract class _BlockchainVersionModel implements BlockchainVersionModel {
-  const factory _BlockchainVersionModel(
-          {required final BlockchainVersion version}) =
-      _$BlockchainVersionModelImpl;
-
-  factory _BlockchainVersionModel.fromJson(Map<String, dynamic> json) =
-      _$BlockchainVersionModelImpl.fromJson;
-
-  @override
-  BlockchainVersion get version;
-
-  /// Create a copy of BlockchainVersionModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BlockchainVersionModelImplCopyWith<_$BlockchainVersionModelImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BlockchainVersionModel&&(identical(other.version, version) || other.version == version));
 }
 
-BlockchainVersion _$BlockchainVersionFromJson(Map<String, dynamic> json) {
-  return _BlockchainVersion.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,version);
+
+@override
+String toString() {
+  return 'BlockchainVersionModel(version: $version)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$BlockchainVersionModelCopyWith<$Res> implements $BlockchainVersionModelCopyWith<$Res> {
+  factory _$BlockchainVersionModelCopyWith(_BlockchainVersionModel value, $Res Function(_BlockchainVersionModel) _then) = __$BlockchainVersionModelCopyWithImpl;
+@override @useResult
+$Res call({
+ BlockchainVersion version
+});
+
+
+@override $BlockchainVersionCopyWith<$Res> get version;
+
+}
+/// @nodoc
+class __$BlockchainVersionModelCopyWithImpl<$Res>
+    implements _$BlockchainVersionModelCopyWith<$Res> {
+  __$BlockchainVersionModelCopyWithImpl(this._self, this._then);
+
+  final _BlockchainVersionModel _self;
+  final $Res Function(_BlockchainVersionModel) _then;
+
+/// Create a copy of BlockchainVersionModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? version = null,}) {
+  return _then(_BlockchainVersionModel(
+version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as BlockchainVersion,
+  ));
+}
+
+/// Create a copy of BlockchainVersionModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$BlockchainVersionCopyWith<$Res> get version {
+  
+  return $BlockchainVersionCopyWith<$Res>(_self.version, (value) {
+    return _then(_self.copyWith(version: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$BlockchainVersion {
-  String? get code => throw _privateConstructorUsedError;
-  String get protocol => throw _privateConstructorUsedError;
-  String get transaction => throw _privateConstructorUsedError;
+
+/// The version of the network protocol.
+ String get protocol;/// The version of the transaction format.
+ String get transaction;/// The version of the codebase.
+ String? get code;
+/// Create a copy of BlockchainVersion
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BlockchainVersionCopyWith<BlockchainVersion> get copyWith => _$BlockchainVersionCopyWithImpl<BlockchainVersion>(this as BlockchainVersion, _$identity);
 
   /// Serializes this BlockchainVersion to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of BlockchainVersion
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $BlockchainVersionCopyWith<BlockchainVersion> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BlockchainVersion&&(identical(other.protocol, protocol) || other.protocol == protocol)&&(identical(other.transaction, transaction) || other.transaction == transaction)&&(identical(other.code, code) || other.code == code));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,protocol,transaction,code);
+
+@override
+String toString() {
+  return 'BlockchainVersion(protocol: $protocol, transaction: $transaction, code: $code)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $BlockchainVersionCopyWith<$Res> {
-  factory $BlockchainVersionCopyWith(
-          BlockchainVersion value, $Res Function(BlockchainVersion) then) =
-      _$BlockchainVersionCopyWithImpl<$Res, BlockchainVersion>;
-  @useResult
-  $Res call({String? code, String protocol, String transaction});
-}
+abstract mixin class $BlockchainVersionCopyWith<$Res>  {
+  factory $BlockchainVersionCopyWith(BlockchainVersion value, $Res Function(BlockchainVersion) _then) = _$BlockchainVersionCopyWithImpl;
+@useResult
+$Res call({
+ String protocol, String transaction, String? code
+});
 
+
+
+
+}
 /// @nodoc
-class _$BlockchainVersionCopyWithImpl<$Res, $Val extends BlockchainVersion>
+class _$BlockchainVersionCopyWithImpl<$Res>
     implements $BlockchainVersionCopyWith<$Res> {
-  _$BlockchainVersionCopyWithImpl(this._value, this._then);
+  _$BlockchainVersionCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final BlockchainVersion _self;
+  final $Res Function(BlockchainVersion) _then;
 
-  /// Create a copy of BlockchainVersion
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? code = freezed,
-    Object? protocol = null,
-    Object? transaction = null,
-  }) {
-    return _then(_value.copyWith(
-      code: freezed == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
-      protocol: null == protocol
-          ? _value.protocol
-          : protocol // ignore: cast_nullable_to_non_nullable
-              as String,
-      transaction: null == transaction
-          ? _value.transaction
-          : transaction // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of BlockchainVersion
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? protocol = null,Object? transaction = null,Object? code = freezed,}) {
+  return _then(_self.copyWith(
+protocol: null == protocol ? _self.protocol : protocol // ignore: cast_nullable_to_non_nullable
+as String,transaction: null == transaction ? _self.transaction : transaction // ignore: cast_nullable_to_non_nullable
+as String,code: freezed == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$BlockchainVersionImplCopyWith<$Res>
-    implements $BlockchainVersionCopyWith<$Res> {
-  factory _$$BlockchainVersionImplCopyWith(_$BlockchainVersionImpl value,
-          $Res Function(_$BlockchainVersionImpl) then) =
-      __$$BlockchainVersionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? code, String protocol, String transaction});
 }
 
-/// @nodoc
-class __$$BlockchainVersionImplCopyWithImpl<$Res>
-    extends _$BlockchainVersionCopyWithImpl<$Res, _$BlockchainVersionImpl>
-    implements _$$BlockchainVersionImplCopyWith<$Res> {
-  __$$BlockchainVersionImplCopyWithImpl(_$BlockchainVersionImpl _value,
-      $Res Function(_$BlockchainVersionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BlockchainVersion
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? code = freezed,
-    Object? protocol = null,
-    Object? transaction = null,
-  }) {
-    return _then(_$BlockchainVersionImpl(
-      code: freezed == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
-      protocol: null == protocol
-          ? _value.protocol
-          : protocol // ignore: cast_nullable_to_non_nullable
-              as String,
-      transaction: null == transaction
-          ? _value.transaction
-          : transaction // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$BlockchainVersionImpl implements _BlockchainVersion {
-  const _$BlockchainVersionImpl(
-      {this.code, required this.protocol, required this.transaction});
 
-  factory _$BlockchainVersionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BlockchainVersionImplFromJson(json);
+class _BlockchainVersion implements BlockchainVersion {
+  const _BlockchainVersion({required this.protocol, required this.transaction, this.code});
+  factory _BlockchainVersion.fromJson(Map<String, dynamic> json) => _$BlockchainVersionFromJson(json);
 
-  @override
-  final String? code;
-  @override
-  final String protocol;
-  @override
-  final String transaction;
+/// The version of the network protocol.
+@override final  String protocol;
+/// The version of the transaction format.
+@override final  String transaction;
+/// The version of the codebase.
+@override final  String? code;
 
-  @override
-  String toString() {
-    return 'BlockchainVersion(code: $code, protocol: $protocol, transaction: $transaction)';
-  }
+/// Create a copy of BlockchainVersion
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BlockchainVersionCopyWith<_BlockchainVersion> get copyWith => __$BlockchainVersionCopyWithImpl<_BlockchainVersion>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BlockchainVersionImpl &&
-            (identical(other.code, code) || other.code == code) &&
-            (identical(other.protocol, protocol) ||
-                other.protocol == protocol) &&
-            (identical(other.transaction, transaction) ||
-                other.transaction == transaction));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, code, protocol, transaction);
-
-  /// Create a copy of BlockchainVersion
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BlockchainVersionImplCopyWith<_$BlockchainVersionImpl> get copyWith =>
-      __$$BlockchainVersionImplCopyWithImpl<_$BlockchainVersionImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BlockchainVersionImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$BlockchainVersionToJson(this, );
 }
 
-abstract class _BlockchainVersion implements BlockchainVersion {
-  const factory _BlockchainVersion(
-      {final String? code,
-      required final String protocol,
-      required final String transaction}) = _$BlockchainVersionImpl;
-
-  factory _BlockchainVersion.fromJson(Map<String, dynamic> json) =
-      _$BlockchainVersionImpl.fromJson;
-
-  @override
-  String? get code;
-  @override
-  String get protocol;
-  @override
-  String get transaction;
-
-  /// Create a copy of BlockchainVersion
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BlockchainVersionImplCopyWith<_$BlockchainVersionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BlockchainVersion&&(identical(other.protocol, protocol) || other.protocol == protocol)&&(identical(other.transaction, transaction) || other.transaction == transaction)&&(identical(other.code, code) || other.code == code));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,protocol,transaction,code);
+
+@override
+String toString() {
+  return 'BlockchainVersion(protocol: $protocol, transaction: $transaction, code: $code)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$BlockchainVersionCopyWith<$Res> implements $BlockchainVersionCopyWith<$Res> {
+  factory _$BlockchainVersionCopyWith(_BlockchainVersion value, $Res Function(_BlockchainVersion) _then) = __$BlockchainVersionCopyWithImpl;
+@override @useResult
+$Res call({
+ String protocol, String transaction, String? code
+});
+
+
+
+
+}
+/// @nodoc
+class __$BlockchainVersionCopyWithImpl<$Res>
+    implements _$BlockchainVersionCopyWith<$Res> {
+  __$BlockchainVersionCopyWithImpl(this._self, this._then);
+
+  final _BlockchainVersion _self;
+  final $Res Function(_BlockchainVersion) _then;
+
+/// Create a copy of BlockchainVersion
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? protocol = null,Object? transaction = null,Object? code = freezed,}) {
+  return _then(_BlockchainVersion(
+protocol: null == protocol ? _self.protocol : protocol // ignore: cast_nullable_to_non_nullable
+as String,transaction: null == transaction ? _self.transaction : transaction // ignore: cast_nullable_to_non_nullable
+as String,code: freezed == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

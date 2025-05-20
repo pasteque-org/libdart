@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,191 +10,153 @@ part of 'balance.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Balance _$BalanceFromJson(Map<String, dynamic> json) {
-  return _Balance.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Balance {
-  /// Token balances
-  List<TokenBalance> get token => throw _privateConstructorUsedError;
 
-  /// UCO balance
-  int get uco => throw _privateConstructorUsedError;
+/// Token balances for various tokens.
+ List<TokenBalance> get token;/// UCO (Universal Coin) balance.
+ int get uco;
+/// Create a copy of Balance
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BalanceCopyWith<Balance> get copyWith => _$BalanceCopyWithImpl<Balance>(this as Balance, _$identity);
 
   /// Serializes this Balance to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Balance
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $BalanceCopyWith<Balance> get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Balance&&const DeepCollectionEquality().equals(other.token, token)&&(identical(other.uco, uco) || other.uco == uco));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(token),uco);
+
+@override
+String toString() {
+  return 'Balance(token: $token, uco: $uco)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $BalanceCopyWith<$Res> {
-  factory $BalanceCopyWith(Balance value, $Res Function(Balance) then) =
-      _$BalanceCopyWithImpl<$Res, Balance>;
-  @useResult
-  $Res call({List<TokenBalance> token, int uco});
-}
+abstract mixin class $BalanceCopyWith<$Res>  {
+  factory $BalanceCopyWith(Balance value, $Res Function(Balance) _then) = _$BalanceCopyWithImpl;
+@useResult
+$Res call({
+ List<TokenBalance> token, int uco
+});
 
+
+
+
+}
 /// @nodoc
-class _$BalanceCopyWithImpl<$Res, $Val extends Balance>
+class _$BalanceCopyWithImpl<$Res>
     implements $BalanceCopyWith<$Res> {
-  _$BalanceCopyWithImpl(this._value, this._then);
+  _$BalanceCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Balance _self;
+  final $Res Function(Balance) _then;
 
-  /// Create a copy of Balance
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? token = null,
-    Object? uco = null,
-  }) {
-    return _then(_value.copyWith(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as List<TokenBalance>,
-      uco: null == uco
-          ? _value.uco
-          : uco // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
+/// Create a copy of Balance
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? token = null,Object? uco = null,}) {
+  return _then(_self.copyWith(
+token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
+as List<TokenBalance>,uco: null == uco ? _self.uco : uco // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-abstract class _$$BalanceImplCopyWith<$Res> implements $BalanceCopyWith<$Res> {
-  factory _$$BalanceImplCopyWith(
-          _$BalanceImpl value, $Res Function(_$BalanceImpl) then) =
-      __$$BalanceImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<TokenBalance> token, int uco});
 }
 
-/// @nodoc
-class __$$BalanceImplCopyWithImpl<$Res>
-    extends _$BalanceCopyWithImpl<$Res, _$BalanceImpl>
-    implements _$$BalanceImplCopyWith<$Res> {
-  __$$BalanceImplCopyWithImpl(
-      _$BalanceImpl _value, $Res Function(_$BalanceImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Balance
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? token = null,
-    Object? uco = null,
-  }) {
-    return _then(_$BalanceImpl(
-      token: null == token
-          ? _value._token
-          : token // ignore: cast_nullable_to_non_nullable
-              as List<TokenBalance>,
-      uco: null == uco
-          ? _value.uco
-          : uco // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$BalanceImpl extends _Balance {
-  const _$BalanceImpl({final List<TokenBalance> token = const [], this.uco = 0})
-      : _token = token,
-        super._();
 
-  factory _$BalanceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BalanceImplFromJson(json);
+class _Balance extends Balance {
+  const _Balance({final  List<TokenBalance> token = const [], this.uco = 0}): _token = token,super._();
+  factory _Balance.fromJson(Map<String, dynamic> json) => _$BalanceFromJson(json);
 
-  /// Token balances
-  final List<TokenBalance> _token;
-
-  /// Token balances
-  @override
-  @JsonKey()
-  List<TokenBalance> get token {
-    if (_token is EqualUnmodifiableListView) return _token;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_token);
-  }
-
-  /// UCO balance
-  @override
-  @JsonKey()
-  final int uco;
-
-  @override
-  String toString() {
-    return 'Balance(token: $token, uco: $uco)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BalanceImpl &&
-            const DeepCollectionEquality().equals(other._token, _token) &&
-            (identical(other.uco, uco) || other.uco == uco));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_token), uco);
-
-  /// Create a copy of Balance
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BalanceImplCopyWith<_$BalanceImpl> get copyWith =>
-      __$$BalanceImplCopyWithImpl<_$BalanceImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BalanceImplToJson(
-      this,
-    );
-  }
+/// Token balances for various tokens.
+ final  List<TokenBalance> _token;
+/// Token balances for various tokens.
+@override@JsonKey() List<TokenBalance> get token {
+  if (_token is EqualUnmodifiableListView) return _token;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_token);
 }
 
-abstract class _Balance extends Balance {
-  const factory _Balance({final List<TokenBalance> token, final int uco}) =
-      _$BalanceImpl;
-  const _Balance._() : super._();
+/// UCO (Universal Coin) balance.
+@override@JsonKey() final  int uco;
 
-  factory _Balance.fromJson(Map<String, dynamic> json) = _$BalanceImpl.fromJson;
+/// Create a copy of Balance
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BalanceCopyWith<_Balance> get copyWith => __$BalanceCopyWithImpl<_Balance>(this, _$identity);
 
-  /// Token balances
-  @override
-  List<TokenBalance> get token;
-
-  /// UCO balance
-  @override
-  int get uco;
-
-  /// Create a copy of Balance
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BalanceImplCopyWith<_$BalanceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$BalanceToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Balance&&const DeepCollectionEquality().equals(other._token, _token)&&(identical(other.uco, uco) || other.uco == uco));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_token),uco);
+
+@override
+String toString() {
+  return 'Balance(token: $token, uco: $uco)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$BalanceCopyWith<$Res> implements $BalanceCopyWith<$Res> {
+  factory _$BalanceCopyWith(_Balance value, $Res Function(_Balance) _then) = __$BalanceCopyWithImpl;
+@override @useResult
+$Res call({
+ List<TokenBalance> token, int uco
+});
+
+
+
+
+}
+/// @nodoc
+class __$BalanceCopyWithImpl<$Res>
+    implements _$BalanceCopyWith<$Res> {
+  __$BalanceCopyWithImpl(this._self, this._then);
+
+  final _Balance _self;
+  final $Res Function(_Balance) _then;
+
+/// Create a copy of Balance
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? token = null,Object? uco = null,}) {
+  return _then(_Balance(
+token: null == token ? _self._token : token // ignore: cast_nullable_to_non_nullable
+as List<TokenBalance>,uco: null == uco ? _self.uco : uco // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+// dart format on

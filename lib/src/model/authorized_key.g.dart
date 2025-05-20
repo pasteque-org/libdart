@@ -6,13 +6,13 @@ part of 'authorized_key.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AuthorizedKeyImpl _$$AuthorizedKeyImplFromJson(Map<String, dynamic> json) =>
-    _$AuthorizedKeyImpl(
+_AuthorizedKey _$AuthorizedKeyFromJson(Map<String, dynamic> json) =>
+    _AuthorizedKey(
       publicKey: json['publicKey'] as String?,
       encryptedSecretKey: json['encryptedSecretKey'] as String?,
     );
 
-Map<String, dynamic> _$$AuthorizedKeyImplToJson(_$AuthorizedKeyImpl instance) =>
+Map<String, dynamic> _$AuthorizedKeyToJson(_AuthorizedKey instance) =>
     <String, dynamic>{
       'publicKey': instance.publicKey,
       'encryptedSecretKey': instance.encryptedSecretKey,

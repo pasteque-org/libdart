@@ -3,36 +3,44 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'consumed_inputs.freezed.dart';
 part 'consumed_inputs.g.dart';
 
-/// [ConsumedInputs] represents the inputs consumed by the transaction It includes.
+/// Represents the inputs consumed by a transaction.
+///
+/// This class details the source and nature of the assets or data being used in a transaction.
 @freezed
-class ConsumedInputs with _$ConsumedInputs {
+abstract class ConsumedInputs with _$ConsumedInputs {
+  /// Creates a [ConsumedInputs] instance.
+  ///
+  /// All parameters are optional and represent different aspects of a consumed input.
   const factory ConsumedInputs({
-    /// Asset amount
-    int? amount,
+    /// The amount of the asset being consumed. Applicable for UCO or token inputs.
+    final int? amount,
 
-    /// Transaction which send the amount of assets
-    String? from,
+    /// The transaction hash from which this input originates.
+    final String? from,
 
-    /// Address of the token if the type is token
-    String? tokenAddress,
+    /// The address of the token, if the input is a token.
+    final String? tokenAddress,
 
-    /// Date time when the UTXO created/manipulated
-    int? timestamp,
+    /// The timestamp indicating when the Unspent Transaction Output (UTXO) was created or last manipulated.
+    final int? timestamp,
 
-    /// Type of input : UCO/token/state/call
-    String? type,
+    /// The type of the input. Common types include 'UCO', 'token', 'state', or 'call'.
+    final String? type,
 
-    /// Id for a token which is allocated when the token is minted.
-    int? tokenId,
+    /// The unique identifier for a token, allocated when the token is minted. Applicable for token inputs.
+    final int? tokenId,
 
-    /// Version of the UTXO data structure
-    int? protocolVersion,
+    /// The version of the UTXO data structure.
+    final int? protocolVersion,
 
-    /// State of a smart contract
-    String? state,
+    /// The state of a smart contract, if the input involves a smart contract state.
+    final String? state,
   }) = _ConsumedInputs;
+
+  /// Private constructor for [ConsumedInputs].
   const ConsumedInputs._();
 
-  factory ConsumedInputs.fromJson(Map<String, dynamic> json) =>
+  /// Creates a [ConsumedInputs] instance from a JSON map.
+  factory ConsumedInputs.fromJson(final Map<String, dynamic> json) =>
       _$ConsumedInputsFromJson(json);
 }

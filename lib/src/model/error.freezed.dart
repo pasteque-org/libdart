@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,212 +10,165 @@ part of 'error.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Error _$ErrorFromJson(Map<String, dynamic> json) {
-  return _Error.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Error {
-  List<Location> get locations => throw _privateConstructorUsedError;
-  String? get message => throw _privateConstructorUsedError;
-  List<String> get path => throw _privateConstructorUsedError;
+
+/// A list of locations associated with the error.
+ List<Location> get locations;/// A human-readable message describing the error.
+ String? get message;/// The path within a data structure or system where the error occurred.
+ List<String> get path;
+/// Create a copy of Error
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ErrorCopyWith<Error> get copyWith => _$ErrorCopyWithImpl<Error>(this as Error, _$identity);
 
   /// Serializes this Error to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Error
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ErrorCopyWith<Error> get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Error&&const DeepCollectionEquality().equals(other.locations, locations)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.path, path));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(locations),message,const DeepCollectionEquality().hash(path));
+
+@override
+String toString() {
+  return 'Error(locations: $locations, message: $message, path: $path)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ErrorCopyWith<$Res> {
-  factory $ErrorCopyWith(Error value, $Res Function(Error) then) =
-      _$ErrorCopyWithImpl<$Res, Error>;
-  @useResult
-  $Res call({List<Location> locations, String? message, List<String> path});
-}
+abstract mixin class $ErrorCopyWith<$Res>  {
+  factory $ErrorCopyWith(Error value, $Res Function(Error) _then) = _$ErrorCopyWithImpl;
+@useResult
+$Res call({
+ List<Location> locations, String? message, List<String> path
+});
 
+
+
+
+}
 /// @nodoc
-class _$ErrorCopyWithImpl<$Res, $Val extends Error>
+class _$ErrorCopyWithImpl<$Res>
     implements $ErrorCopyWith<$Res> {
-  _$ErrorCopyWithImpl(this._value, this._then);
+  _$ErrorCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Error _self;
+  final $Res Function(Error) _then;
 
-  /// Create a copy of Error
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? locations = null,
-    Object? message = freezed,
-    Object? path = null,
-  }) {
-    return _then(_value.copyWith(
-      locations: null == locations
-          ? _value.locations
-          : locations // ignore: cast_nullable_to_non_nullable
-              as List<Location>,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      path: null == path
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
-  }
+/// Create a copy of Error
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? locations = null,Object? message = freezed,Object? path = null,}) {
+  return _then(_self.copyWith(
+locations: null == locations ? _self.locations : locations // ignore: cast_nullable_to_non_nullable
+as List<Location>,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String?,path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> implements $ErrorCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<Location> locations, String? message, List<String> path});
 }
 
-/// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$ErrorCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Error
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? locations = null,
-    Object? message = freezed,
-    Object? path = null,
-  }) {
-    return _then(_$ErrorImpl(
-      locations: null == locations
-          ? _value._locations
-          : locations // ignore: cast_nullable_to_non_nullable
-              as List<Location>,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      path: null == path
-          ? _value._path
-          : path // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$ErrorImpl extends _Error {
-  const _$ErrorImpl(
-      {final List<Location> locations = const [],
-      this.message,
-      final List<String> path = const []})
-      : _locations = locations,
-        _path = path,
-        super._();
 
-  factory _$ErrorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ErrorImplFromJson(json);
+class _Error extends Error {
+  const _Error({final  List<Location> locations = const [], this.message, final  List<String> path = const []}): _locations = locations,_path = path,super._();
+  factory _Error.fromJson(Map<String, dynamic> json) => _$ErrorFromJson(json);
 
-  final List<Location> _locations;
-  @override
-  @JsonKey()
-  List<Location> get locations {
-    if (_locations is EqualUnmodifiableListView) return _locations;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_locations);
-  }
-
-  @override
-  final String? message;
-  final List<String> _path;
-  @override
-  @JsonKey()
-  List<String> get path {
-    if (_path is EqualUnmodifiableListView) return _path;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_path);
-  }
-
-  @override
-  String toString() {
-    return 'Error(locations: $locations, message: $message, path: $path)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
-            const DeepCollectionEquality()
-                .equals(other._locations, _locations) &&
-            (identical(other.message, message) || other.message == message) &&
-            const DeepCollectionEquality().equals(other._path, _path));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_locations),
-      message,
-      const DeepCollectionEquality().hash(_path));
-
-  /// Create a copy of Error
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ErrorImplToJson(
-      this,
-    );
-  }
+/// A list of locations associated with the error.
+ final  List<Location> _locations;
+/// A list of locations associated with the error.
+@override@JsonKey() List<Location> get locations {
+  if (_locations is EqualUnmodifiableListView) return _locations;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_locations);
 }
 
-abstract class _Error extends Error {
-  const factory _Error(
-      {final List<Location> locations,
-      final String? message,
-      final List<String> path}) = _$ErrorImpl;
-  const _Error._() : super._();
-
-  factory _Error.fromJson(Map<String, dynamic> json) = _$ErrorImpl.fromJson;
-
-  @override
-  List<Location> get locations;
-  @override
-  String? get message;
-  @override
-  List<String> get path;
-
-  /// Create a copy of Error
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+/// A human-readable message describing the error.
+@override final  String? message;
+/// The path within a data structure or system where the error occurred.
+ final  List<String> _path;
+/// The path within a data structure or system where the error occurred.
+@override@JsonKey() List<String> get path {
+  if (_path is EqualUnmodifiableListView) return _path;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_path);
 }
+
+
+/// Create a copy of Error
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ErrorCopyWith<_Error> get copyWith => __$ErrorCopyWithImpl<_Error>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$ErrorToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Error&&const DeepCollectionEquality().equals(other._locations, _locations)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._path, _path));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_locations),message,const DeepCollectionEquality().hash(_path));
+
+@override
+String toString() {
+  return 'Error(locations: $locations, message: $message, path: $path)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ErrorCopyWith<$Res> implements $ErrorCopyWith<$Res> {
+  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) _then) = __$ErrorCopyWithImpl;
+@override @useResult
+$Res call({
+ List<Location> locations, String? message, List<String> path
+});
+
+
+
+
+}
+/// @nodoc
+class __$ErrorCopyWithImpl<$Res>
+    implements _$ErrorCopyWith<$Res> {
+  __$ErrorCopyWithImpl(this._self, this._then);
+
+  final _Error _self;
+  final $Res Function(_Error) _then;
+
+/// Create a copy of Error
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? locations = null,Object? message = freezed,Object? path = null,}) {
+  return _then(_Error(
+locations: null == locations ? _self._locations : locations // ignore: cast_nullable_to_non_nullable
+as List<Location>,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String?,path: null == path ? _self._path : path // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
+}
+
+
+}
+
+// dart format on
