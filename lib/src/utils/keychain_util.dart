@@ -1,3 +1,5 @@
+// ignore_for_file: require_trailing_commas
+
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -73,8 +75,8 @@ mixin KeychainUtil {
             try {
               final publicKey = jwkToKey(publicKeyJwk);
               publicKeys.add(uint8ListToHex(publicKey));
-            } catch (e) {
-              _logger.severe('Error converting JWK to public key: $e');
+            } on Exception {
+              _logger.severe('Error converting JWK to public key');
             }
           }
         }

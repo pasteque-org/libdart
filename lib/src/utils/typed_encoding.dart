@@ -39,12 +39,12 @@ enum DataType {
 /// - [version]: The serialization version to use. Defaults to 1.
 /// Returns a [Uint8List] containing the serialized data.
 /// Throws an [Exception] if an unhandled data type is encountered during serialization (for objects without `toJson`).
-Uint8List serialize(data, [final int version = 1]) {
-  data = sortObjectKeysAsc(data);
+Uint8List serialize<T>(final T data, [final int version = 1]) {
+  final sortedData = sortObjectKeysAsc(data);
 
   switch (version) {
     default:
-      return doSerializeV1(data);
+      return doSerializeV1(sortedData);
   }
 }
 
@@ -81,7 +81,7 @@ dynamic deserialize(final Uint8List encodedData, [final int version = 1]) {
 /// - [data]: The data to serialize.
 /// Returns a [Uint8List] containing the v1 serialized data.
 /// Throws an [Exception] if an unhandled data type is encountered (e.g., an object without a `toJson` method).
-Uint8List doSerializeV1(final data) {
+Uint8List doSerializeV1<T>(final T data) {
   if (data == null) {
     return Uint8List.fromList([DataType.typeNull.index]);
   } else if (data == true) {
@@ -129,7 +129,7 @@ Uint8List doSerializeV1(final data) {
       varint.serialize(data.length),
       ...serializedKeyValues,
     ]);
-  } else if (data is Object) {
+  } else {
     final serializedKeyValues = data.tryToJson().entries.expand((final entry) {
       final key = entry.key;
       final value = entry.value;
@@ -141,8 +141,6 @@ Uint8List doSerializeV1(final data) {
       varint.serialize(data.tryToJson().length),
       ...serializedKeyValues,
     ]);
-  } else {
-    throw Exception('Unhandled data type');
   }
 }
 
@@ -237,7 +235,7 @@ extension TryToJsonExtension on Object? {
     try {
       final dynamic result = (this as dynamic).toJson();
       return result;
-    } catch (e) {
+    } on Exception {
       throw Exception('Object of type $runtimeType does not implement toJson');
     }
   }

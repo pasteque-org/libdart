@@ -1,3 +1,5 @@
+// ignore_for_file: require_trailing_commas
+
 import 'dart:async';
 import 'dart:developer';
 
@@ -59,11 +61,11 @@ class ArchethicTransactionSender
   ///
   /// If a transaction sending process is active, its completer will be completed with `null`.
   @override
-  void close() {
+  Future<void> close() async {
     if (_completer?.isCompleted == false) {
       _completer!.complete(null);
     }
-    _reset();
+    await _reset();
   }
 
   /// Sends a transaction and waits for its confirmation.
@@ -122,7 +124,7 @@ class ArchethicTransactionSender
           unawaited(onConfirmation(confirmation));
         }
         if (isEnoughConfirmations(confirmation)) {
-          _onComplete(confirmation);
+          await _onComplete(confirmation);
         }
       }, _onError);
       _listenTransactionError(transaction.address!.address!, _onError);
@@ -143,26 +145,26 @@ class ArchethicTransactionSender
     }
   }
 
-  void _onComplete(final TransactionConfirmation confirmation) {
+  Future<void> _onComplete(final TransactionConfirmation confirmation) async {
     _completer?.complete(confirmation);
-    _reset();
+    await _reset();
   }
 
   Future<void> _onError(final TransactionError error) async {
     _completer?.completeError(error);
-    _reset();
+    await _reset();
   }
 
-  void _reset() {
+  Future<void> _reset() async {
     _timer?.cancel();
     _timer = null;
-    _phoenixLink?.dispose();
+    await _phoenixLink?.dispose();
     _phoenixLink = null;
-    _phoenixHttpLink?.dispose();
+    await _phoenixHttpLink?.dispose();
     _phoenixHttpLink = null;
-    _transactionConfirmedSubscription?.cancel();
+    await _transactionConfirmedSubscription?.cancel();
     _transactionConfirmedSubscription = null;
-    _transactionErrorSubscription?.cancel();
+    await _transactionErrorSubscription?.cancel();
     _transactionErrorSubscription = null;
     _client = null;
 
@@ -220,10 +222,10 @@ class ArchethicTransactionSender
 
     _transactionErrorSubscription = _subscribe<TransactionError>(
       'subscription { transactionError(address: "$address") { context, error { code, data, message } } }',
-    ).listen((final result) {
+    ).listen((final result) async {
       final transactionError = _errorDtoToModel(result.data);
       log('>>> Transaction KO $address <<< (${transactionError.messageLabel})');
-      onError(transactionError);
+      await onError(transactionError);
     });
   }
 
@@ -285,7 +287,7 @@ mixin ArchethicTransactionParser {
         );
       }
       return const TransactionError.other();
-    } catch (e) {
+    } on Exception {
       return const TransactionError.other();
     }
   }

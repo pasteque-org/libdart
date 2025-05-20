@@ -258,8 +258,9 @@ abstract class Keychain with _$Keychain {
           //   print("Ignoring unknown purpose '$purpose' for DID generation: $serviceName");
           // }
         }
+      } on Exception {
         // ignore: empty_catches
-      } catch (e) {}
+      }
     });
 
     return <String, dynamic>{

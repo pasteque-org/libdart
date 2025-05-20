@@ -136,7 +136,7 @@ class PhoenixLink extends Link {
         // ignore: only_throw_errors
         throw _parser.parseError(pushResponse.response as Map<String, dynamic>);
       }
-    } catch (e, stackTrace) {
+    } on Exception catch (e, stackTrace) {
       log(e.toString(), error: e, stackTrace: stackTrace);
     } finally {
       await websocketSubscription?.cancel();

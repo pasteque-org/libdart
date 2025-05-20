@@ -1,3 +1,5 @@
+// ignore_for_file: require_trailing_commas
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
@@ -603,8 +605,8 @@ class ApiService with JsonRPCUtil {
       });
 
       return removeAliasPrefix<List<Ownership>>(ownershipsMap) ?? {};
-    } catch (e, stack) {
-      _logger.severe('getTransactionOwnerships failed', e, stack);
+    } on Exception {
+      _logger.severe('getTransactionOwnerships failed', e);
     }
 
     return {};

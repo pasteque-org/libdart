@@ -98,7 +98,7 @@ abstract class Address with _$Address {
         } else {
           return true;
         }
-      } catch (e) {
+      } on Exception {
         return false;
       }
     } else {

@@ -148,7 +148,7 @@ String deriveAddress(
 /// - [algo] : Hash algorithm (default: 'sha256'). Supported: "sha256", "sha512", "sha3-256", "sha3-512", "blake2b".
 /// - [isContentHexa] : Whether the provided [content] (if it's a String) is a hexadecimal string (default: true).
 Uint8List hash(
-  content, {
+  final content, {
   final String algo = 'sha256',
   final bool isContentHexa = true,
 }) {
@@ -156,20 +156,20 @@ Uint8List hash(
     throw "'content' must be a string or Uint8List";
   }
 
+  Uint8List contentBytes;
   if (content is String) {
     if (isContentHexa && !isHex(content)) {
       throw const FormatException("'content' must be an hexadecimal string");
     }
 
-    if (isContentHexa) {
-      content = Uint8List.fromList(utf8.encode(content));
-    } else {
-      content = Uint8List.fromList(content.codeUnits);
-    }
+    contentBytes =
+        isContentHexa ? hexToUint8List(content) : utf8.encode(content);
+  } else {
+    contentBytes = content;
   }
 
   final algoID = hashAlgoToID(algo);
-  final digest = getHashDigest(content, algo);
+  final digest = getHashDigest(contentBytes, algo);
 
   return concatUint8List(<Uint8List>[
     Uint8List.fromList(<int>[algoID]),
@@ -289,8 +289,8 @@ KeyPair getKeypair(final Uint8List pvKey, final String curve) {
 /// - [isPrivateKeyHexa] : Whether the [privateKey] (if String) is hex encoded (default: true).
 /// Returns the signature as [Uint8List].
 Uint8List sign(
-  data,
-  privateKey, {
+  final data,
+  final privateKey, {
   final bool isDataHexa = true,
   final bool isPrivateKeyHexa = true,
 }) {
@@ -302,16 +302,20 @@ Uint8List sign(
     throw "'privateKey' must be a string or Uint8List";
   }
 
+  Uint8List dataBytes;
+  Uint8List privateKeyBytes;
   if (data is String) {
     if (isDataHexa && !isHex(data)) {
       throw const FormatException("'data' must be an hexadecimal string");
     }
 
     if (isDataHexa) {
-      data = Uint8List.fromList(hexToUint8List(data));
+      dataBytes = Uint8List.fromList(hexToUint8List(data));
     } else {
-      data = Uint8List.fromList(utf8.encode(data));
+      dataBytes = Uint8List.fromList(utf8.encode(data));
     }
+  } else {
+    dataBytes = data;
   }
 
   if (privateKey is String) {
@@ -320,30 +324,34 @@ Uint8List sign(
     }
 
     if (isPrivateKeyHexa) {
-      privateKey = Uint8List.fromList(hexToUint8List(privateKey));
+      privateKeyBytes = Uint8List.fromList(hexToUint8List(privateKey));
     } else {
-      privateKey = Uint8List.fromList(utf8.encode(privateKey));
+      privateKeyBytes = Uint8List.fromList(utf8.encode(privateKey));
     }
+  } else {
+    privateKeyBytes = privateKey;
   }
 
-  final curveBuf = Uint8List.fromList(privateKey.sublist(0, 1));
-  final pvBuf = Uint8List.fromList(privateKey.sublist(2, privateKey.length));
+  final curveBuf = Uint8List.fromList(privateKeyBytes.sublist(0, 1));
+  final pvBuf = Uint8List.fromList(
+    privateKeyBytes.sublist(2, privateKeyBytes.length),
+  );
 
   switch (curveBuf[0]) {
     case 0:
       final signingKey = ed25519.SigningKey(seed: pvBuf);
-      final sm = signingKey.sign(data).signature;
+      final sm = signingKey.sign(dataBytes).signature;
       return Uint8List.fromList(sm);
     case 1:
       final sha256 = Digest('SHA-256');
-      final msgHash = sha256.process(data);
+      final msgHash = sha256.process(dataBytes);
       final ec = elliptic.getP256();
       final privateKey = elliptic.PrivateKey.fromBytes(ec, pvBuf);
       final sig = ecdsa.deterministicSign(privateKey, msgHash);
       return Uint8List.fromList(sig.toDER());
     case 2:
       final sha256 = Digest('SHA-256');
-      final msgHash = sha256.process(data);
+      final msgHash = sha256.process(dataBytes);
 
       final ec = elliptic.getSecp256k1();
       final privateKey = elliptic.PrivateKey.fromBytes(ec, pvBuf);
@@ -365,9 +373,9 @@ Uint8List sign(
 /// - [isPublicKeyHexa] : Whether the [publicKey] (if String) is hex encoded (default: true).
 /// Returns true if the signature is valid, false otherwise.
 bool verify(
-  sig,
-  data,
-  publicKey, {
+  final sig,
+  final data,
+  final publicKey, {
   final bool isSigHexa = true,
   final bool isDataHexa = true,
   final bool isPublicKeyHexa = true,
@@ -384,16 +392,21 @@ bool verify(
     throw "'publicKey' must be a string or Uint8List";
   }
 
+  Uint8List sigBytes;
+  Uint8List dataBytes;
+  Uint8List publicKeyBytes;
   if (sig is String) {
     if (isSigHexa && !isHex(sig)) {
       throw const FormatException("'sig' must be an hexadecimal string");
     }
 
     if (isSigHexa) {
-      sig = Uint8List.fromList(hexToUint8List(sig));
+      sigBytes = Uint8List.fromList(hexToUint8List(sig));
     } else {
       throw "'signature' must be an hexadecimal string";
     }
+  } else {
+    sigBytes = sig;
   }
 
   if (data is String) {
@@ -402,10 +415,12 @@ bool verify(
     }
 
     if (isDataHexa) {
-      data = Uint8List.fromList(hexToUint8List(data));
+      dataBytes = Uint8List.fromList(hexToUint8List(data));
     } else {
-      data = Uint8List.fromList(utf8.encode(data));
+      dataBytes = Uint8List.fromList(utf8.encode(data));
     }
+  } else {
+    dataBytes = data;
   }
 
   if (publicKey is String) {
@@ -414,34 +429,41 @@ bool verify(
     }
 
     if (isPublicKeyHexa) {
-      publicKey = Uint8List.fromList(hexToUint8List(publicKey));
+      publicKeyBytes = Uint8List.fromList(hexToUint8List(publicKey));
     } else {
       throw "'publicKey' must be an hexadecimal string";
     }
+  } else {
+    publicKeyBytes = publicKey;
   }
 
-  final curveBuf = Uint8List.fromList(publicKey.sublist(0, 1));
-  final pubBuf = Uint8List.fromList(publicKey.sublist(2, publicKey.length));
+  final curveBuf = Uint8List.fromList(publicKeyBytes.sublist(0, 1));
+  final pubBuf = Uint8List.fromList(
+    publicKeyBytes.sublist(2, publicKeyBytes.length),
+  );
 
   switch (curveBuf[0]) {
     case 0:
       final verifyKey = ed25519.VerifyKey(pubBuf);
-      return verifyKey.verify(signature: ed25519.Signature(sig), message: data);
+      return verifyKey.verify(
+        signature: ed25519.Signature(sigBytes),
+        message: dataBytes,
+      );
     case 1:
       final sha256 = Digest('SHA-256');
-      final msgHash = sha256.process(data);
+      final msgHash = sha256.process(dataBytes);
 
       final ec = elliptic.getP256();
       final publicKey = elliptic.PublicKey.fromHex(ec, uint8ListToHex(pubBuf));
-      final signature = ecdsa.Signature.fromASN1(sig);
+      final signature = ecdsa.Signature.fromASN1(sigBytes);
       return ecdsa.verify(publicKey, msgHash, signature);
     case 2:
       final sha256 = Digest('SHA-256');
-      final msgHash = sha256.process(data);
+      final msgHash = sha256.process(dataBytes);
 
       final ec = elliptic.getSecp256k1();
       final publicKey = elliptic.PublicKey.fromHex(ec, uint8ListToHex(pubBuf));
-      final signature = ecdsa.Signature.fromASN1(sig);
+      final signature = ecdsa.Signature.fromASN1(sigBytes);
       return ecdsa.verify(publicKey, msgHash, signature);
 
     default:
@@ -458,8 +480,8 @@ bool verify(
 /// - [isPublicKeyHexa] : Whether the [publicKey] (if String) is hex encoded (default: true).
 /// Returns the encrypted data as [Uint8List], typically containing ephemeral public key, tag, and ciphertext.
 Uint8List ecEncrypt(
-  data,
-  publicKey, {
+  final data,
+  final publicKey, {
   final bool isDataHexa = true,
   final bool isPublicKeyHexa = true,
 }) {
@@ -471,16 +493,20 @@ Uint8List ecEncrypt(
     throw "'publicKey' must be a string or Uint8List";
   }
 
+  Uint8List dataBytes;
+  Uint8List publicKeyBytes;
   if (data is String) {
     if (isDataHexa && !isHex(data)) {
       throw const FormatException("'data' must be an hexadecimal string");
     }
 
     if (isDataHexa) {
-      data = Uint8List.fromList(hexToUint8List(data));
+      dataBytes = Uint8List.fromList(hexToUint8List(data));
     } else {
-      data = Uint8List.fromList(utf8.encode(data));
+      dataBytes = Uint8List.fromList(utf8.encode(data));
     }
+  } else {
+    dataBytes = data;
   }
 
   if (publicKey is String) {
@@ -489,14 +515,18 @@ Uint8List ecEncrypt(
     }
 
     if (isPublicKeyHexa) {
-      publicKey = Uint8List.fromList(hexToUint8List(publicKey));
+      publicKeyBytes = Uint8List.fromList(hexToUint8List(publicKey));
     } else {
       throw "'publicKey' must be an hexadecimal string";
     }
+  } else {
+    publicKeyBytes = publicKey;
   }
 
-  final curveBuf = Uint8List.fromList(publicKey.sublist(0, 1));
-  final pubBuf = Uint8List.fromList(publicKey.sublist(2, publicKey.length));
+  final curveBuf = Uint8List.fromList(publicKeyBytes.sublist(0, 1));
+  final pubBuf = Uint8List.fromList(
+    publicKeyBytes.sublist(2, publicKeyBytes.length),
+  );
 
   switch (curveBuf[0]) {
     case 0:
@@ -514,7 +544,7 @@ Uint8List ecEncrypt(
 
       final secret = deriveSecret(sharedKey);
       final aesAuthEncryptInfos = aesAuthEncrypt(
-        data,
+        dataBytes,
         Uint8List.fromList(secret.aesKey!),
         Uint8List.fromList(secret.iv!),
       );
@@ -526,38 +556,38 @@ Uint8List ecEncrypt(
       ]);
     case 1:
       final ec = elliptic.getP256();
-      final privateKey = ec.generatePrivateKey();
-      final publicKey = elliptic.PublicKey.fromHex(ec, uint8ListToHex(pubBuf));
+      final privateKey_ = ec.generatePrivateKey();
+      final publicKey_ = elliptic.PublicKey.fromHex(ec, uint8ListToHex(pubBuf));
       final sharedKey = Uint8List.fromList(
-        ecdh.computeSecret(privateKey, publicKey),
+        ecdh.computeSecret(privateKey_, publicKey_),
       );
       final secret = deriveSecret(sharedKey);
       final aesAuthEncryptInfos = aesAuthEncrypt(
-        data,
+        dataBytes,
         Uint8List.fromList(secret.aesKey!),
         Uint8List.fromList(secret.iv!),
       );
       return concatUint8List(<Uint8List>[
-        Uint8List.fromList(hexToUint8List(privateKey.publicKey.toHex())),
+        Uint8List.fromList(hexToUint8List(privateKey_.publicKey.toHex())),
         Uint8List.fromList(aesAuthEncryptInfos.tag!),
         Uint8List.fromList(aesAuthEncryptInfos.encrypted!),
       ]);
 
     case 2:
       final ec = elliptic.getSecp256k1();
-      final privateKey = ec.generatePrivateKey();
-      final publicKey = elliptic.PublicKey.fromHex(ec, uint8ListToHex(pubBuf));
+      final privateKey_ = ec.generatePrivateKey();
+      final publicKey_ = elliptic.PublicKey.fromHex(ec, uint8ListToHex(pubBuf));
       final sharedKey = Uint8List.fromList(
-        ecdh.computeSecret(privateKey, publicKey),
+        ecdh.computeSecret(privateKey_, publicKey_),
       );
       final secret = deriveSecret(sharedKey);
       final aesAuthEncryptInfos = aesAuthEncrypt(
-        data,
+        dataBytes,
         Uint8List.fromList(secret.aesKey!),
         Uint8List.fromList(secret.iv!),
       );
       return concatUint8List(<Uint8List>[
-        Uint8List.fromList(hexToUint8List(privateKey.publicKey.toHex())),
+        Uint8List.fromList(hexToUint8List(privateKey_.publicKey.toHex())),
         Uint8List.fromList(aesAuthEncryptInfos.tag!),
         Uint8List.fromList(aesAuthEncryptInfos.encrypted!),
       ]);
@@ -576,8 +606,8 @@ Uint8List ecEncrypt(
 /// - [isPrivateKeyHexa] : Whether the [privateKey] (if String) is hex encoded (default: true).
 /// Returns the decrypted data as [Uint8List].
 Uint8List ecDecrypt(
-  cipherText,
-  privateKey, {
+  final cipherText,
+  final privateKey, {
   final bool isCipherTextHexa = true,
   final bool isPrivateKeyHexa = true,
 }) {
@@ -589,16 +619,20 @@ Uint8List ecDecrypt(
     throw "'publicKey' must be a string or Uint8List";
   }
 
+  Uint8List cipherTextBytes;
+  Uint8List privateKeyBytes;
   if (cipherText is String) {
     if (isCipherTextHexa && !isHex(cipherText)) {
       throw const FormatException("'cipherText' must be an hexadecimal string");
     }
 
     if (isCipherTextHexa) {
-      cipherText = Uint8List.fromList(hexToUint8List(cipherText));
+      cipherTextBytes = Uint8List.fromList(hexToUint8List(cipherText));
     } else {
-      cipherText = Uint8List.fromList(utf8.encode(cipherText));
+      cipherTextBytes = Uint8List.fromList(utf8.encode(cipherText));
     }
+  } else {
+    cipherTextBytes = cipherText;
   }
 
   if (privateKey is String) {
@@ -607,22 +641,26 @@ Uint8List ecDecrypt(
     }
 
     if (isPrivateKeyHexa) {
-      privateKey = Uint8List.fromList(hexToUint8List(privateKey));
+      privateKeyBytes = Uint8List.fromList(hexToUint8List(privateKey));
     } else {
       throw "'privateKey' must be an hexadecimal string";
     }
+  } else {
+    privateKeyBytes = privateKey;
   }
 
-  final curveBuf = Uint8List.fromList(privateKey.sublist(0, 1));
-  final pvBuf = Uint8List.fromList(privateKey.sublist(2, privateKey.length));
+  final curveBuf = Uint8List.fromList(privateKeyBytes.sublist(0, 1));
+  final pvBuf = Uint8List.fromList(
+    privateKeyBytes.sublist(2, privateKeyBytes.length),
+  );
 
   switch (curveBuf[0]) {
     case 0:
-      final Uint8List ephemeralPubKey = cipherText.sublist(0, 32);
-      final Uint8List tag = cipherText.sublist(32, 32 + 16);
-      final Uint8List encrypted = cipherText.sublist(
+      final ephemeralPubKey = cipherTextBytes.sublist(0, 32);
+      final tag = cipherTextBytes.sublist(32, 32 + 16);
+      final encrypted = cipherTextBytes.sublist(
         32 + 16,
-        cipherText.length,
+        cipherTextBytes.length,
       );
 
       final curve25519pv = Uint8List(32);
@@ -641,20 +679,20 @@ Uint8List ecDecrypt(
         tag,
       );
     case 1:
-      final Uint8List ephemeralPubKey = cipherText.sublist(0, 65);
-      final Uint8List tag = cipherText.sublist(65, 65 + 16);
-      final Uint8List encrypted = cipherText.sublist(
+      final ephemeralPubKey = cipherTextBytes.sublist(0, 65);
+      final tag = cipherTextBytes.sublist(65, 65 + 16);
+      final encrypted = cipherTextBytes.sublist(
         65 + 16,
-        cipherText.length,
+        cipherTextBytes.length,
       );
       final ec = elliptic.getP256();
-      final privateKey = elliptic.PrivateKey.fromBytes(ec, pvBuf);
-      final publicKey = elliptic.PublicKey.fromHex(
+      final privateKey_ = elliptic.PrivateKey.fromBytes(ec, pvBuf);
+      final publicKey_ = elliptic.PublicKey.fromHex(
         ec,
         uint8ListToHex(ephemeralPubKey),
       );
       final sharedKey = Uint8List.fromList(
-        ecdh.computeSecret(privateKey, publicKey),
+        ecdh.computeSecret(privateKey_, publicKey_),
       );
       final secret = deriveSecret(sharedKey);
 
@@ -666,21 +704,21 @@ Uint8List ecDecrypt(
       );
 
     case 2:
-      final Uint8List ephemeralPubKey = cipherText.sublist(0, 65);
-      final Uint8List tag = cipherText.sublist(65, 65 + 16);
-      final Uint8List encrypted = cipherText.sublist(
+      final ephemeralPubKey = cipherTextBytes.sublist(0, 65);
+      final tag = cipherTextBytes.sublist(65, 65 + 16);
+      final encrypted = cipherTextBytes.sublist(
         65 + 16,
-        cipherText.length,
+        cipherTextBytes.length,
       );
 
       final ec = elliptic.getSecp256k1();
-      final privateKey = elliptic.PrivateKey.fromBytes(ec, pvBuf);
-      final publicKey = elliptic.PublicKey.fromHex(
+      final privateKey_ = elliptic.PrivateKey.fromBytes(ec, pvBuf);
+      final publicKey_ = elliptic.PublicKey.fromHex(
         ec,
         uint8ListToHex(ephemeralPubKey),
       );
       final sharedKey = Uint8List.fromList(
-        ecdh.computeSecret(privateKey, publicKey),
+        ecdh.computeSecret(privateKey_, publicKey_),
       );
       final secret = deriveSecret(sharedKey);
 
@@ -703,8 +741,8 @@ Uint8List ecDecrypt(
 /// - [isKeyHexa] : Whether the [key] (if String) is hex encoded (default: true).
 /// Returns the encrypted data as [Uint8List], formatted as IV + Authentication Tag + Ciphertext.
 Uint8List aesEncrypt(
-  data,
-  key, {
+  final data,
+  final key, {
   final bool isDataHexa = true,
   final bool isKeyHexa = true,
 }) {
@@ -716,16 +754,20 @@ Uint8List aesEncrypt(
     throw "'key' must be a string or Uint8List";
   }
 
+  Uint8List dataBytes;
+  Uint8List keyBytes;
   if (data is String) {
     if (isDataHexa && !isHex(data)) {
       throw const FormatException("'data' must be an hexadecimal string");
     }
 
     if (isDataHexa) {
-      data = Uint8List.fromList(hexToUint8List(data));
+      dataBytes = Uint8List.fromList(hexToUint8List(data));
     } else {
-      data = Uint8List.fromList(utf8.encode(data));
+      dataBytes = Uint8List.fromList(utf8.encode(data));
     }
+  } else {
+    dataBytes = data;
   }
 
   if (key is String) {
@@ -734,14 +776,16 @@ Uint8List aesEncrypt(
     }
 
     if (isKeyHexa) {
-      key = Uint8List.fromList(hexToUint8List(key));
+      keyBytes = Uint8List.fromList(hexToUint8List(key));
     } else {
       throw "'key' must be an hexadecimal string";
     }
+  } else {
+    keyBytes = key;
   }
 
   final keyPair = crypto_keys.KeyPair.symmetric(
-    crypto_keys.SymmetricKey(keyValue: Uint8List.fromList(key)),
+    crypto_keys.SymmetricKey(keyValue: keyBytes),
   );
   final iv = Uint8List.fromList(
     List<int>.generate(12, (final i) => Random.secure().nextInt(256)),
@@ -749,7 +793,7 @@ Uint8List aesEncrypt(
   final encrypter = keyPair.publicKey!.createEncrypter(
     crypto_keys.algorithms.encryption.aes.gcm,
   );
-  final v = encrypter.encrypt(data, initializationVector: iv);
+  final v = encrypter.encrypt(dataBytes, initializationVector: iv);
 
   final result = concatUint8List(<Uint8List>[
     v.initializationVector!,
@@ -767,8 +811,8 @@ Uint8List aesEncrypt(
 /// - [isKeyHexa] : Whether the [key] (if String) is hex encoded (default: true).
 /// Returns the decrypted data as [Uint8List].
 Uint8List aesDecrypt(
-  cipherText,
-  key, {
+  final cipherText,
+  final key, {
   final bool isCipherTextHexa = true,
   final bool isKeyHexa = true,
 }) {
@@ -780,16 +824,20 @@ Uint8List aesDecrypt(
     throw "'key' must be a string or Uint8List";
   }
 
+  Uint8List cipherTextBytes;
+  Uint8List keyBytes;
   if (cipherText is String) {
     if (isCipherTextHexa && !isHex(cipherText)) {
       throw const FormatException("'cipherText' must be an hexadecimal string");
     }
 
     if (isCipherTextHexa) {
-      cipherText = Uint8List.fromList(hexToUint8List(cipherText));
+      cipherTextBytes = Uint8List.fromList(hexToUint8List(cipherText));
     } else {
       throw "'cipherText' must be an hexadecimal string";
     }
+  } else {
+    cipherTextBytes = cipherText;
   }
 
   if (key is String) {
@@ -798,18 +846,20 @@ Uint8List aesDecrypt(
     }
 
     if (isKeyHexa) {
-      key = Uint8List.fromList(hexToUint8List(key));
+      keyBytes = Uint8List.fromList(hexToUint8List(key));
     } else {
       throw "'key' must be an hexadecimal string";
     }
+  } else {
+    keyBytes = key;
   }
 
   final keyPair = crypto_keys.KeyPair.symmetric(
-    crypto_keys.SymmetricKey(keyValue: Uint8List.fromList(key)),
+    crypto_keys.SymmetricKey(keyValue: keyBytes),
   );
-  final Uint8List iv = cipherText.sublist(0, 12);
-  final Uint8List tag = cipherText.sublist(12, 12 + 16);
-  final Uint8List encrypted = cipherText.sublist(28, cipherText.length);
+  final iv = cipherTextBytes.sublist(0, 12);
+  final tag = cipherTextBytes.sublist(12, 12 + 16);
+  final encrypted = cipherTextBytes.sublist(28, cipherTextBytes.length);
   final encrypter = keyPair.privateKey!.createEncrypter(
     crypto_keys.algorithms.encryption.aes.gcm,
   );
@@ -831,25 +881,28 @@ Uint8List aesDecrypt(
 /// - [isSeedHexa] : Whether the [seed] (if String) is hex encoded (default: true).
 /// Returns the derived private key as [Uint8List] (32 bytes).
 Uint8List derivePrivateKey(
-  seed,
+  final seed,
   final int index, {
   final bool isSeedHexa = true,
 }) {
+  Uint8List seedBytes;
   if (seed is String) {
     if (isSeedHexa && !isHex(seed)) {
       throw const FormatException("'seed' must be an hexadecimal string");
     }
 
     if (isSeedHexa) {
-      seed = Uint8List.fromList(hexToUint8List(seed));
+      seedBytes = Uint8List.fromList(hexToUint8List(seed));
     } else {
-      seed = Uint8List.fromList(utf8.encode(seed));
+      seedBytes = Uint8List.fromList(utf8.encode(seed));
     }
+  } else {
+    seedBytes = seed;
   }
 
   /// Derive master keys
   final sha512 = Digest('SHA-512');
-  final buf = sha512.process(seed);
+  final buf = sha512.process(seedBytes);
   final masterKey = buf.sublist(0, 32);
   final masterEntropy = buf.sublist(32, 64);
 
@@ -869,10 +922,12 @@ Uint8List derivePrivateKey(
 /// - [sharedKey] : Shared key material (hex string by default).
 /// - [isSharedKey] : Whether the [sharedKey] (if String) is hex encoded (default: true).
 /// Returns a [Secret] object.
-Secret deriveSecret(sharedKey, {final bool isSharedKey = true}) {
+Secret deriveSecret(final sharedKey, {final bool isSharedKey = true}) {
   if (sharedKey is! Uint8List && sharedKey is! String) {
     throw "'sharedKey' must be a string or Uint8List";
   }
+
+  Uint8List sharedKeyBytes;
 
   if (sharedKey is String) {
     if (isSharedKey && !isHex(sharedKey)) {
@@ -880,14 +935,16 @@ Secret deriveSecret(sharedKey, {final bool isSharedKey = true}) {
     }
 
     if (isSharedKey) {
-      sharedKey = Uint8List.fromList(hexToUint8List(sharedKey));
+      sharedKeyBytes = Uint8List.fromList(hexToUint8List(sharedKey));
     } else {
       throw "'sharedKey' must be an hexadecimal string";
     }
+  } else {
+    sharedKeyBytes = sharedKey;
   }
 
   final sha256 = Digest('SHA-256');
-  final pseudoRandomKey = sha256.process(sharedKey);
+  final pseudoRandomKey = sha256.process(sharedKeyBytes);
 
   var hmac = crypto.Hmac(crypto.sha256, pseudoRandomKey);
   var digest = hmac.convert(utf8.encode('0'));

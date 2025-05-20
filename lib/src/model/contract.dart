@@ -136,13 +136,12 @@ abstract class Contract with _$Contract {
 /// Utility extensions for the [Contract] class.
 @visibleForTesting
 extension ContractUtils on Contract {
-  /// TODO: This method seems to create a transaction but doesn't return or use it.
   /// Clarify its purpose. It might be intended to build and sign an upgrade transaction.
   ///
   /// Placeholder for updating a contract transaction. This currently constructs a transaction
   /// to call the 'upgrade' action with the current contract instance as an argument.
-  void updateContractTransaction(final String contractAddress) {
-    const Transaction(
+  Transaction updateContractTransaction(final String contractAddress) {
+    return const Transaction(
       type: 'transfer',
     ).addRecipient(contractAddress, action: 'upgrade', args: [this]);
   }

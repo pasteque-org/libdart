@@ -174,7 +174,6 @@ class GraphQLClientLogger implements GraphQLClient {
     _logger.fine(
       '${DateTime.now()} subscription requestHttp.body=${printNode(options.document)}',
     );
-    // TODO: Consider how to log stream events (data/errors) from subscriptions.
     return client.subscribe(options);
   }
 

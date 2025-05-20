@@ -1,3 +1,5 @@
+// ignore_for_file: require_trailing_commas
+
 import 'dart:developer';
 
 import 'package:archethic_lib_dart/archethic_lib_dart.dart';
@@ -558,7 +560,7 @@ void main() {
           ),
         );
         fail('Should send an ArchethicJsonRPCException with code 252');
-      } catch (e) {
+      } on Exception catch (e) {
         expect(e, isA<ArchethicJsonRPCException>());
         e as ArchethicJsonRPCException;
         expect(e.code, 252);

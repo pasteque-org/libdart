@@ -27,8 +27,8 @@ class OracleService {
       final result = await _archethicOracle.getOracleData(timestamp: timestamp);
       _logger.fine('getOracleData: $result');
       return result;
-    } catch (e, stack) {
-      _logger.severe('getOracleData failed', e, stack);
+    } on Exception {
+      _logger.severe('getOracleData failed');
       return const OracleUcoPrice();
     }
   }

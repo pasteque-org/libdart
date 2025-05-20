@@ -17,6 +17,7 @@ typedef TransactionErrorHandler = Future<void> Function(TransactionError error);
 ///
 /// This abstraction allows for different implementations of how transactions are sent
 /// and how their confirmations are monitored (e.g., via WebSockets, polling, etc.).
+// ignore: one_member_abstracts
 abstract class TransactionRemoteRepositoryInterface {
   /// Default constructor for implementing classes.
   const TransactionRemoteRepositoryInterface();

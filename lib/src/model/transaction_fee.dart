@@ -68,10 +68,9 @@ abstract class TransactionFeeErrors with _$TransactionFeeErrors {
   /// The [data] field might contain specific data related to the error context.
   /// The [errors] field could contain nested error information.
   const factory TransactionFeeErrors({
-    // TODO: Clarify the purpose and structure of 'data' in TransactionFeeErrors.
     /// Potentially problematic or erroneous data that contributed to the error.
     final Data? data,
-    // TODO: Clarify if 'errors' here is meant to be a list or a more specific error type.
+
     /// Further nested error details.
     final TransactionFeeErrors? errors,
   }) = _TransactionFeeErrors;
