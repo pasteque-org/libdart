@@ -35,13 +35,9 @@ abstract class TokenTransfer with _$TokenTransfer {
     final int? tokenId,
   }) = _TokenTransfer;
 
-  /// Private constructor for `freezed` compatibility.
   const TokenTransfer._();
 
   /// Creates a [TokenTransfer] instance from a JSON map.
-  ///
-  /// This factory uses the `freezed` generated `_$TokenTransferFromJson` function
-  /// to deserialize the JSON data.
   factory TokenTransfer.fromJson(final Map<String, dynamic> json) =>
       _$TokenTransferFromJson(json);
 }

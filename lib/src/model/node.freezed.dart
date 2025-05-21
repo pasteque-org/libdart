@@ -16,7 +16,19 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Node {
 
- bool? get authorized; bool? get available; double? get averageAvailability; String? get firstPublicKey; String? get geoPatch; String? get ip; String? get lastPublicKey; String? get networkPatch; int? get port; String? get rewardAddress; int? get enrollmentDate; int? get authorizationDate;
+/// Indicates if the node is currently authorized to participate in the network.
+ bool? get authorized;/// Indicates if the node is currently available and reachable.
+ bool? get available;/// The historical average availability of the node, often represented as a score or percentage.
+ double? get averageAvailability;/// The first or initial public key associated with this node.
+ String? get firstPublicKey;/// Geographical patch information, possibly indicating its physical or logical region.
+ String? get geoPatch;/// The IP address of the node.
+ String? get ip;/// The last known or current public key for this node.
+ String? get lastPublicKey;/// Network patch information, which might relate to its subnet or specific network segment.
+ String? get networkPatch;/// The network port on which the node provides its services.
+ int? get port;/// The Archethic address designated to receive rewards for this node's participation.
+ String? get rewardAddress;/// The date (timestamp) when the node was initially enrolled in the network.
+ int? get enrollmentDate;/// The date (timestamp) when the node was last authorized or its authorization status was confirmed.
+ int? get authorizationDate;
 /// Create a copy of Node
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -94,17 +106,29 @@ class _Node extends Node {
   const _Node({this.authorized, this.available, this.averageAvailability, this.firstPublicKey, this.geoPatch, this.ip, this.lastPublicKey, this.networkPatch, this.port, this.rewardAddress, this.enrollmentDate, this.authorizationDate}): super._();
   factory _Node.fromJson(Map<String, dynamic> json) => _$NodeFromJson(json);
 
+/// Indicates if the node is currently authorized to participate in the network.
 @override final  bool? authorized;
+/// Indicates if the node is currently available and reachable.
 @override final  bool? available;
+/// The historical average availability of the node, often represented as a score or percentage.
 @override final  double? averageAvailability;
+/// The first or initial public key associated with this node.
 @override final  String? firstPublicKey;
+/// Geographical patch information, possibly indicating its physical or logical region.
 @override final  String? geoPatch;
+/// The IP address of the node.
 @override final  String? ip;
+/// The last known or current public key for this node.
 @override final  String? lastPublicKey;
+/// Network patch information, which might relate to its subnet or specific network segment.
 @override final  String? networkPatch;
+/// The network port on which the node provides its services.
 @override final  int? port;
+/// The Archethic address designated to receive rewards for this node's participation.
 @override final  String? rewardAddress;
+/// The date (timestamp) when the node was initially enrolled in the network.
 @override final  int? enrollmentDate;
+/// The date (timestamp) when the node was last authorized or its authorization status was confirmed.
 @override final  int? authorizationDate;
 
 /// Create a copy of Node

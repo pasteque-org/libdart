@@ -16,7 +16,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AuthorizedKey {
 
- String? get publicKey; String? get encryptedSecretKey;
+/// The public key (hex-encoded) that is authorized to access a secret.
+ String? get publicKey;/// The symmetrically encrypted secret key, itself encrypted with the [publicKey].
+/// This allows the owner of the corresponding private key to decrypt this field and obtain the symmetric key.
+ String? get encryptedSecretKey;
 /// Create a copy of AuthorizedKey
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -84,7 +87,10 @@ class _AuthorizedKey extends AuthorizedKey {
   const _AuthorizedKey({this.publicKey, this.encryptedSecretKey}): super._();
   factory _AuthorizedKey.fromJson(Map<String, dynamic> json) => _$AuthorizedKeyFromJson(json);
 
+/// The public key (hex-encoded) that is authorized to access a secret.
 @override final  String? publicKey;
+/// The symmetrically encrypted secret key, itself encrypted with the [publicKey].
+/// This allows the owner of the corresponding private key to decrypt this field and obtain the symmetric key.
 @override final  String? encryptedSecretKey;
 
 /// Create a copy of AuthorizedKey

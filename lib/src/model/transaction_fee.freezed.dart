@@ -16,7 +16,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TransactionFee {
 
- int? get fee; Rates? get rates; TransactionFeeErrors? get errors;
+/// The transaction fee amount in the smallest unit of UCO (e.g., nanoUCOs).
+ int? get fee;/// Exchange rates for the transaction fee to various fiat currencies.
+ Rates? get rates;/// Error details if the fee calculation failed or encountered issues.
+ TransactionFeeErrors? get errors;
 /// Create a copy of TransactionFee
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -109,8 +112,11 @@ class _TransactionFee extends TransactionFee {
   const _TransactionFee({this.fee, this.rates, this.errors}): super._();
   factory _TransactionFee.fromJson(Map<String, dynamic> json) => _$TransactionFeeFromJson(json);
 
+/// The transaction fee amount in the smallest unit of UCO (e.g., nanoUCOs).
 @override final  int? fee;
+/// Exchange rates for the transaction fee to various fiat currencies.
 @override final  Rates? rates;
+/// Error details if the fee calculation failed or encountered issues.
 @override final  TransactionFeeErrors? errors;
 
 /// Create a copy of TransactionFee
@@ -203,7 +209,10 @@ $TransactionFeeErrorsCopyWith<$Res>? get errors {
 /// @nodoc
 mixin _$Rates {
 
- double? get eur; double? get usd; TransactionFeeErrors? get errors;
+/// The equivalent fee amount in EUR.
+ double? get eur;/// The equivalent fee amount in USD.
+ double? get usd;/// Error details if fetching rates failed.
+ TransactionFeeErrors? get errors;
 /// Create a copy of Rates
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -284,8 +293,11 @@ class _Rates extends Rates {
   const _Rates({this.eur, this.usd, this.errors}): super._();
   factory _Rates.fromJson(Map<String, dynamic> json) => _$RatesFromJson(json);
 
+/// The equivalent fee amount in EUR.
 @override final  double? eur;
+/// The equivalent fee amount in USD.
 @override final  double? usd;
+/// Error details if fetching rates failed.
 @override final  TransactionFeeErrors? errors;
 
 /// Create a copy of Rates
@@ -366,7 +378,9 @@ $TransactionFeeErrorsCopyWith<$Res>? get errors {
 /// @nodoc
 mixin _$TransactionFeeErrors {
 
- Data? get data; TransactionFeeErrors? get errors;
+/// Potentially problematic or erroneous data that contributed to the error.
+ Data? get data;/// Further nested error details.
+ TransactionFeeErrors? get errors;
 /// Create a copy of TransactionFeeErrors
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -458,7 +472,9 @@ class _TransactionFeeErrors extends TransactionFeeErrors {
   const _TransactionFeeErrors({this.data, this.errors}): super._();
   factory _TransactionFeeErrors.fromJson(Map<String, dynamic> json) => _$TransactionFeeErrorsFromJson(json);
 
+/// Potentially problematic or erroneous data that contributed to the error.
 @override final  Data? data;
+/// Further nested error details.
 @override final  TransactionFeeErrors? errors;
 
 /// Create a copy of TransactionFeeErrors

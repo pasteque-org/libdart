@@ -70,9 +70,6 @@ class TransactionError with _$TransactionError implements Exception {
   }) = _TransactionOtherError;
 
   /// Gets a human-readable label for the error.
-  ///
-  /// For `_TransactionOtherError` with map data, it attempts to extract
-  /// more detailed messages using [extractTransactionErrorMessages].
   String get messageLabel => switch (this) {
     _TransactionTimeout() => 'connection timeout',
     _TransactionConnectionError() => 'connectivity issue',

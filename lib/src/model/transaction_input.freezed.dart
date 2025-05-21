@@ -16,13 +16,14 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TransactionInput {
 
-/// Asset amount
- int? get amount;/// Transaction which send the amount of assets
- String? get from;/// Address of the token if the type is token
- String? get tokenAddress;/// Determines if the input has been spent
- bool? get spent;/// Date time when the inputs was generated
- int? get timestamp;/// Type of the input: UCO/Token/Call
- String? get type;/// Id for a token which is allocated when the token is minted.
+/// The amount of the asset associated with this input (e.g., UCO or token amount).
+ int? get amount;/// The transaction hash from which this input originates.
+ String? get from;/// The address of the token, if this input pertains to a token.
+ String? get tokenAddress;/// A boolean indicating whether this input has already been spent.
+ bool? get spent;/// The timestamp indicating when this input was generated or became available.
+ int? get timestamp;/// The type of the input, such as 'UCO', 'Token', or 'Call'.
+ String? get type;/// The unique identifier for a token, relevant if the input is a specific token instance (e.g., an NFT).
+/// This ID is typically allocated when the token is minted.
  int? get tokenId;
 /// Create a copy of TransactionInput
 /// with the given fields replaced by the non-null parameter values.
@@ -96,19 +97,20 @@ class _TransactionInput extends TransactionInput {
   const _TransactionInput({this.amount, this.from, this.tokenAddress, this.spent, this.timestamp, this.type, this.tokenId}): super._();
   factory _TransactionInput.fromJson(Map<String, dynamic> json) => _$TransactionInputFromJson(json);
 
-/// Asset amount
+/// The amount of the asset associated with this input (e.g., UCO or token amount).
 @override final  int? amount;
-/// Transaction which send the amount of assets
+/// The transaction hash from which this input originates.
 @override final  String? from;
-/// Address of the token if the type is token
+/// The address of the token, if this input pertains to a token.
 @override final  String? tokenAddress;
-/// Determines if the input has been spent
+/// A boolean indicating whether this input has already been spent.
 @override final  bool? spent;
-/// Date time when the inputs was generated
+/// The timestamp indicating when this input was generated or became available.
 @override final  int? timestamp;
-/// Type of the input: UCO/Token/Call
+/// The type of the input, such as 'UCO', 'Token', or 'Call'.
 @override final  String? type;
-/// Id for a token which is allocated when the token is minted.
+/// The unique identifier for a token, relevant if the input is a specific token instance (e.g., an NFT).
+/// This ID is typically allocated when the token is minted.
 @override final  int? tokenId;
 
 /// Create a copy of TransactionInput

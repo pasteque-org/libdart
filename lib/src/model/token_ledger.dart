@@ -5,12 +5,7 @@ part 'token_ledger.freezed.dart';
 part 'token_ledger.g.dart';
 
 /// Represents a set of token transfers to be performed on the token ledger.
-///
-/// This class acts as a container for a list of [TokenTransfer] objects,
-/// collectively defining the operations on various tokens within a single transaction context.
-/// The `makeCollectionsUnmodifiable: false` setting on the `@Freezed` annotation
-/// means that the `transfers` list, while initialized, can be modified after object creation if not handled carefully.
-@Freezed(makeCollectionsUnmodifiable: false)
+@freezed
 abstract class TokenLedger with _$TokenLedger {
   /// Creates an instance of [TokenLedger].
   ///
@@ -27,9 +22,6 @@ abstract class TokenLedger with _$TokenLedger {
   const TokenLedger._();
 
   /// Creates a [TokenLedger] instance from a JSON map.
-  ///
-  /// This factory uses the `freezed` generated `_$TokenLedgerFromJson` function
-  /// to deserialize the JSON data.
   factory TokenLedger.fromJson(final Map<String, dynamic> json) =>
       _$TokenLedgerFromJson(json);
 }

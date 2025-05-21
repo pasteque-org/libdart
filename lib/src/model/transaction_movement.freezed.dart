@@ -16,11 +16,12 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TransactionMovement {
 
-/// Asset amount
- int? get amount;/// Address of the token if the type is token
- String? get tokenAddress;/// Asset transfer recipient
- String? get to;/// Type of the asset: UCO/Token
- String? get type;/// Id for a token which is allocated when the token is minted.
+/// The amount of the asset being moved.
+ int? get amount;/// The address of the token, if the movement involves a token.
+ String? get tokenAddress;/// The recipient's address for this asset movement.
+ String? get to;/// The type of asset being moved, e.g., 'UCO' or 'Token'.
+ String? get type;/// The unique identifier for a token, relevant if a specific token instance (like an NFT) is being moved.
+/// This ID is allocated when the token is minted.
  int? get tokenId;
 /// Create a copy of TransactionMovement
 /// with the given fields replaced by the non-null parameter values.
@@ -92,15 +93,16 @@ class _TransactionMovement extends TransactionMovement {
   const _TransactionMovement({this.amount, this.tokenAddress, this.to, this.type, this.tokenId}): super._();
   factory _TransactionMovement.fromJson(Map<String, dynamic> json) => _$TransactionMovementFromJson(json);
 
-/// Asset amount
+/// The amount of the asset being moved.
 @override final  int? amount;
-/// Address of the token if the type is token
+/// The address of the token, if the movement involves a token.
 @override final  String? tokenAddress;
-/// Asset transfer recipient
+/// The recipient's address for this asset movement.
 @override final  String? to;
-/// Type of the asset: UCO/Token
+/// The type of asset being moved, e.g., 'UCO' or 'Token'.
 @override final  String? type;
-/// Id for a token which is allocated when the token is minted.
+/// The unique identifier for a token, relevant if a specific token instance (like an NFT) is being moved.
+/// This ID is allocated when the token is minted.
 @override final  int? tokenId;
 
 /// Create a copy of TransactionMovement

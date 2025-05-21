@@ -16,7 +16,14 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SCCallFunctionParams {
 
- String get contract; String get function; List<dynamic> get args;@JsonKey(name: 'resolve_last') bool get resolveLast;
+/// The address of the target smart contract.
+ String get contract;/// The name of the function to be invoked on the smart contract.
+ String get function;/// The list of arguments to be passed to the smart contract function.
+/// These should be in the order expected by the function signature.
+ List<dynamic> get args;/// Specifies whether the last transaction of the contract chain should be resolved
+/// before executing the function call. This ensures the call operates on the latest state.
+/// Defaults to `true`.
+@JsonKey(name: 'resolve_last') bool get resolveLast;
 /// Create a copy of SCCallFunctionParams
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -86,15 +93,24 @@ class _SCCallFunctionParams implements SCCallFunctionParams {
   const _SCCallFunctionParams({required this.contract, required this.function, required final  List<dynamic> args, @JsonKey(name: 'resolve_last') this.resolveLast = true}): _args = args;
   factory _SCCallFunctionParams.fromJson(Map<String, dynamic> json) => _$SCCallFunctionParamsFromJson(json);
 
+/// The address of the target smart contract.
 @override final  String contract;
+/// The name of the function to be invoked on the smart contract.
 @override final  String function;
+/// The list of arguments to be passed to the smart contract function.
+/// These should be in the order expected by the function signature.
  final  List<dynamic> _args;
+/// The list of arguments to be passed to the smart contract function.
+/// These should be in the order expected by the function signature.
 @override List<dynamic> get args {
   if (_args is EqualUnmodifiableListView) return _args;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_args);
 }
 
+/// Specifies whether the last transaction of the contract chain should be resolved
+/// before executing the function call. This ensures the call operates on the latest state.
+/// Defaults to `true`.
 @override@JsonKey(name: 'resolve_last') final  bool resolveLast;
 
 /// Create a copy of SCCallFunctionParams

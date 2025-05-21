@@ -67,17 +67,6 @@ dynamic deserialize(final Uint8List encodedData, [final int version = 1]) {
 }
 
 /// Performs version 1 serialization of the given [data].
-///
-/// This function handles the specific serialization logic for each supported data type:
-/// - `null`: Serialized as `[DataType.typeNull.index]`.
-/// - `bool`: Serialized as `[DataType.typeBool.index, 0 or 1]`.
-/// - `int`: Serialized as `[DataType.typeInt.index, sign_byte, varint_encoded_absolute_value]`.
-/// - `double` (or `num` that is not `int`): Serialized as `[DataType.typeFloat.index, sign_byte, varint_encoded_bigint_representation]`.
-/// - `String`: Serialized as `[DataType.typeString.index, varint_encoded_byte_length, utf8_bytes]`.
-/// - `List`: Serialized as `[DataType.typeList.index, varint_encoded_length, serialized_items...]`.
-/// - `Map`: Serialized as `[DataType.typeMap.index, varint_encoded_length, serialized_key_value_pairs...]`.
-/// - `Object` (with `toJson`): Serialized as a map after calling `toJson()`.
-///
 /// - [data]: The data to serialize.
 /// Returns a [Uint8List] containing the v1 serialized data.
 /// Throws an [Exception] if an unhandled data type is encountered (e.g., an object without a `toJson` method).

@@ -11,7 +11,7 @@ part 'service.g.dart';
 abstract class Service with _$Service {
   /// Creates an instance of [Service].
   ///
-  /// - [derivationPath]: The hierarchical derivation path for the key associated with this service (e.g., "m/44'/0'/0'/0"). This is a required field.
+  /// - [derivationPath]: The hierarchical derivation path for the key associated with this service. This is a required field.
   /// - [curve]: The cryptographic curve to be used. Defaults to 'ed25519'.
   /// - [hashAlgo]: The hash algorithm to be used. Defaults to 'sha256'.
   const factory Service({
@@ -32,9 +32,6 @@ abstract class Service with _$Service {
   const Service._();
 
   /// Creates a [Service] instance from a JSON map.
-  ///
-  /// This factory uses the `freezed` generated `_$ServiceFromJson` function
-  /// to deserialize the JSON data.
   factory Service.fromJson(final Map<String, dynamic> json) =>
       _$ServiceFromJson(json);
 }

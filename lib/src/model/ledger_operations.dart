@@ -32,8 +32,6 @@ abstract class LedgerOperations with _$LedgerOperations {
     @Default([]) final List<UnspentOutputs> unspentOutputs,
 
     /// A list of inputs that were consumed (spent) by this transaction.
-    /// The original comment "Remaining unspent outputs" for this field seemed incorrect based on the name `consumedInputs`,
-    /// so it has been updated to reflect consumed inputs.
     @Default([]) final List<ConsumedInputs> consumedInputs,
   }) = _LedgerOperations;
 
@@ -41,9 +39,6 @@ abstract class LedgerOperations with _$LedgerOperations {
   const LedgerOperations._();
 
   /// Creates a [LedgerOperations] instance from a JSON map.
-  ///
-  /// This factory uses the `freezed` generated `_$LedgerOperationsFromJson` function
-  /// to deserialize the JSON data.
   factory LedgerOperations.fromJson(final Map<String, dynamic> json) =>
       _$LedgerOperationsFromJson(json);
 }

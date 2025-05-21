@@ -39,9 +39,6 @@ abstract class SCCallFunctionParams with _$SCCallFunctionParams {
   }) = _SCCallFunctionParams;
 
   /// Creates an [SCCallFunctionParams] instance from a JSON map.
-  ///
-  /// This factory uses the `freezed` generated `_$SCCallFunctionParamsFromJson` function
-  /// to deserialize the JSON data.
   factory SCCallFunctionParams.fromJson(final Map<String, dynamic> json) =>
       _$SCCallFunctionParamsFromJson(json);
 }

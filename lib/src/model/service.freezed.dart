@@ -16,7 +16,13 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Service {
 
- String get derivationPath; String get curve; String get hashAlgo;
+/// The derivation path used to generate or identify the key for this service.
+/// This follows a standard hierarchical deterministic wallet path format.
+ String get derivationPath;/// The cryptographic curve used for key generation and operations (e.g., 'ed25519', 'secp256k1').
+/// Defaults to 'ed25519'.
+ String get curve;/// The hash algorithm used in conjunction with this service (e.g., 'sha256', 'keccak256').
+/// Defaults to 'sha256'.
+ String get hashAlgo;
 /// Create a copy of Service
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -85,8 +91,14 @@ class _Service extends Service {
   const _Service({required this.derivationPath, this.curve = 'ed25519', this.hashAlgo = 'sha256'}): super._();
   factory _Service.fromJson(Map<String, dynamic> json) => _$ServiceFromJson(json);
 
+/// The derivation path used to generate or identify the key for this service.
+/// This follows a standard hierarchical deterministic wallet path format.
 @override final  String derivationPath;
+/// The cryptographic curve used for key generation and operations (e.g., 'ed25519', 'secp256k1').
+/// Defaults to 'ed25519'.
 @override@JsonKey() final  String curve;
+/// The hash algorithm used in conjunction with this service (e.g., 'sha256', 'keccak256').
+/// Defaults to 'sha256'.
 @override@JsonKey() final  String hashAlgo;
 
 /// Create a copy of Service

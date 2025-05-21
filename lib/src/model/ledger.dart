@@ -25,9 +25,6 @@ abstract class Ledger with _$Ledger {
   const Ledger._();
 
   /// Creates a [Ledger] instance from a JSON map.
-  ///
-  /// This factory uses the `freezed` generated `_$LedgerFromJson` function
-  /// to deserialize the JSON data into a [Ledger] object.
   factory Ledger.fromJson(final Map<String, dynamic> json) =>
       _$LedgerFromJson(json);
 }

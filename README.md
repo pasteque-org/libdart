@@ -1,5 +1,4 @@
-[![Platform](https://img.shields.io/badge/Platform-Flutter-02569B?logo=flutter)](https://flutter.dev)
-
+[![CI](https://github.com/pasteque-org/libdart/actions/workflows/test.yaml/badge.svg)](https://github.com/pasteque-org/libdart/actions/workflows/test.yaml) [![Platform](https://img.shields.io/badge/Platform-Flutter-02569B?logo=flutter)](https://flutter.dev) [![CodeFactor](https://www.codefactor.io/repository/github/pasteque-org/libdart/badge)](https://www.codefactor.io/repository/github/pasteque-org/libdart)
 # Archethic's lib_dart
 
 Archethic dart library for Flutter

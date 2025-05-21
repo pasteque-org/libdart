@@ -29,15 +29,15 @@ Map<String, dynamic> _$WasmABIToJson(_WasmABI instance) => <String, dynamic>{
 _WASMFunctionABI _$WASMFunctionABIFromJson(Map<String, dynamic> json) =>
     _WASMFunctionABI(
       type: json['type'] as String,
-      triggerType: json['triggerType'] as String?,
       input: json['input'] as Map<String, dynamic>,
+      triggerType: json['triggerType'] as String?,
     );
 
 Map<String, dynamic> _$WASMFunctionABIToJson(_WASMFunctionABI instance) =>
     <String, dynamic>{
       'type': instance.type,
-      'triggerType': instance.triggerType,
       'input': instance.input,
+      'triggerType': instance.triggerType,
     };
 
 _ContractAction _$ContractActionFromJson(Map<String, dynamic> json) =>

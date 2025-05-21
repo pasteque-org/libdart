@@ -782,9 +782,6 @@ class ApiService with JsonRPCUtil {
   }
 
   /// Retrieves the predefined origin private key.
-  ///
-  /// **Note:** This method currently returns a constant value `kOriginPrivateKey`.
-  /// Consider security implications if this key is sensitive and globally accessible.
   String getOriginKey() {
     return kOriginPrivateKey;
   }

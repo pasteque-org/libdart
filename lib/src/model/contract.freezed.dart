@@ -167,7 +167,11 @@ $WasmABICopyWith<$Res> get abi {
 /// @nodoc
 mixin _$WasmABI {
 
- Map<String, String> get state; Map<String, WASMFunctionABI> get functions;
+/// A map defining the contract's state variables and their types.
+/// The key is the state variable name, and the value is its type (e.g., "uint64", "string").
+ Map<String, String> get state;/// A map defining the contract's functions.
+/// The key is the function name, and the value is a [WASMFunctionABI] object.
+ Map<String, WASMFunctionABI> get functions;
 /// Create a copy of WasmABI
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -235,14 +239,22 @@ class _WasmABI implements WasmABI {
   const _WasmABI({required final  Map<String, String> state, required final  Map<String, WASMFunctionABI> functions}): _state = state,_functions = functions;
   factory _WasmABI.fromJson(Map<String, dynamic> json) => _$WasmABIFromJson(json);
 
+/// A map defining the contract's state variables and their types.
+/// The key is the state variable name, and the value is its type (e.g., "uint64", "string").
  final  Map<String, String> _state;
+/// A map defining the contract's state variables and their types.
+/// The key is the state variable name, and the value is its type (e.g., "uint64", "string").
 @override Map<String, String> get state {
   if (_state is EqualUnmodifiableMapView) return _state;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableMapView(_state);
 }
 
+/// A map defining the contract's functions.
+/// The key is the function name, and the value is a [WASMFunctionABI] object.
  final  Map<String, WASMFunctionABI> _functions;
+/// A map defining the contract's functions.
+/// The key is the function name, and the value is a [WASMFunctionABI] object.
 @override Map<String, WASMFunctionABI> get functions {
   if (_functions is EqualUnmodifiableMapView) return _functions;
   // ignore: implicit_dynamic_type
@@ -315,7 +327,11 @@ as Map<String, WASMFunctionABI>,
 /// @nodoc
 mixin _$WASMFunctionABI {
 
- String get type; String? get triggerType; Map<String, dynamic> get input;
+/// The type of the function, e.g., "action" for state-changing functions, "view" for read-only functions.
+ String get type;/// A map defining the input parameters of the function and their types.
+/// The key is the parameter name, and the value can be its type or a more complex structure.
+ Map<String, dynamic> get input;/// Specifies how this function is triggered, e.g., "transaction" if it's callable via a transaction.
+ String? get triggerType;
 /// Create a copy of WASMFunctionABI
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -328,16 +344,16 @@ $WASMFunctionABICopyWith<WASMFunctionABI> get copyWith => _$WASMFunctionABICopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WASMFunctionABI&&(identical(other.type, type) || other.type == type)&&(identical(other.triggerType, triggerType) || other.triggerType == triggerType)&&const DeepCollectionEquality().equals(other.input, input));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WASMFunctionABI&&(identical(other.type, type) || other.type == type)&&const DeepCollectionEquality().equals(other.input, input)&&(identical(other.triggerType, triggerType) || other.triggerType == triggerType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,triggerType,const DeepCollectionEquality().hash(input));
+int get hashCode => Object.hash(runtimeType,type,const DeepCollectionEquality().hash(input),triggerType);
 
 @override
 String toString() {
-  return 'WASMFunctionABI(type: $type, triggerType: $triggerType, input: $input)';
+  return 'WASMFunctionABI(type: $type, input: $input, triggerType: $triggerType)';
 }
 
 
@@ -348,7 +364,7 @@ abstract mixin class $WASMFunctionABICopyWith<$Res>  {
   factory $WASMFunctionABICopyWith(WASMFunctionABI value, $Res Function(WASMFunctionABI) _then) = _$WASMFunctionABICopyWithImpl;
 @useResult
 $Res call({
- String type, String? triggerType, Map<String, dynamic> input
+ String type, Map<String, dynamic> input, String? triggerType
 });
 
 
@@ -365,12 +381,12 @@ class _$WASMFunctionABICopyWithImpl<$Res>
 
 /// Create a copy of WASMFunctionABI
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? triggerType = freezed,Object? input = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? input = null,Object? triggerType = freezed,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,triggerType: freezed == triggerType ? _self.triggerType : triggerType // ignore: cast_nullable_to_non_nullable
-as String?,input: null == input ? _self.input : input // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>,
+as String,input: null == input ? _self.input : input // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,triggerType: freezed == triggerType ? _self.triggerType : triggerType // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -381,18 +397,24 @@ as Map<String, dynamic>,
 @JsonSerializable()
 
 class _WASMFunctionABI implements WASMFunctionABI {
-  const _WASMFunctionABI({required this.type, this.triggerType, required final  Map<String, dynamic> input}): _input = input;
+  const _WASMFunctionABI({required this.type, required final  Map<String, dynamic> input, this.triggerType}): _input = input;
   factory _WASMFunctionABI.fromJson(Map<String, dynamic> json) => _$WASMFunctionABIFromJson(json);
 
+/// The type of the function, e.g., "action" for state-changing functions, "view" for read-only functions.
 @override final  String type;
-@override final  String? triggerType;
+/// A map defining the input parameters of the function and their types.
+/// The key is the parameter name, and the value can be its type or a more complex structure.
  final  Map<String, dynamic> _input;
+/// A map defining the input parameters of the function and their types.
+/// The key is the parameter name, and the value can be its type or a more complex structure.
 @override Map<String, dynamic> get input {
   if (_input is EqualUnmodifiableMapView) return _input;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableMapView(_input);
 }
 
+/// Specifies how this function is triggered, e.g., "transaction" if it's callable via a transaction.
+@override final  String? triggerType;
 
 /// Create a copy of WASMFunctionABI
 /// with the given fields replaced by the non-null parameter values.
@@ -407,16 +429,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WASMFunctionABI&&(identical(other.type, type) || other.type == type)&&(identical(other.triggerType, triggerType) || other.triggerType == triggerType)&&const DeepCollectionEquality().equals(other._input, _input));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WASMFunctionABI&&(identical(other.type, type) || other.type == type)&&const DeepCollectionEquality().equals(other._input, _input)&&(identical(other.triggerType, triggerType) || other.triggerType == triggerType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,triggerType,const DeepCollectionEquality().hash(_input));
+int get hashCode => Object.hash(runtimeType,type,const DeepCollectionEquality().hash(_input),triggerType);
 
 @override
 String toString() {
-  return 'WASMFunctionABI(type: $type, triggerType: $triggerType, input: $input)';
+  return 'WASMFunctionABI(type: $type, input: $input, triggerType: $triggerType)';
 }
 
 
@@ -427,7 +449,7 @@ abstract mixin class _$WASMFunctionABICopyWith<$Res> implements $WASMFunctionABI
   factory _$WASMFunctionABICopyWith(_WASMFunctionABI value, $Res Function(_WASMFunctionABI) _then) = __$WASMFunctionABICopyWithImpl;
 @override @useResult
 $Res call({
- String type, String? triggerType, Map<String, dynamic> input
+ String type, Map<String, dynamic> input, String? triggerType
 });
 
 
@@ -444,12 +466,12 @@ class __$WASMFunctionABICopyWithImpl<$Res>
 
 /// Create a copy of WASMFunctionABI
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? triggerType = freezed,Object? input = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? input = null,Object? triggerType = freezed,}) {
   return _then(_WASMFunctionABI(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,triggerType: freezed == triggerType ? _self.triggerType : triggerType // ignore: cast_nullable_to_non_nullable
-as String?,input: null == input ? _self._input : input // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>,
+as String,input: null == input ? _self._input : input // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,triggerType: freezed == triggerType ? _self.triggerType : triggerType // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -460,7 +482,9 @@ as Map<String, dynamic>,
 /// @nodoc
 mixin _$ContractAction {
 
- String get name; List<String> get parameters;
+/// The name of the contract function.
+ String get name;/// A list of parameter names expected by the function.
+ List<String> get parameters;
 /// Create a copy of ContractAction
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -528,8 +552,11 @@ class _ContractAction implements ContractAction {
   const _ContractAction({required this.name, required final  List<String> parameters}): _parameters = parameters;
   factory _ContractAction.fromJson(Map<String, dynamic> json) => _$ContractActionFromJson(json);
 
+/// The name of the contract function.
 @override final  String name;
+/// A list of parameter names expected by the function.
  final  List<String> _parameters;
+/// A list of parameter names expected by the function.
 @override List<String> get parameters {
   if (_parameters is EqualUnmodifiableListView) return _parameters;
   // ignore: implicit_dynamic_type
@@ -602,7 +629,9 @@ as List<String>,
 /// @nodoc
 mixin _$Contract {
 
- String? get bytecode; ContractManifest get manifest;
+/// The compiled WebAssembly (WASM) bytecode of the smart contract, as a hex string.
+ String? get bytecode;/// The manifest of the smart contract, containing its ABI.
+ ContractManifest get manifest;
 /// Create a copy of Contract
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -679,7 +708,9 @@ class _Contract extends Contract {
   const _Contract({required this.bytecode, required this.manifest}): super._();
   factory _Contract.fromJson(Map<String, dynamic> json) => _$ContractFromJson(json);
 
+/// The compiled WebAssembly (WASM) bytecode of the smart contract, as a hex string.
 @override final  String? bytecode;
+/// The manifest of the smart contract, containing its ABI.
 @override final  ContractManifest manifest;
 
 /// Create a copy of Contract

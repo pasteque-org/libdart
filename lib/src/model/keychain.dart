@@ -419,7 +419,6 @@ KeyPair deriveArchethicKeypair(
 /// - [derivationPath]: The hierarchical path for the service.
 /// - [index]: The specific index for key derivation within the service path.
 /// - [pathSuffix]: An optional suffix appended to the service name component of the
-///   [derivationPath] if it's not an indexed path. Defaults to an empty string.
 ///
 /// Returns a [Uint8List] of 32 bytes representing the derived service seed.
 Uint8List deriveServiceSeed(

@@ -16,7 +16,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$OnChainWalletData {
 
- String? get encodedWalletKey; String? get encryptedWallet;
+/// The encoded key that can be used (potentially after decryption with a user's master key)
+/// to decrypt the [encryptedWallet]. This might be an encrypted symmetric key.
+ String? get encodedWalletKey;/// The main wallet data, stored in an encrypted format on the blockchain.
+ String? get encryptedWallet;
 /// Create a copy of OnChainWalletData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -84,7 +87,10 @@ class _OnChainWalletData extends OnChainWalletData {
   const _OnChainWalletData({this.encodedWalletKey, this.encryptedWallet}): super._();
   factory _OnChainWalletData.fromJson(Map<String, dynamic> json) => _$OnChainWalletDataFromJson(json);
 
+/// The encoded key that can be used (potentially after decryption with a user's master key)
+/// to decrypt the [encryptedWallet]. This might be an encrypted symmetric key.
 @override final  String? encodedWalletKey;
+/// The main wallet data, stored in an encrypted format on the blockchain.
 @override final  String? encryptedWallet;
 
 /// Create a copy of OnChainWalletData

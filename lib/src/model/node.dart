@@ -67,9 +67,6 @@ abstract class Node with _$Node {
   const Node._();
 
   /// Creates a [Node] instance from a JSON map.
-  ///
-  /// This factory uses the `freezed` generated `_$NodeFromJson` function
-  /// to deserialize the JSON data into a [Node] object.
   factory Node.fromJson(final Map<String, dynamic> json) =>
       _$NodeFromJson(json);
 }

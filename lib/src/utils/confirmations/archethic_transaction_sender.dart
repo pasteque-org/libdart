@@ -14,8 +14,6 @@ import 'package:archethic_lib_dart/src/utils/confirmations/transaction_sender.da
 import 'package:graphql/client.dart';
 
 /// Default condition to determine if a transaction has received enough confirmations.
-///
-/// Returns `true` if [TransactionConfirmation.isEnoughConfirmed] is `true`.
 bool _defaultIsEnoughConfirmation(final TransactionConfirmation confirmation) =>
     confirmation.isEnoughConfirmed;
 
@@ -31,7 +29,6 @@ class ArchethicTransactionSender
   ///
   /// Requires an [apiService] to interact with the Archethic network.
   // ignore: comment_references
-  /// It derives Phoenix HTTP and WebSocket endpoints from the [apiService.endpoint].
   ArchethicTransactionSender({required this.apiService}) {
     phoenixHttpEndpoint =
         '${apiService.endpoint}/socket/websocket'; // Note: This might be a typo and should perhaps be just /socket for HTTP polling or use a GraphQL HTTP link.
@@ -58,8 +55,6 @@ class ArchethicTransactionSender
   Completer<TransactionConfirmation?>? _completer;
 
   /// Closes the sender, cancels any pending operations, and cleans up resources.
-  ///
-  /// If a transaction sending process is active, its completer will be completed with `null`.
   @override
   Future<void> close() async {
     if (_completer?.isCompleted == false) {
@@ -69,17 +64,6 @@ class ArchethicTransactionSender
   }
 
   /// Sends a transaction and waits for its confirmation.
-  ///
-  /// - [transaction]: The transaction to send.
-  /// - [isEnoughConfirmations]: A callback to determine if the received number of confirmations is sufficient.
-  ///   Defaults to checking [TransactionConfirmation.isEnoughConfirmed].
-  /// - [timeout]: The maximum duration to wait for enough confirmations. Defaults to 70 minutes.
-  /// - [onConfirmation]: An optional callback invoked for each confirmation event received.
-  ///
-  /// Returns a [Future] that completes with a [TransactionConfirmation] if successful and enough
-  /// confirmations are received, `null` if closed before completion, or an error
-  /// (typically a [TransactionError]) if the transaction fails or times out.
-  /// Throws an [AssertionError] if called while a previous send operation is still active.
   @override
   Future<TransactionConfirmation?> send({
     required final Transaction transaction,
@@ -263,7 +247,7 @@ class ArchethicTransactionSender
 mixin ArchethicTransactionParser {
   /// Parses a GraphQL subscription data map for a transaction error into a [TransactionError] model.
   ///
-  /// Returns `null` if the data is invalid or cannot be parsed.
+  /// Returns [TransactionError.other()] if the data is invalid or cannot be parsed.
   TransactionError _errorDtoToModel(final Map<String, dynamic>? data) {
     try {
       final transactionError = data?['transactionError'];

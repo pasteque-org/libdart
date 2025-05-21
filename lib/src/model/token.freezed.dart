@@ -16,7 +16,22 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Token {
 
- String? get address; String? get genesis; String? get name; String? get id; int? get supply; String? get type; int? get decimals; String? get symbol; Map<String, dynamic> get properties; List<Map<String, dynamic>> get collection; List<int>? get aeip; List<Ownership>? get ownerships;
+/// The address of the token contract.
+ String? get address;/// The genesis transaction hash that created this token.
+ String? get genesis;/// The human-readable name of the token (e.g., "MyToken").
+ String? get name;/// A unique identifier for the token, which might be different from its address or symbol.
+ String? get id;/// The total supply of the token.
+ int? get supply;/// The type of the token (e.g., "fungible", "non-fungible", "semi-fungible").
+ String? get type;/// The number of decimal places the token can be divided into.
+ int? get decimals;/// The symbol or ticker for the token (e.g., "MTK").
+ String? get symbol;/// A map of custom properties associated with the token. Defaults to an empty map.
+ Map<String, dynamic> get properties;/// For Non-Fungible Tokens (NFTs) or Semi-Fungible Tokens, this list can hold metadata for individual items in a collection.
+/// Defaults to an empty list.
+ List<Map<String, dynamic>> get collection;/// A list of Archethic Evolution Improvement Proposal (AEIP) numbers that this token complies with.
+/// Defaults to an empty list.
+ List<int>? get aeip;/// A list of [Ownership] objects defining authorizations or delegations related to the token.
+/// Defaults to an empty list.
+ List<Ownership>? get ownerships;
 /// Create a copy of Token
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -94,29 +109,47 @@ class _Token extends Token {
   const _Token({this.address, this.genesis, this.name, this.id, this.supply, this.type, this.decimals, this.symbol, final  Map<String, dynamic> properties = const {}, final  List<Map<String, dynamic>> collection = const [], final  List<int>? aeip = const [], final  List<Ownership>? ownerships = const []}): _properties = properties,_collection = collection,_aeip = aeip,_ownerships = ownerships,super._();
   factory _Token.fromJson(Map<String, dynamic> json) => _$TokenFromJson(json);
 
+/// The address of the token contract.
 @override final  String? address;
+/// The genesis transaction hash that created this token.
 @override final  String? genesis;
+/// The human-readable name of the token (e.g., "MyToken").
 @override final  String? name;
+/// A unique identifier for the token, which might be different from its address or symbol.
 @override final  String? id;
+/// The total supply of the token.
 @override final  int? supply;
+/// The type of the token (e.g., "fungible", "non-fungible", "semi-fungible").
 @override final  String? type;
+/// The number of decimal places the token can be divided into.
 @override final  int? decimals;
+/// The symbol or ticker for the token (e.g., "MTK").
 @override final  String? symbol;
+/// A map of custom properties associated with the token. Defaults to an empty map.
  final  Map<String, dynamic> _properties;
+/// A map of custom properties associated with the token. Defaults to an empty map.
 @override@JsonKey() Map<String, dynamic> get properties {
   if (_properties is EqualUnmodifiableMapView) return _properties;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableMapView(_properties);
 }
 
+/// For Non-Fungible Tokens (NFTs) or Semi-Fungible Tokens, this list can hold metadata for individual items in a collection.
+/// Defaults to an empty list.
  final  List<Map<String, dynamic>> _collection;
+/// For Non-Fungible Tokens (NFTs) or Semi-Fungible Tokens, this list can hold metadata for individual items in a collection.
+/// Defaults to an empty list.
 @override@JsonKey() List<Map<String, dynamic>> get collection {
   if (_collection is EqualUnmodifiableListView) return _collection;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_collection);
 }
 
+/// A list of Archethic Evolution Improvement Proposal (AEIP) numbers that this token complies with.
+/// Defaults to an empty list.
  final  List<int>? _aeip;
+/// A list of Archethic Evolution Improvement Proposal (AEIP) numbers that this token complies with.
+/// Defaults to an empty list.
 @override@JsonKey() List<int>? get aeip {
   final value = _aeip;
   if (value == null) return null;
@@ -125,7 +158,11 @@ class _Token extends Token {
   return EqualUnmodifiableListView(value);
 }
 
+/// A list of [Ownership] objects defining authorizations or delegations related to the token.
+/// Defaults to an empty list.
  final  List<Ownership>? _ownerships;
+/// A list of [Ownership] objects defining authorizations or delegations related to the token.
+/// Defaults to an empty list.
 @override@JsonKey() List<Ownership>? get ownerships {
   final value = _ownerships;
   if (value == null) return null;

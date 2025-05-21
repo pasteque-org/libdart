@@ -16,7 +16,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Ownership {
 
- List<AuthorizedKey> get authorizedPublicKeys; String? get secret;
+/// A list of public keys that are authorized to access or decrypt the [secret].
+ List<AuthorizedKey> get authorizedPublicKeys;/// The encrypted secret data or a pointer/reference to it. Can be null.
+ String? get secret;
 /// Create a copy of Ownership
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -84,13 +86,16 @@ class _Ownership extends Ownership {
   const _Ownership({final  List<AuthorizedKey> authorizedPublicKeys = const [], this.secret}): _authorizedPublicKeys = authorizedPublicKeys,super._();
   factory _Ownership.fromJson(Map<String, dynamic> json) => _$OwnershipFromJson(json);
 
+/// A list of public keys that are authorized to access or decrypt the [secret].
  final  List<AuthorizedKey> _authorizedPublicKeys;
+/// A list of public keys that are authorized to access or decrypt the [secret].
 @override@JsonKey() List<AuthorizedKey> get authorizedPublicKeys {
   if (_authorizedPublicKeys is EqualUnmodifiableListView) return _authorizedPublicKeys;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_authorizedPublicKeys);
 }
 
+/// The encrypted secret data or a pointer/reference to it. Can be null.
 @override final  String? secret;
 
 /// Create a copy of Ownership

@@ -16,13 +16,14 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnspentOutputs {
 
-/// Asset amount
- int? get amount;/// Address of the token if the type is token
- String? get tokenAddress;/// Type of the token: UCO/Token
- String? get type;/// Transaction which send the amount of assets
- String? get from;/// Id for a token which is allocated when the token is minted.
- int? get tokenId;/// Date time when the UTXO created/manipulated
- int? get timestamp;/// State of a smart contract
+/// The amount of the asset (UCO or token) in this UTXO.
+ int? get amount;/// The address of the token, if this UTXO represents a token.
+ String? get tokenAddress;/// The type of asset this UTXO represents, e.g., 'UCO' or 'Token'.
+ String? get type;/// The transaction hash that created this UTXO.
+ String? get from;/// The unique identifier for a token, relevant if this UTXO is a specific token instance (e.g., an NFT).
+ int? get tokenId;/// The timestamp indicating when this UTXO was created or last modified.
+ int? get timestamp;/// The state of a smart contract, if this UTXO represents a contract state.
+/// The structure of the state is a dynamic map.
  Map<String, dynamic>? get state;
 /// Create a copy of UnspentOutputs
 /// with the given fields replaced by the non-null parameter values.
@@ -96,21 +97,23 @@ class _UnspentOutputs extends UnspentOutputs {
   const _UnspentOutputs({this.amount, this.tokenAddress, this.type, this.from, this.tokenId, this.timestamp, final  Map<String, dynamic>? state}): _state = state,super._();
   factory _UnspentOutputs.fromJson(Map<String, dynamic> json) => _$UnspentOutputsFromJson(json);
 
-/// Asset amount
+/// The amount of the asset (UCO or token) in this UTXO.
 @override final  int? amount;
-/// Address of the token if the type is token
+/// The address of the token, if this UTXO represents a token.
 @override final  String? tokenAddress;
-/// Type of the token: UCO/Token
+/// The type of asset this UTXO represents, e.g., 'UCO' or 'Token'.
 @override final  String? type;
-/// Transaction which send the amount of assets
+/// The transaction hash that created this UTXO.
 @override final  String? from;
-/// Id for a token which is allocated when the token is minted.
+/// The unique identifier for a token, relevant if this UTXO is a specific token instance (e.g., an NFT).
 @override final  int? tokenId;
-/// Date time when the UTXO created/manipulated
+/// The timestamp indicating when this UTXO was created or last modified.
 @override final  int? timestamp;
-/// State of a smart contract
+/// The state of a smart contract, if this UTXO represents a contract state.
+/// The structure of the state is a dynamic map.
  final  Map<String, dynamic>? _state;
-/// State of a smart contract
+/// The state of a smart contract, if this UTXO represents a contract state.
+/// The structure of the state is a dynamic map.
 @override Map<String, dynamic>? get state {
   final value = _state;
   if (value == null) return null;

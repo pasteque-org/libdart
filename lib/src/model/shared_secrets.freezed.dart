@@ -16,8 +16,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SharedSecrets {
 
-/// The storage nonce public key: Public Key to encrypt data for the node,
-/// so they will be able to decrypt it (mostly for smart contract authorized key)
+/// The storage nonce public key. This public key is used to encrypt data
+/// specifically for a node (or other designated party), enabling them to decrypt it.
+/// This is often relevant for operations like setting authorized keys for smart contracts.
+/// Can be null if this information is not available or not set.
  String? get storageNoncePublicKey;
 /// Create a copy of SharedSecrets
 /// with the given fields replaced by the non-null parameter values.
@@ -85,8 +87,10 @@ class _SharedSecrets extends SharedSecrets {
   const _SharedSecrets({this.storageNoncePublicKey}): super._();
   factory _SharedSecrets.fromJson(Map<String, dynamic> json) => _$SharedSecretsFromJson(json);
 
-/// The storage nonce public key: Public Key to encrypt data for the node,
-/// so they will be able to decrypt it (mostly for smart contract authorized key)
+/// The storage nonce public key. This public key is used to encrypt data
+/// specifically for a node (or other designated party), enabling them to decrypt it.
+/// This is often relevant for operations like setting authorized keys for smart contracts.
+/// Can be null if this information is not available or not set.
 @override final  String? storageNoncePublicKey;
 
 /// Create a copy of SharedSecrets

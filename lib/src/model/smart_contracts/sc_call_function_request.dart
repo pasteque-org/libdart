@@ -33,9 +33,6 @@ abstract class SCCallFunctionRequest with _$SCCallFunctionRequest {
   }) = _SCCallFunctionRequest;
 
   /// Creates an [SCCallFunctionRequest] instance from a JSON map.
-  ///
-  /// This factory uses the `freezed` generated `_$SCCallFunctionRequestFromJson` function
-  /// to deserialize the JSON data.
   factory SCCallFunctionRequest.fromJson(final Map<String, dynamic> json) =>
       _$SCCallFunctionRequestFromJson(json);
 }

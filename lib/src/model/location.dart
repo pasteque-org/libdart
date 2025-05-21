@@ -19,9 +19,6 @@ abstract class Location with _$Location {
   const Location._();
 
   /// Creates a [Location] instance from a JSON map.
-  ///
-  /// This factory uses the `freezed` generated `_$LocationFromJson` function
-  /// to deserialize the JSON data.
   factory Location.fromJson(final Map<String, dynamic> json) =>
       _$LocationFromJson(json);
 }

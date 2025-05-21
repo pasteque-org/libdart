@@ -28,9 +28,6 @@ abstract class Ownership with _$Ownership {
   const Ownership._();
 
   /// Creates an [Ownership] instance from a JSON map.
-  ///
-  /// This factory uses the `freezed` generated `_$OwnershipFromJson` function
-  /// to deserialize the JSON data.
   factory Ownership.fromJson(final Map<String, dynamic> json) =>
       _$OwnershipFromJson(json);
 }

@@ -16,12 +16,15 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ValidationStamp {
 
-/// All the operations performed by the transaction
- LedgerOperations? get ledgerOperations;/// Hash of the previous proof of integrity and the transaction
- String? get proofOfIntegrity;/// Public key matching the origin signature
- String? get proofOfWork;/// Coordinator signature of the stamp
- String? get signature;/// Timestamp
- int? get timestamp;/// Version of the transaction validation protocol
+/// Details of the ledger operations (e.g., UCO transfers, token transfers) validated in the transaction.
+ LedgerOperations? get ledgerOperations;/// A hash representing the proof of integrity. This typically includes a hash of the transaction
+/// itself and a link to the previous proof of integrity, forming a chain.
+ String? get proofOfIntegrity;/// Proof of work associated with the transaction or its validation.
+/// Note: The comment "Public key matching the origin signature" might be misleading or specific to a certain context.
+/// Generally, this field holds a proof of computational work.
+ String? get proofOfWork;/// The digital signature of the coordinator that validated the transaction and issued this stamp.
+ String? get signature;/// The Unix timestamp indicating when the validation occurred.
+ int? get timestamp;/// The version of the transaction validation protocol used by the coordinator.
  int? get protocolVersion;
 /// Create a copy of ValidationStamp
 /// with the given fields replaced by the non-null parameter values.
@@ -106,17 +109,20 @@ class _ValidationStamp extends ValidationStamp {
   const _ValidationStamp({this.ledgerOperations, this.proofOfIntegrity, this.proofOfWork, this.signature, this.timestamp, this.protocolVersion}): super._();
   factory _ValidationStamp.fromJson(Map<String, dynamic> json) => _$ValidationStampFromJson(json);
 
-/// All the operations performed by the transaction
+/// Details of the ledger operations (e.g., UCO transfers, token transfers) validated in the transaction.
 @override final  LedgerOperations? ledgerOperations;
-/// Hash of the previous proof of integrity and the transaction
+/// A hash representing the proof of integrity. This typically includes a hash of the transaction
+/// itself and a link to the previous proof of integrity, forming a chain.
 @override final  String? proofOfIntegrity;
-/// Public key matching the origin signature
+/// Proof of work associated with the transaction or its validation.
+/// Note: The comment "Public key matching the origin signature" might be misleading or specific to a certain context.
+/// Generally, this field holds a proof of computational work.
 @override final  String? proofOfWork;
-/// Coordinator signature of the stamp
+/// The digital signature of the coordinator that validated the transaction and issued this stamp.
 @override final  String? signature;
-/// Timestamp
+/// The Unix timestamp indicating when the validation occurred.
 @override final  int? timestamp;
-/// Version of the transaction validation protocol
+/// The version of the transaction validation protocol used by the coordinator.
 @override final  int? protocolVersion;
 
 /// Create a copy of ValidationStamp

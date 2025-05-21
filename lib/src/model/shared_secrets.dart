@@ -23,13 +23,6 @@ abstract class SharedSecrets with _$SharedSecrets {
   const SharedSecrets._();
 
   /// Creates a [SharedSecrets] instance from a JSON map.
-  ///
-  /// Note: This factory expects the actual `SharedSecrets` data to be nested
-  /// under a 'sharedSecrets' key within the input [json] map.
-  /// For example: `{"sharedSecrets": {"storageNoncePublicKey": "..."}}`
-  ///
-  /// - [json]: The JSON map containing the 'sharedSecrets' object.
-  /// Throws if `json['sharedSecrets']` is not a Map or is null.
   factory SharedSecrets.fromJson(final Map<String, dynamic> json) =>
       _$SharedSecretsFromJson(json['sharedSecrets'] as Map<String, dynamic>);
 }

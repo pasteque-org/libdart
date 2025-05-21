@@ -16,7 +16,11 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TokenTransfer {
 
- int? get amount; String? get to; String? get tokenAddress; int? get tokenId;
+/// The amount of the token to transfer. Relevant for fungible tokens.
+ int? get amount;/// The recipient address for the token transfer.
+ String? get to;/// The address of the smart contract governing the token.
+ String? get tokenAddress;/// The unique identifier of the token, primarily for non-fungible tokens (NFTs).
+ int? get tokenId;
 /// Create a copy of TokenTransfer
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -86,9 +90,13 @@ class _TokenTransfer extends TokenTransfer {
   const _TokenTransfer({this.amount, this.to, this.tokenAddress, this.tokenId}): super._();
   factory _TokenTransfer.fromJson(Map<String, dynamic> json) => _$TokenTransferFromJson(json);
 
+/// The amount of the token to transfer. Relevant for fungible tokens.
 @override final  int? amount;
+/// The recipient address for the token transfer.
 @override final  String? to;
+/// The address of the smart contract governing the token.
 @override final  String? tokenAddress;
+/// The unique identifier of the token, primarily for non-fungible tokens (NFTs).
 @override final  int? tokenId;
 
 /// Create a copy of TokenTransfer

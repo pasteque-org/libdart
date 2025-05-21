@@ -33,8 +33,6 @@ abstract class OracleUcoPrice with _$OracleUcoPrice {
   const OracleUcoPrice._();
 
   /// Creates an [OracleUcoPrice] instance from a JSON map.
-  /// Note: The JSON structure often has the timestamp as a key in the parent object.
-  /// This factory expects a map that directly corresponds to the fields of this class.
   factory OracleUcoPrice.fromJson(final Map<String, dynamic> json) =>
       _$OracleUcoPriceFromJson(json);
 }

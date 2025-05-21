@@ -16,7 +16,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Keychain {
 
-@Uint8ListConverter() Uint8List? get seed; int get version; Map<String, Service> get services;
+/// The master seed for the keychain, used for all key derivations.
+@Uint8ListConverter() Uint8List? get seed;/// The version of the keychain data structure.
+ int get version;/// The set of named services managed by this keychain.
+ Map<String, Service> get services;
 /// Create a copy of Keychain
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -85,9 +88,13 @@ class _Keychain extends Keychain {
   const _Keychain({@Uint8ListConverter() this.seed, this.version = kVersionKeychain, final  Map<String, Service> services = const {}}): _services = services,super._();
   factory _Keychain.fromJson(Map<String, dynamic> json) => _$KeychainFromJson(json);
 
+/// The master seed for the keychain, used for all key derivations.
 @override@Uint8ListConverter() final  Uint8List? seed;
+/// The version of the keychain data structure.
 @override@JsonKey() final  int version;
+/// The set of named services managed by this keychain.
  final  Map<String, Service> _services;
+/// The set of named services managed by this keychain.
 @override@JsonKey() Map<String, Service> get services {
   if (_services is EqualUnmodifiableMapView) return _services;
   // ignore: implicit_dynamic_type

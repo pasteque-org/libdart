@@ -16,9 +16,11 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Recipient {
 
-/// Name of the action
- String? get action;/// Contract's address
- String? get address;/// List of arguments for the action (must contain only JSON valid data)
+/// The name of the action (function) to be called on the smart contract.
+ String? get action;/// The address of the smart contract.
+ String? get address;/// The arguments to be passed to the contract action.
+/// This can be a list or a map, and its elements should be JSON serializable.
+/// For consistency in signing and hashing, map keys within args are sorted recursively by [sortArgs].
  dynamic get args;
 /// Create a copy of Recipient
 /// with the given fields replaced by the non-null parameter values.
@@ -88,11 +90,13 @@ class _Recipient extends Recipient {
   const _Recipient({this.action, this.address, this.args}): super._();
   factory _Recipient.fromJson(Map<String, dynamic> json) => _$RecipientFromJson(json);
 
-/// Name of the action
+/// The name of the action (function) to be called on the smart contract.
 @override final  String? action;
-/// Contract's address
+/// The address of the smart contract.
 @override final  String? address;
-/// List of arguments for the action (must contain only JSON valid data)
+/// The arguments to be passed to the contract action.
+/// This can be a list or a map, and its elements should be JSON serializable.
+/// For consistency in signing and hashing, map keys within args are sorted recursively by [sortArgs].
 @override final  dynamic args;
 
 /// Create a copy of Recipient

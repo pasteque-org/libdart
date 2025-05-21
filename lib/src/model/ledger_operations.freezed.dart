@@ -16,10 +16,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LedgerOperations {
 
-/// Transaction fee (distributed over the node rewards)
- int? get fee;/// Assets transfers
- List<TransactionMovement> get transactionMovements;/// Remaining unspent outputs
- List<UnspentOutputs> get unspentOutputs;/// Remaining unspent outputs
+/// The transaction fee, distributed as node rewards. This can be null if not applicable for the transaction type.
+ int? get fee;/// A list detailing the transfers of assets (e.g., UCO or tokens) within the transaction.
+ List<TransactionMovement> get transactionMovements;/// A list of outputs created by this transaction that remain unspent.
+ List<UnspentOutputs> get unspentOutputs;/// A list of inputs that were consumed (spent) by this transaction.
  List<ConsumedInputs> get consumedInputs;
 /// Create a copy of LedgerOperations
 /// with the given fields replaced by the non-null parameter values.
@@ -90,29 +90,29 @@ class _LedgerOperations extends LedgerOperations {
   const _LedgerOperations({this.fee, final  List<TransactionMovement> transactionMovements = const [], final  List<UnspentOutputs> unspentOutputs = const [], final  List<ConsumedInputs> consumedInputs = const []}): _transactionMovements = transactionMovements,_unspentOutputs = unspentOutputs,_consumedInputs = consumedInputs,super._();
   factory _LedgerOperations.fromJson(Map<String, dynamic> json) => _$LedgerOperationsFromJson(json);
 
-/// Transaction fee (distributed over the node rewards)
+/// The transaction fee, distributed as node rewards. This can be null if not applicable for the transaction type.
 @override final  int? fee;
-/// Assets transfers
+/// A list detailing the transfers of assets (e.g., UCO or tokens) within the transaction.
  final  List<TransactionMovement> _transactionMovements;
-/// Assets transfers
+/// A list detailing the transfers of assets (e.g., UCO or tokens) within the transaction.
 @override@JsonKey() List<TransactionMovement> get transactionMovements {
   if (_transactionMovements is EqualUnmodifiableListView) return _transactionMovements;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_transactionMovements);
 }
 
-/// Remaining unspent outputs
+/// A list of outputs created by this transaction that remain unspent.
  final  List<UnspentOutputs> _unspentOutputs;
-/// Remaining unspent outputs
+/// A list of outputs created by this transaction that remain unspent.
 @override@JsonKey() List<UnspentOutputs> get unspentOutputs {
   if (_unspentOutputs is EqualUnmodifiableListView) return _unspentOutputs;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_unspentOutputs);
 }
 
-/// Remaining unspent outputs
+/// A list of inputs that were consumed (spent) by this transaction.
  final  List<ConsumedInputs> _consumedInputs;
-/// Remaining unspent outputs
+/// A list of inputs that were consumed (spent) by this transaction.
 @override@JsonKey() List<ConsumedInputs> get consumedInputs {
   if (_consumedInputs is EqualUnmodifiableListView) return _consumedInputs;
   // ignore: implicit_dynamic_type

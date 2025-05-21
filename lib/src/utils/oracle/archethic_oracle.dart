@@ -68,13 +68,6 @@ class ArchethicOracle {
   }
 
   /// Fetches UCO price data from the Archethic Oracle.
-  ///
-  /// Sends a GraphQL query to the `/api` endpoint of the Archethic node.
-  /// If [timestamp] is provided and not 0, it fetches historical oracle data for that specific timestamp.
-  /// Otherwise, it fetches the latest available oracle data.
-  ///
-  /// The query requests `oracleData.timestamp` and `oracleData.services.uco.{eur, usd}`.
-  ///
   /// - [timestamp]: An optional Unix timestamp (seconds since epoch) to fetch historical data.
   ///                Defaults to 0, which means fetch the latest data.
   /// Returns a [Future] that completes with an [OracleUcoPrice] object.

@@ -16,8 +16,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CrossValidationStamp {
 
-/// Node public key
- String? get nodePublicKey;/// Signature of the validation stamp
+/// The public key of the node that performed the cross-validation.
+ String? get nodePublicKey;/// The signature of the cross-validating node over the content of the [ValidationStamp]
+/// (or a hash of it) that this stamp is approving.
  String? get signature;
 /// Create a copy of CrossValidationStamp
 /// with the given fields replaced by the non-null parameter values.
@@ -86,9 +87,10 @@ class _CrossValidationStamp extends CrossValidationStamp {
   const _CrossValidationStamp({this.nodePublicKey, this.signature}): super._();
   factory _CrossValidationStamp.fromJson(Map<String, dynamic> json) => _$CrossValidationStampFromJson(json);
 
-/// Node public key
+/// The public key of the node that performed the cross-validation.
 @override final  String? nodePublicKey;
-/// Signature of the validation stamp
+/// The signature of the cross-validating node over the content of the [ValidationStamp]
+/// (or a hash of it) that this stamp is approving.
 @override final  String? signature;
 
 /// Create a copy of CrossValidationStamp

@@ -27,9 +27,6 @@ abstract class OnChainWalletData with _$OnChainWalletData {
   const OnChainWalletData._();
 
   /// Creates an [OnChainWalletData] instance from a JSON map.
-  ///
-  /// This factory uses the `freezed` generated `_$OnChainWalletDataFromJson` function
-  /// to deserialize the JSON data.
   factory OnChainWalletData.fromJson(final Map<String, dynamic> json) =>
       _$OnChainWalletDataFromJson(json);
 }

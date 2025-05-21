@@ -16,6 +16,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TokenLedger {
 
+/// A list of token transfers to be executed. Each [TokenTransfer] specifies
+/// the details of an individual asset movement (e.g., amount, recipient, token address).
+/// Defaults to an empty list if no transfers are specified.
  List<TokenTransfer> get transfers;
 /// Create a copy of TokenLedger
 /// with the given fields replaced by the non-null parameter values.
@@ -80,10 +83,22 @@ as List<TokenTransfer>,
 @JsonSerializable()
 
 class _TokenLedger extends TokenLedger {
-  const _TokenLedger({this.transfers = const []}): super._();
+  const _TokenLedger({final  List<TokenTransfer> transfers = const []}): _transfers = transfers,super._();
   factory _TokenLedger.fromJson(Map<String, dynamic> json) => _$TokenLedgerFromJson(json);
 
-@override@JsonKey() final  List<TokenTransfer> transfers;
+/// A list of token transfers to be executed. Each [TokenTransfer] specifies
+/// the details of an individual asset movement (e.g., amount, recipient, token address).
+/// Defaults to an empty list if no transfers are specified.
+ final  List<TokenTransfer> _transfers;
+/// A list of token transfers to be executed. Each [TokenTransfer] specifies
+/// the details of an individual asset movement (e.g., amount, recipient, token address).
+/// Defaults to an empty list if no transfers are specified.
+@override@JsonKey() List<TokenTransfer> get transfers {
+  if (_transfers is EqualUnmodifiableListView) return _transfers;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_transfers);
+}
+
 
 /// Create a copy of TokenLedger
 /// with the given fields replaced by the non-null parameter values.
@@ -98,12 +113,12 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TokenLedger&&const DeepCollectionEquality().equals(other.transfers, transfers));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TokenLedger&&const DeepCollectionEquality().equals(other._transfers, _transfers));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(transfers));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_transfers));
 
 @override
 String toString() {
@@ -137,7 +152,7 @@ class __$TokenLedgerCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? transfers = null,}) {
   return _then(_TokenLedger(
-transfers: null == transfers ? _self.transfers : transfers // ignore: cast_nullable_to_non_nullable
+transfers: null == transfers ? _self._transfers : transfers // ignore: cast_nullable_to_non_nullable
 as List<TokenTransfer>,
   ));
 }

@@ -362,9 +362,9 @@ sealed class Transaction with _$Transaction {
       throw const FormatException("'to' must be an hexadecimal string");
     }
 
-    final newUCOTransfer =
-        data!.ledger!.uco!.transfers..add(UCOTransfer(to: to, amount: amount));
-    return copyWith.data!.ledger!.uco!(transfers: newUCOTransfer);
+    final newUCOTransfers = List<UCOTransfer>.from(data!.ledger!.uco!.transfers)
+      ..add(UCOTransfer(to: to, amount: amount));
+    return copyWith.data!.ledger!.uco!(transfers: newUCOTransfers);
   }
 
   /// Add a token transfer to the transaction
@@ -400,8 +400,10 @@ sealed class Transaction with _$Transaction {
       tokenId: tokenId,
     );
 
-    final newTokenTransfer = data!.ledger!.token!.transfers..add(tokenTransfer);
-    return copyWith.data!.ledger!.token!(transfers: newTokenTransfer);
+    final newTokenTransfers = List<TokenTransfer>.from(
+      data!.ledger!.token!.transfers,
+    )..add(tokenTransfer);
+    return copyWith.data!.ledger!.token!(transfers: newTokenTransfers);
   }
 
   /// Add recipient to the transaction (with a named action)
