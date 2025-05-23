@@ -15,7 +15,7 @@ dependencies:
   crypto: ^3.0.6
 
   # The decimal package allows you to deal with decimal numbers without losing precision
-  decimal: ^3.2.1
+  decimal: ^3.0.2
 
   # Package ecdsa implements the Elliptic Curve Digital Signature Algorithm, as defined in FIPS 186-3
   ecdsa: ^0.1.2
