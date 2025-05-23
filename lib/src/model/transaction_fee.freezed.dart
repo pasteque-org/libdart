@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,636 +10,556 @@ part of 'transaction_fee.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TransactionFee _$TransactionFeeFromJson(Map<String, dynamic> json) {
-  return _TransactionFee.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TransactionFee {
-  int? get fee => throw _privateConstructorUsedError;
-  Rates? get rates => throw _privateConstructorUsedError;
-  TransactionFeeErrors? get errors => throw _privateConstructorUsedError;
+
+/// The transaction fee amount in the smallest unit of UCO (e.g., nanoUCOs).
+ int? get fee;/// Exchange rates for the transaction fee to various fiat currencies.
+ Rates? get rates;/// Error details if the fee calculation failed or encountered issues.
+ TransactionFeeErrors? get errors;
+/// Create a copy of TransactionFee
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TransactionFeeCopyWith<TransactionFee> get copyWith => _$TransactionFeeCopyWithImpl<TransactionFee>(this as TransactionFee, _$identity);
 
   /// Serializes this TransactionFee to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of TransactionFee
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $TransactionFeeCopyWith<TransactionFee> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TransactionFee&&(identical(other.fee, fee) || other.fee == fee)&&(identical(other.rates, rates) || other.rates == rates)&&(identical(other.errors, errors) || other.errors == errors));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,fee,rates,errors);
+
+@override
+String toString() {
+  return 'TransactionFee(fee: $fee, rates: $rates, errors: $errors)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $TransactionFeeCopyWith<$Res> {
-  factory $TransactionFeeCopyWith(
-          TransactionFee value, $Res Function(TransactionFee) then) =
-      _$TransactionFeeCopyWithImpl<$Res, TransactionFee>;
-  @useResult
-  $Res call({int? fee, Rates? rates, TransactionFeeErrors? errors});
+abstract mixin class $TransactionFeeCopyWith<$Res>  {
+  factory $TransactionFeeCopyWith(TransactionFee value, $Res Function(TransactionFee) _then) = _$TransactionFeeCopyWithImpl;
+@useResult
+$Res call({
+ int? fee, Rates? rates, TransactionFeeErrors? errors
+});
 
-  $RatesCopyWith<$Res>? get rates;
-  $TransactionFeeErrorsCopyWith<$Res>? get errors;
+
+$RatesCopyWith<$Res>? get rates;$TransactionFeeErrorsCopyWith<$Res>? get errors;
+
 }
-
 /// @nodoc
-class _$TransactionFeeCopyWithImpl<$Res, $Val extends TransactionFee>
+class _$TransactionFeeCopyWithImpl<$Res>
     implements $TransactionFeeCopyWith<$Res> {
-  _$TransactionFeeCopyWithImpl(this._value, this._then);
+  _$TransactionFeeCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final TransactionFee _self;
+  final $Res Function(TransactionFee) _then;
 
-  /// Create a copy of TransactionFee
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? fee = freezed,
-    Object? rates = freezed,
-    Object? errors = freezed,
-  }) {
-    return _then(_value.copyWith(
-      fee: freezed == fee
-          ? _value.fee
-          : fee // ignore: cast_nullable_to_non_nullable
-              as int?,
-      rates: freezed == rates
-          ? _value.rates
-          : rates // ignore: cast_nullable_to_non_nullable
-              as Rates?,
-      errors: freezed == errors
-          ? _value.errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as TransactionFeeErrors?,
-    ) as $Val);
+/// Create a copy of TransactionFee
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? fee = freezed,Object? rates = freezed,Object? errors = freezed,}) {
+  return _then(_self.copyWith(
+fee: freezed == fee ? _self.fee : fee // ignore: cast_nullable_to_non_nullable
+as int?,rates: freezed == rates ? _self.rates : rates // ignore: cast_nullable_to_non_nullable
+as Rates?,errors: freezed == errors ? _self.errors : errors // ignore: cast_nullable_to_non_nullable
+as TransactionFeeErrors?,
+  ));
+}
+/// Create a copy of TransactionFee
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RatesCopyWith<$Res>? get rates {
+    if (_self.rates == null) {
+    return null;
   }
 
-  /// Create a copy of TransactionFee
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RatesCopyWith<$Res>? get rates {
-    if (_value.rates == null) {
-      return null;
-    }
-
-    return $RatesCopyWith<$Res>(_value.rates!, (value) {
-      return _then(_value.copyWith(rates: value) as $Val);
-    });
+  return $RatesCopyWith<$Res>(_self.rates!, (value) {
+    return _then(_self.copyWith(rates: value));
+  });
+}/// Create a copy of TransactionFee
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TransactionFeeErrorsCopyWith<$Res>? get errors {
+    if (_self.errors == null) {
+    return null;
   }
 
-  /// Create a copy of TransactionFee
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TransactionFeeErrorsCopyWith<$Res>? get errors {
-    if (_value.errors == null) {
-      return null;
-    }
-
-    return $TransactionFeeErrorsCopyWith<$Res>(_value.errors!, (value) {
-      return _then(_value.copyWith(errors: value) as $Val);
-    });
-  }
+  return $TransactionFeeErrorsCopyWith<$Res>(_self.errors!, (value) {
+    return _then(_self.copyWith(errors: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$TransactionFeeImplCopyWith<$Res>
-    implements $TransactionFeeCopyWith<$Res> {
-  factory _$$TransactionFeeImplCopyWith(_$TransactionFeeImpl value,
-          $Res Function(_$TransactionFeeImpl) then) =
-      __$$TransactionFeeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int? fee, Rates? rates, TransactionFeeErrors? errors});
-
-  @override
-  $RatesCopyWith<$Res>? get rates;
-  @override
-  $TransactionFeeErrorsCopyWith<$Res>? get errors;
-}
-
-/// @nodoc
-class __$$TransactionFeeImplCopyWithImpl<$Res>
-    extends _$TransactionFeeCopyWithImpl<$Res, _$TransactionFeeImpl>
-    implements _$$TransactionFeeImplCopyWith<$Res> {
-  __$$TransactionFeeImplCopyWithImpl(
-      _$TransactionFeeImpl _value, $Res Function(_$TransactionFeeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionFee
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? fee = freezed,
-    Object? rates = freezed,
-    Object? errors = freezed,
-  }) {
-    return _then(_$TransactionFeeImpl(
-      fee: freezed == fee
-          ? _value.fee
-          : fee // ignore: cast_nullable_to_non_nullable
-              as int?,
-      rates: freezed == rates
-          ? _value.rates
-          : rates // ignore: cast_nullable_to_non_nullable
-              as Rates?,
-      errors: freezed == errors
-          ? _value.errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as TransactionFeeErrors?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$TransactionFeeImpl extends _TransactionFee {
-  const _$TransactionFeeImpl({this.fee, this.rates, this.errors}) : super._();
 
-  factory _$TransactionFeeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TransactionFeeImplFromJson(json);
+class _TransactionFee extends TransactionFee {
+  const _TransactionFee({this.fee, this.rates, this.errors}): super._();
+  factory _TransactionFee.fromJson(Map<String, dynamic> json) => _$TransactionFeeFromJson(json);
 
-  @override
-  final int? fee;
-  @override
-  final Rates? rates;
-  @override
-  final TransactionFeeErrors? errors;
+/// The transaction fee amount in the smallest unit of UCO (e.g., nanoUCOs).
+@override final  int? fee;
+/// Exchange rates for the transaction fee to various fiat currencies.
+@override final  Rates? rates;
+/// Error details if the fee calculation failed or encountered issues.
+@override final  TransactionFeeErrors? errors;
 
-  @override
-  String toString() {
-    return 'TransactionFee(fee: $fee, rates: $rates, errors: $errors)';
-  }
+/// Create a copy of TransactionFee
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TransactionFeeCopyWith<_TransactionFee> get copyWith => __$TransactionFeeCopyWithImpl<_TransactionFee>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionFeeImpl &&
-            (identical(other.fee, fee) || other.fee == fee) &&
-            (identical(other.rates, rates) || other.rates == rates) &&
-            (identical(other.errors, errors) || other.errors == errors));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, fee, rates, errors);
-
-  /// Create a copy of TransactionFee
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TransactionFeeImplCopyWith<_$TransactionFeeImpl> get copyWith =>
-      __$$TransactionFeeImplCopyWithImpl<_$TransactionFeeImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TransactionFeeImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$TransactionFeeToJson(this, );
 }
 
-abstract class _TransactionFee extends TransactionFee {
-  const factory _TransactionFee(
-      {final int? fee,
-      final Rates? rates,
-      final TransactionFeeErrors? errors}) = _$TransactionFeeImpl;
-  const _TransactionFee._() : super._();
-
-  factory _TransactionFee.fromJson(Map<String, dynamic> json) =
-      _$TransactionFeeImpl.fromJson;
-
-  @override
-  int? get fee;
-  @override
-  Rates? get rates;
-  @override
-  TransactionFeeErrors? get errors;
-
-  /// Create a copy of TransactionFee
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransactionFeeImplCopyWith<_$TransactionFeeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionFee&&(identical(other.fee, fee) || other.fee == fee)&&(identical(other.rates, rates) || other.rates == rates)&&(identical(other.errors, errors) || other.errors == errors));
 }
 
-Rates _$RatesFromJson(Map<String, dynamic> json) {
-  return _Rates.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,fee,rates,errors);
+
+@override
+String toString() {
+  return 'TransactionFee(fee: $fee, rates: $rates, errors: $errors)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$TransactionFeeCopyWith<$Res> implements $TransactionFeeCopyWith<$Res> {
+  factory _$TransactionFeeCopyWith(_TransactionFee value, $Res Function(_TransactionFee) _then) = __$TransactionFeeCopyWithImpl;
+@override @useResult
+$Res call({
+ int? fee, Rates? rates, TransactionFeeErrors? errors
+});
+
+
+@override $RatesCopyWith<$Res>? get rates;@override $TransactionFeeErrorsCopyWith<$Res>? get errors;
+
+}
+/// @nodoc
+class __$TransactionFeeCopyWithImpl<$Res>
+    implements _$TransactionFeeCopyWith<$Res> {
+  __$TransactionFeeCopyWithImpl(this._self, this._then);
+
+  final _TransactionFee _self;
+  final $Res Function(_TransactionFee) _then;
+
+/// Create a copy of TransactionFee
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? fee = freezed,Object? rates = freezed,Object? errors = freezed,}) {
+  return _then(_TransactionFee(
+fee: freezed == fee ? _self.fee : fee // ignore: cast_nullable_to_non_nullable
+as int?,rates: freezed == rates ? _self.rates : rates // ignore: cast_nullable_to_non_nullable
+as Rates?,errors: freezed == errors ? _self.errors : errors // ignore: cast_nullable_to_non_nullable
+as TransactionFeeErrors?,
+  ));
+}
+
+/// Create a copy of TransactionFee
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RatesCopyWith<$Res>? get rates {
+    if (_self.rates == null) {
+    return null;
+  }
+
+  return $RatesCopyWith<$Res>(_self.rates!, (value) {
+    return _then(_self.copyWith(rates: value));
+  });
+}/// Create a copy of TransactionFee
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TransactionFeeErrorsCopyWith<$Res>? get errors {
+    if (_self.errors == null) {
+    return null;
+  }
+
+  return $TransactionFeeErrorsCopyWith<$Res>(_self.errors!, (value) {
+    return _then(_self.copyWith(errors: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$Rates {
-  double? get eur => throw _privateConstructorUsedError;
-  double? get usd => throw _privateConstructorUsedError;
-  TransactionFeeErrors? get errors => throw _privateConstructorUsedError;
+
+/// The equivalent fee amount in EUR.
+ double? get eur;/// The equivalent fee amount in USD.
+ double? get usd;/// Error details if fetching rates failed.
+ TransactionFeeErrors? get errors;
+/// Create a copy of Rates
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RatesCopyWith<Rates> get copyWith => _$RatesCopyWithImpl<Rates>(this as Rates, _$identity);
 
   /// Serializes this Rates to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Rates
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $RatesCopyWith<Rates> get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Rates&&(identical(other.eur, eur) || other.eur == eur)&&(identical(other.usd, usd) || other.usd == usd)&&(identical(other.errors, errors) || other.errors == errors));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,eur,usd,errors);
+
+@override
+String toString() {
+  return 'Rates(eur: $eur, usd: $usd, errors: $errors)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $RatesCopyWith<$Res> {
-  factory $RatesCopyWith(Rates value, $Res Function(Rates) then) =
-      _$RatesCopyWithImpl<$Res, Rates>;
-  @useResult
-  $Res call({double? eur, double? usd, TransactionFeeErrors? errors});
+abstract mixin class $RatesCopyWith<$Res>  {
+  factory $RatesCopyWith(Rates value, $Res Function(Rates) _then) = _$RatesCopyWithImpl;
+@useResult
+$Res call({
+ double? eur, double? usd, TransactionFeeErrors? errors
+});
 
-  $TransactionFeeErrorsCopyWith<$Res>? get errors;
+
+$TransactionFeeErrorsCopyWith<$Res>? get errors;
+
 }
-
 /// @nodoc
-class _$RatesCopyWithImpl<$Res, $Val extends Rates>
+class _$RatesCopyWithImpl<$Res>
     implements $RatesCopyWith<$Res> {
-  _$RatesCopyWithImpl(this._value, this._then);
+  _$RatesCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Rates _self;
+  final $Res Function(Rates) _then;
 
-  /// Create a copy of Rates
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? eur = freezed,
-    Object? usd = freezed,
-    Object? errors = freezed,
-  }) {
-    return _then(_value.copyWith(
-      eur: freezed == eur
-          ? _value.eur
-          : eur // ignore: cast_nullable_to_non_nullable
-              as double?,
-      usd: freezed == usd
-          ? _value.usd
-          : usd // ignore: cast_nullable_to_non_nullable
-              as double?,
-      errors: freezed == errors
-          ? _value.errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as TransactionFeeErrors?,
-    ) as $Val);
+/// Create a copy of Rates
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? eur = freezed,Object? usd = freezed,Object? errors = freezed,}) {
+  return _then(_self.copyWith(
+eur: freezed == eur ? _self.eur : eur // ignore: cast_nullable_to_non_nullable
+as double?,usd: freezed == usd ? _self.usd : usd // ignore: cast_nullable_to_non_nullable
+as double?,errors: freezed == errors ? _self.errors : errors // ignore: cast_nullable_to_non_nullable
+as TransactionFeeErrors?,
+  ));
+}
+/// Create a copy of Rates
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TransactionFeeErrorsCopyWith<$Res>? get errors {
+    if (_self.errors == null) {
+    return null;
   }
 
-  /// Create a copy of Rates
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TransactionFeeErrorsCopyWith<$Res>? get errors {
-    if (_value.errors == null) {
-      return null;
-    }
-
-    return $TransactionFeeErrorsCopyWith<$Res>(_value.errors!, (value) {
-      return _then(_value.copyWith(errors: value) as $Val);
-    });
-  }
+  return $TransactionFeeErrorsCopyWith<$Res>(_self.errors!, (value) {
+    return _then(_self.copyWith(errors: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$RatesImplCopyWith<$Res> implements $RatesCopyWith<$Res> {
-  factory _$$RatesImplCopyWith(
-          _$RatesImpl value, $Res Function(_$RatesImpl) then) =
-      __$$RatesImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({double? eur, double? usd, TransactionFeeErrors? errors});
-
-  @override
-  $TransactionFeeErrorsCopyWith<$Res>? get errors;
-}
-
-/// @nodoc
-class __$$RatesImplCopyWithImpl<$Res>
-    extends _$RatesCopyWithImpl<$Res, _$RatesImpl>
-    implements _$$RatesImplCopyWith<$Res> {
-  __$$RatesImplCopyWithImpl(
-      _$RatesImpl _value, $Res Function(_$RatesImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Rates
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? eur = freezed,
-    Object? usd = freezed,
-    Object? errors = freezed,
-  }) {
-    return _then(_$RatesImpl(
-      eur: freezed == eur
-          ? _value.eur
-          : eur // ignore: cast_nullable_to_non_nullable
-              as double?,
-      usd: freezed == usd
-          ? _value.usd
-          : usd // ignore: cast_nullable_to_non_nullable
-              as double?,
-      errors: freezed == errors
-          ? _value.errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as TransactionFeeErrors?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$RatesImpl extends _Rates {
-  const _$RatesImpl({this.eur, this.usd, this.errors}) : super._();
 
-  factory _$RatesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RatesImplFromJson(json);
+class _Rates extends Rates {
+  const _Rates({this.eur, this.usd, this.errors}): super._();
+  factory _Rates.fromJson(Map<String, dynamic> json) => _$RatesFromJson(json);
 
-  @override
-  final double? eur;
-  @override
-  final double? usd;
-  @override
-  final TransactionFeeErrors? errors;
+/// The equivalent fee amount in EUR.
+@override final  double? eur;
+/// The equivalent fee amount in USD.
+@override final  double? usd;
+/// Error details if fetching rates failed.
+@override final  TransactionFeeErrors? errors;
 
-  @override
-  String toString() {
-    return 'Rates(eur: $eur, usd: $usd, errors: $errors)';
-  }
+/// Create a copy of Rates
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$RatesCopyWith<_Rates> get copyWith => __$RatesCopyWithImpl<_Rates>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RatesImpl &&
-            (identical(other.eur, eur) || other.eur == eur) &&
-            (identical(other.usd, usd) || other.usd == usd) &&
-            (identical(other.errors, errors) || other.errors == errors));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, eur, usd, errors);
-
-  /// Create a copy of Rates
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RatesImplCopyWith<_$RatesImpl> get copyWith =>
-      __$$RatesImplCopyWithImpl<_$RatesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RatesImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$RatesToJson(this, );
 }
 
-abstract class _Rates extends Rates {
-  const factory _Rates(
-      {final double? eur,
-      final double? usd,
-      final TransactionFeeErrors? errors}) = _$RatesImpl;
-  const _Rates._() : super._();
-
-  factory _Rates.fromJson(Map<String, dynamic> json) = _$RatesImpl.fromJson;
-
-  @override
-  double? get eur;
-  @override
-  double? get usd;
-  @override
-  TransactionFeeErrors? get errors;
-
-  /// Create a copy of Rates
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RatesImplCopyWith<_$RatesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Rates&&(identical(other.eur, eur) || other.eur == eur)&&(identical(other.usd, usd) || other.usd == usd)&&(identical(other.errors, errors) || other.errors == errors));
 }
 
-TransactionFeeErrors _$TransactionFeeErrorsFromJson(Map<String, dynamic> json) {
-  return _TransactionFeeErrors.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,eur,usd,errors);
+
+@override
+String toString() {
+  return 'Rates(eur: $eur, usd: $usd, errors: $errors)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$RatesCopyWith<$Res> implements $RatesCopyWith<$Res> {
+  factory _$RatesCopyWith(_Rates value, $Res Function(_Rates) _then) = __$RatesCopyWithImpl;
+@override @useResult
+$Res call({
+ double? eur, double? usd, TransactionFeeErrors? errors
+});
+
+
+@override $TransactionFeeErrorsCopyWith<$Res>? get errors;
+
+}
+/// @nodoc
+class __$RatesCopyWithImpl<$Res>
+    implements _$RatesCopyWith<$Res> {
+  __$RatesCopyWithImpl(this._self, this._then);
+
+  final _Rates _self;
+  final $Res Function(_Rates) _then;
+
+/// Create a copy of Rates
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? eur = freezed,Object? usd = freezed,Object? errors = freezed,}) {
+  return _then(_Rates(
+eur: freezed == eur ? _self.eur : eur // ignore: cast_nullable_to_non_nullable
+as double?,usd: freezed == usd ? _self.usd : usd // ignore: cast_nullable_to_non_nullable
+as double?,errors: freezed == errors ? _self.errors : errors // ignore: cast_nullable_to_non_nullable
+as TransactionFeeErrors?,
+  ));
+}
+
+/// Create a copy of Rates
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TransactionFeeErrorsCopyWith<$Res>? get errors {
+    if (_self.errors == null) {
+    return null;
+  }
+
+  return $TransactionFeeErrorsCopyWith<$Res>(_self.errors!, (value) {
+    return _then(_self.copyWith(errors: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$TransactionFeeErrors {
-  Data? get data => throw _privateConstructorUsedError;
-  TransactionFeeErrors? get errors => throw _privateConstructorUsedError;
+
+/// Potentially problematic or erroneous data that contributed to the error.
+ Data? get data;/// Further nested error details.
+ TransactionFeeErrors? get errors;
+/// Create a copy of TransactionFeeErrors
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TransactionFeeErrorsCopyWith<TransactionFeeErrors> get copyWith => _$TransactionFeeErrorsCopyWithImpl<TransactionFeeErrors>(this as TransactionFeeErrors, _$identity);
 
   /// Serializes this TransactionFeeErrors to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of TransactionFeeErrors
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $TransactionFeeErrorsCopyWith<TransactionFeeErrors> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TransactionFeeErrors&&(identical(other.data, data) || other.data == data)&&(identical(other.errors, errors) || other.errors == errors));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,data,errors);
+
+@override
+String toString() {
+  return 'TransactionFeeErrors(data: $data, errors: $errors)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $TransactionFeeErrorsCopyWith<$Res> {
-  factory $TransactionFeeErrorsCopyWith(TransactionFeeErrors value,
-          $Res Function(TransactionFeeErrors) then) =
-      _$TransactionFeeErrorsCopyWithImpl<$Res, TransactionFeeErrors>;
-  @useResult
-  $Res call({Data? data, TransactionFeeErrors? errors});
+abstract mixin class $TransactionFeeErrorsCopyWith<$Res>  {
+  factory $TransactionFeeErrorsCopyWith(TransactionFeeErrors value, $Res Function(TransactionFeeErrors) _then) = _$TransactionFeeErrorsCopyWithImpl;
+@useResult
+$Res call({
+ Data? data, TransactionFeeErrors? errors
+});
 
-  $DataCopyWith<$Res>? get data;
-  $TransactionFeeErrorsCopyWith<$Res>? get errors;
+
+$DataCopyWith<$Res>? get data;$TransactionFeeErrorsCopyWith<$Res>? get errors;
+
 }
-
 /// @nodoc
-class _$TransactionFeeErrorsCopyWithImpl<$Res,
-        $Val extends TransactionFeeErrors>
+class _$TransactionFeeErrorsCopyWithImpl<$Res>
     implements $TransactionFeeErrorsCopyWith<$Res> {
-  _$TransactionFeeErrorsCopyWithImpl(this._value, this._then);
+  _$TransactionFeeErrorsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final TransactionFeeErrors _self;
+  final $Res Function(TransactionFeeErrors) _then;
 
-  /// Create a copy of TransactionFeeErrors
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-    Object? errors = freezed,
-  }) {
-    return _then(_value.copyWith(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Data?,
-      errors: freezed == errors
-          ? _value.errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as TransactionFeeErrors?,
-    ) as $Val);
+/// Create a copy of TransactionFeeErrors
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,Object? errors = freezed,}) {
+  return _then(_self.copyWith(
+data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as Data?,errors: freezed == errors ? _self.errors : errors // ignore: cast_nullable_to_non_nullable
+as TransactionFeeErrors?,
+  ));
+}
+/// Create a copy of TransactionFeeErrors
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DataCopyWith<$Res>? get data {
+    if (_self.data == null) {
+    return null;
   }
 
-  /// Create a copy of TransactionFeeErrors
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $DataCopyWith<$Res>? get data {
-    if (_value.data == null) {
-      return null;
-    }
-
-    return $DataCopyWith<$Res>(_value.data!, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
-    });
+  return $DataCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}/// Create a copy of TransactionFeeErrors
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TransactionFeeErrorsCopyWith<$Res>? get errors {
+    if (_self.errors == null) {
+    return null;
   }
 
-  /// Create a copy of TransactionFeeErrors
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TransactionFeeErrorsCopyWith<$Res>? get errors {
-    if (_value.errors == null) {
-      return null;
-    }
-
-    return $TransactionFeeErrorsCopyWith<$Res>(_value.errors!, (value) {
-      return _then(_value.copyWith(errors: value) as $Val);
-    });
-  }
+  return $TransactionFeeErrorsCopyWith<$Res>(_self.errors!, (value) {
+    return _then(_self.copyWith(errors: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$TransactionFeeErrorsImplCopyWith<$Res>
-    implements $TransactionFeeErrorsCopyWith<$Res> {
-  factory _$$TransactionFeeErrorsImplCopyWith(_$TransactionFeeErrorsImpl value,
-          $Res Function(_$TransactionFeeErrorsImpl) then) =
-      __$$TransactionFeeErrorsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Data? data, TransactionFeeErrors? errors});
-
-  @override
-  $DataCopyWith<$Res>? get data;
-  @override
-  $TransactionFeeErrorsCopyWith<$Res>? get errors;
-}
-
-/// @nodoc
-class __$$TransactionFeeErrorsImplCopyWithImpl<$Res>
-    extends _$TransactionFeeErrorsCopyWithImpl<$Res, _$TransactionFeeErrorsImpl>
-    implements _$$TransactionFeeErrorsImplCopyWith<$Res> {
-  __$$TransactionFeeErrorsImplCopyWithImpl(_$TransactionFeeErrorsImpl _value,
-      $Res Function(_$TransactionFeeErrorsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionFeeErrors
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-    Object? errors = freezed,
-  }) {
-    return _then(_$TransactionFeeErrorsImpl(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Data?,
-      errors: freezed == errors
-          ? _value.errors
-          : errors // ignore: cast_nullable_to_non_nullable
-              as TransactionFeeErrors?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$TransactionFeeErrorsImpl extends _TransactionFeeErrors {
-  const _$TransactionFeeErrorsImpl({this.data, this.errors}) : super._();
 
-  factory _$TransactionFeeErrorsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TransactionFeeErrorsImplFromJson(json);
+class _TransactionFeeErrors extends TransactionFeeErrors {
+  const _TransactionFeeErrors({this.data, this.errors}): super._();
+  factory _TransactionFeeErrors.fromJson(Map<String, dynamic> json) => _$TransactionFeeErrorsFromJson(json);
 
-  @override
-  final Data? data;
-  @override
-  final TransactionFeeErrors? errors;
+/// Potentially problematic or erroneous data that contributed to the error.
+@override final  Data? data;
+/// Further nested error details.
+@override final  TransactionFeeErrors? errors;
 
-  @override
-  String toString() {
-    return 'TransactionFeeErrors(data: $data, errors: $errors)';
-  }
+/// Create a copy of TransactionFeeErrors
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TransactionFeeErrorsCopyWith<_TransactionFeeErrors> get copyWith => __$TransactionFeeErrorsCopyWithImpl<_TransactionFeeErrors>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionFeeErrorsImpl &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.errors, errors) || other.errors == errors));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, data, errors);
-
-  /// Create a copy of TransactionFeeErrors
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TransactionFeeErrorsImplCopyWith<_$TransactionFeeErrorsImpl>
-      get copyWith =>
-          __$$TransactionFeeErrorsImplCopyWithImpl<_$TransactionFeeErrorsImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TransactionFeeErrorsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$TransactionFeeErrorsToJson(this, );
 }
 
-abstract class _TransactionFeeErrors extends TransactionFeeErrors {
-  const factory _TransactionFeeErrors(
-      {final Data? data,
-      final TransactionFeeErrors? errors}) = _$TransactionFeeErrorsImpl;
-  const _TransactionFeeErrors._() : super._();
-
-  factory _TransactionFeeErrors.fromJson(Map<String, dynamic> json) =
-      _$TransactionFeeErrorsImpl.fromJson;
-
-  @override
-  Data? get data;
-  @override
-  TransactionFeeErrors? get errors;
-
-  /// Create a copy of TransactionFeeErrors
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransactionFeeErrorsImplCopyWith<_$TransactionFeeErrorsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionFeeErrors&&(identical(other.data, data) || other.data == data)&&(identical(other.errors, errors) || other.errors == errors));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,data,errors);
+
+@override
+String toString() {
+  return 'TransactionFeeErrors(data: $data, errors: $errors)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$TransactionFeeErrorsCopyWith<$Res> implements $TransactionFeeErrorsCopyWith<$Res> {
+  factory _$TransactionFeeErrorsCopyWith(_TransactionFeeErrors value, $Res Function(_TransactionFeeErrors) _then) = __$TransactionFeeErrorsCopyWithImpl;
+@override @useResult
+$Res call({
+ Data? data, TransactionFeeErrors? errors
+});
+
+
+@override $DataCopyWith<$Res>? get data;@override $TransactionFeeErrorsCopyWith<$Res>? get errors;
+
+}
+/// @nodoc
+class __$TransactionFeeErrorsCopyWithImpl<$Res>
+    implements _$TransactionFeeErrorsCopyWith<$Res> {
+  __$TransactionFeeErrorsCopyWithImpl(this._self, this._then);
+
+  final _TransactionFeeErrors _self;
+  final $Res Function(_TransactionFeeErrors) _then;
+
+/// Create a copy of TransactionFeeErrors
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,Object? errors = freezed,}) {
+  return _then(_TransactionFeeErrors(
+data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as Data?,errors: freezed == errors ? _self.errors : errors // ignore: cast_nullable_to_non_nullable
+as TransactionFeeErrors?,
+  ));
+}
+
+/// Create a copy of TransactionFeeErrors
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DataCopyWith<$Res>? get data {
+    if (_self.data == null) {
+    return null;
+  }
+
+  return $DataCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}/// Create a copy of TransactionFeeErrors
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TransactionFeeErrorsCopyWith<$Res>? get errors {
+    if (_self.errors == null) {
+    return null;
+  }
+
+  return $TransactionFeeErrorsCopyWith<$Res>(_self.errors!, (value) {
+    return _then(_self.copyWith(errors: value));
+  });
+}
+}
+
+// dart format on

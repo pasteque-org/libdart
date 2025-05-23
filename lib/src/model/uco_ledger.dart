@@ -4,14 +4,21 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'uco_ledger.freezed.dart';
 part 'uco_ledger.g.dart';
 
-/// [UCOLedger] represents the transfers to perform on the UCO ledger
+/// Represents a set of UCO (Universal Coin) transfer operations to be recorded on the ledger.
+///
+/// This class typically groups multiple [UCOTransfer] objects that form part of a single transaction or ledger update.
 @Freezed(makeCollectionsUnmodifiable: false)
-class UCOLedger with _$UCOLedger {
-  const factory UCOLedger({
-    @Default([]) final List<UCOTransfer> transfers,
-  }) = _UCOLedger;
+abstract class UCOLedger with _$UCOLedger {
+  /// Creates a [UCOLedger] instance.
+  ///
+  /// The [transfers] parameter is a list of [UCOTransfer] objects, defaulting to an empty list.
+  const factory UCOLedger({@Default([]) final List<UCOTransfer> transfers}) =
+      _UCOLedger;
+
+  /// Private constructor for [UCOLedger].
   const UCOLedger._();
 
-  factory UCOLedger.fromJson(Map<String, dynamic> json) =>
+  /// Creates a [UCOLedger] instance from a JSON map.
+  factory UCOLedger.fromJson(final Map<String, dynamic> json) =>
       _$UCOLedgerFromJson(json);
 }

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,196 +10,157 @@ part of 'service.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Service _$ServiceFromJson(Map<String, dynamic> json) {
-  return _Service.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Service {
-  String get derivationPath => throw _privateConstructorUsedError;
-  String get curve => throw _privateConstructorUsedError;
-  String get hashAlgo => throw _privateConstructorUsedError;
+
+/// The derivation path used to generate or identify the key for this service.
+/// This follows a standard hierarchical deterministic wallet path format.
+ String get derivationPath;/// The cryptographic curve used for key generation and operations (e.g., 'ed25519', 'secp256k1').
+/// Defaults to 'ed25519'.
+ String get curve;/// The hash algorithm used in conjunction with this service (e.g., 'sha256', 'keccak256').
+/// Defaults to 'sha256'.
+ String get hashAlgo;
+/// Create a copy of Service
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ServiceCopyWith<Service> get copyWith => _$ServiceCopyWithImpl<Service>(this as Service, _$identity);
 
   /// Serializes this Service to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Service
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ServiceCopyWith<Service> get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Service&&(identical(other.derivationPath, derivationPath) || other.derivationPath == derivationPath)&&(identical(other.curve, curve) || other.curve == curve)&&(identical(other.hashAlgo, hashAlgo) || other.hashAlgo == hashAlgo));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,derivationPath,curve,hashAlgo);
+
+@override
+String toString() {
+  return 'Service(derivationPath: $derivationPath, curve: $curve, hashAlgo: $hashAlgo)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ServiceCopyWith<$Res> {
-  factory $ServiceCopyWith(Service value, $Res Function(Service) then) =
-      _$ServiceCopyWithImpl<$Res, Service>;
-  @useResult
-  $Res call({String derivationPath, String curve, String hashAlgo});
-}
+abstract mixin class $ServiceCopyWith<$Res>  {
+  factory $ServiceCopyWith(Service value, $Res Function(Service) _then) = _$ServiceCopyWithImpl;
+@useResult
+$Res call({
+ String derivationPath, String curve, String hashAlgo
+});
 
+
+
+
+}
 /// @nodoc
-class _$ServiceCopyWithImpl<$Res, $Val extends Service>
+class _$ServiceCopyWithImpl<$Res>
     implements $ServiceCopyWith<$Res> {
-  _$ServiceCopyWithImpl(this._value, this._then);
+  _$ServiceCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Service _self;
+  final $Res Function(Service) _then;
 
-  /// Create a copy of Service
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? derivationPath = null,
-    Object? curve = null,
-    Object? hashAlgo = null,
-  }) {
-    return _then(_value.copyWith(
-      derivationPath: null == derivationPath
-          ? _value.derivationPath
-          : derivationPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      curve: null == curve
-          ? _value.curve
-          : curve // ignore: cast_nullable_to_non_nullable
-              as String,
-      hashAlgo: null == hashAlgo
-          ? _value.hashAlgo
-          : hashAlgo // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of Service
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? derivationPath = null,Object? curve = null,Object? hashAlgo = null,}) {
+  return _then(_self.copyWith(
+derivationPath: null == derivationPath ? _self.derivationPath : derivationPath // ignore: cast_nullable_to_non_nullable
+as String,curve: null == curve ? _self.curve : curve // ignore: cast_nullable_to_non_nullable
+as String,hashAlgo: null == hashAlgo ? _self.hashAlgo : hashAlgo // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ServiceImplCopyWith<$Res> implements $ServiceCopyWith<$Res> {
-  factory _$$ServiceImplCopyWith(
-          _$ServiceImpl value, $Res Function(_$ServiceImpl) then) =
-      __$$ServiceImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String derivationPath, String curve, String hashAlgo});
 }
 
-/// @nodoc
-class __$$ServiceImplCopyWithImpl<$Res>
-    extends _$ServiceCopyWithImpl<$Res, _$ServiceImpl>
-    implements _$$ServiceImplCopyWith<$Res> {
-  __$$ServiceImplCopyWithImpl(
-      _$ServiceImpl _value, $Res Function(_$ServiceImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Service
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? derivationPath = null,
-    Object? curve = null,
-    Object? hashAlgo = null,
-  }) {
-    return _then(_$ServiceImpl(
-      derivationPath: null == derivationPath
-          ? _value.derivationPath
-          : derivationPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      curve: null == curve
-          ? _value.curve
-          : curve // ignore: cast_nullable_to_non_nullable
-              as String,
-      hashAlgo: null == hashAlgo
-          ? _value.hashAlgo
-          : hashAlgo // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$ServiceImpl extends _Service {
-  const _$ServiceImpl(
-      {required this.derivationPath,
-      this.curve = 'ed25519',
-      this.hashAlgo = 'sha256'})
-      : super._();
 
-  factory _$ServiceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ServiceImplFromJson(json);
+class _Service extends Service {
+  const _Service({required this.derivationPath, this.curve = 'ed25519', this.hashAlgo = 'sha256'}): super._();
+  factory _Service.fromJson(Map<String, dynamic> json) => _$ServiceFromJson(json);
 
-  @override
-  final String derivationPath;
-  @override
-  @JsonKey()
-  final String curve;
-  @override
-  @JsonKey()
-  final String hashAlgo;
+/// The derivation path used to generate or identify the key for this service.
+/// This follows a standard hierarchical deterministic wallet path format.
+@override final  String derivationPath;
+/// The cryptographic curve used for key generation and operations (e.g., 'ed25519', 'secp256k1').
+/// Defaults to 'ed25519'.
+@override@JsonKey() final  String curve;
+/// The hash algorithm used in conjunction with this service (e.g., 'sha256', 'keccak256').
+/// Defaults to 'sha256'.
+@override@JsonKey() final  String hashAlgo;
 
-  @override
-  String toString() {
-    return 'Service(derivationPath: $derivationPath, curve: $curve, hashAlgo: $hashAlgo)';
-  }
+/// Create a copy of Service
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ServiceCopyWith<_Service> get copyWith => __$ServiceCopyWithImpl<_Service>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ServiceImpl &&
-            (identical(other.derivationPath, derivationPath) ||
-                other.derivationPath == derivationPath) &&
-            (identical(other.curve, curve) || other.curve == curve) &&
-            (identical(other.hashAlgo, hashAlgo) ||
-                other.hashAlgo == hashAlgo));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, derivationPath, curve, hashAlgo);
-
-  /// Create a copy of Service
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ServiceImplCopyWith<_$ServiceImpl> get copyWith =>
-      __$$ServiceImplCopyWithImpl<_$ServiceImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ServiceImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ServiceToJson(this, );
 }
 
-abstract class _Service extends Service {
-  const factory _Service(
-      {required final String derivationPath,
-      final String curve,
-      final String hashAlgo}) = _$ServiceImpl;
-  const _Service._() : super._();
-
-  factory _Service.fromJson(Map<String, dynamic> json) = _$ServiceImpl.fromJson;
-
-  @override
-  String get derivationPath;
-  @override
-  String get curve;
-  @override
-  String get hashAlgo;
-
-  /// Create a copy of Service
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ServiceImplCopyWith<_$ServiceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Service&&(identical(other.derivationPath, derivationPath) || other.derivationPath == derivationPath)&&(identical(other.curve, curve) || other.curve == curve)&&(identical(other.hashAlgo, hashAlgo) || other.hashAlgo == hashAlgo));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,derivationPath,curve,hashAlgo);
+
+@override
+String toString() {
+  return 'Service(derivationPath: $derivationPath, curve: $curve, hashAlgo: $hashAlgo)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ServiceCopyWith<$Res> implements $ServiceCopyWith<$Res> {
+  factory _$ServiceCopyWith(_Service value, $Res Function(_Service) _then) = __$ServiceCopyWithImpl;
+@override @useResult
+$Res call({
+ String derivationPath, String curve, String hashAlgo
+});
+
+
+
+
+}
+/// @nodoc
+class __$ServiceCopyWithImpl<$Res>
+    implements _$ServiceCopyWith<$Res> {
+  __$ServiceCopyWithImpl(this._self, this._then);
+
+  final _Service _self;
+  final $Res Function(_Service) _then;
+
+/// Create a copy of Service
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? derivationPath = null,Object? curve = null,Object? hashAlgo = null,}) {
+  return _then(_Service(
+derivationPath: null == derivationPath ? _self.derivationPath : derivationPath // ignore: cast_nullable_to_non_nullable
+as String,curve: null == curve ? _self.curve : curve // ignore: cast_nullable_to_non_nullable
+as String,hashAlgo: null == hashAlgo ? _self.hashAlgo : hashAlgo // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,174 +10,146 @@ part of 'endpoint.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Endpoint _$EndpointFromJson(Map<String, dynamic> json) {
-  return _Endpoint.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Endpoint {
-  String get ip => throw _privateConstructorUsedError;
-  int get port => throw _privateConstructorUsedError;
+
+/// The IP address of the endpoint.
+ String get ip;/// The port number of the endpoint.
+ int get port;
+/// Create a copy of Endpoint
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EndpointCopyWith<Endpoint> get copyWith => _$EndpointCopyWithImpl<Endpoint>(this as Endpoint, _$identity);
 
   /// Serializes this Endpoint to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Endpoint
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $EndpointCopyWith<Endpoint> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Endpoint&&(identical(other.ip, ip) || other.ip == ip)&&(identical(other.port, port) || other.port == port));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,ip,port);
+
+@override
+String toString() {
+  return 'Endpoint(ip: $ip, port: $port)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $EndpointCopyWith<$Res> {
-  factory $EndpointCopyWith(Endpoint value, $Res Function(Endpoint) then) =
-      _$EndpointCopyWithImpl<$Res, Endpoint>;
-  @useResult
-  $Res call({String ip, int port});
-}
+abstract mixin class $EndpointCopyWith<$Res>  {
+  factory $EndpointCopyWith(Endpoint value, $Res Function(Endpoint) _then) = _$EndpointCopyWithImpl;
+@useResult
+$Res call({
+ String ip, int port
+});
 
+
+
+
+}
 /// @nodoc
-class _$EndpointCopyWithImpl<$Res, $Val extends Endpoint>
+class _$EndpointCopyWithImpl<$Res>
     implements $EndpointCopyWith<$Res> {
-  _$EndpointCopyWithImpl(this._value, this._then);
+  _$EndpointCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Endpoint _self;
+  final $Res Function(Endpoint) _then;
 
-  /// Create a copy of Endpoint
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? ip = null,
-    Object? port = null,
-  }) {
-    return _then(_value.copyWith(
-      ip: null == ip
-          ? _value.ip
-          : ip // ignore: cast_nullable_to_non_nullable
-              as String,
-      port: null == port
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
+/// Create a copy of Endpoint
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? ip = null,Object? port = null,}) {
+  return _then(_self.copyWith(
+ip: null == ip ? _self.ip : ip // ignore: cast_nullable_to_non_nullable
+as String,port: null == port ? _self.port : port // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-abstract class _$$EndpointImplCopyWith<$Res>
-    implements $EndpointCopyWith<$Res> {
-  factory _$$EndpointImplCopyWith(
-          _$EndpointImpl value, $Res Function(_$EndpointImpl) then) =
-      __$$EndpointImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String ip, int port});
 }
 
-/// @nodoc
-class __$$EndpointImplCopyWithImpl<$Res>
-    extends _$EndpointCopyWithImpl<$Res, _$EndpointImpl>
-    implements _$$EndpointImplCopyWith<$Res> {
-  __$$EndpointImplCopyWithImpl(
-      _$EndpointImpl _value, $Res Function(_$EndpointImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Endpoint
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? ip = null,
-    Object? port = null,
-  }) {
-    return _then(_$EndpointImpl(
-      ip: null == ip
-          ? _value.ip
-          : ip // ignore: cast_nullable_to_non_nullable
-              as String,
-      port: null == port
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$EndpointImpl extends _Endpoint {
-  const _$EndpointImpl({this.ip = '', this.port = 0}) : super._();
 
-  factory _$EndpointImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EndpointImplFromJson(json);
+class _Endpoint extends Endpoint {
+  const _Endpoint({this.ip = '', this.port = 0}): super._();
+  factory _Endpoint.fromJson(Map<String, dynamic> json) => _$EndpointFromJson(json);
 
-  @override
-  @JsonKey()
-  final String ip;
-  @override
-  @JsonKey()
-  final int port;
+/// The IP address of the endpoint.
+@override@JsonKey() final  String ip;
+/// The port number of the endpoint.
+@override@JsonKey() final  int port;
 
-  @override
-  String toString() {
-    return 'Endpoint(ip: $ip, port: $port)';
-  }
+/// Create a copy of Endpoint
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$EndpointCopyWith<_Endpoint> get copyWith => __$EndpointCopyWithImpl<_Endpoint>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$EndpointImpl &&
-            (identical(other.ip, ip) || other.ip == ip) &&
-            (identical(other.port, port) || other.port == port));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, ip, port);
-
-  /// Create a copy of Endpoint
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$EndpointImplCopyWith<_$EndpointImpl> get copyWith =>
-      __$$EndpointImplCopyWithImpl<_$EndpointImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EndpointImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$EndpointToJson(this, );
 }
 
-abstract class _Endpoint extends Endpoint {
-  const factory _Endpoint({final String ip, final int port}) = _$EndpointImpl;
-  const _Endpoint._() : super._();
-
-  factory _Endpoint.fromJson(Map<String, dynamic> json) =
-      _$EndpointImpl.fromJson;
-
-  @override
-  String get ip;
-  @override
-  int get port;
-
-  /// Create a copy of Endpoint
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EndpointImplCopyWith<_$EndpointImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Endpoint&&(identical(other.ip, ip) || other.ip == ip)&&(identical(other.port, port) || other.port == port));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,ip,port);
+
+@override
+String toString() {
+  return 'Endpoint(ip: $ip, port: $port)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$EndpointCopyWith<$Res> implements $EndpointCopyWith<$Res> {
+  factory _$EndpointCopyWith(_Endpoint value, $Res Function(_Endpoint) _then) = __$EndpointCopyWithImpl;
+@override @useResult
+$Res call({
+ String ip, int port
+});
+
+
+
+
+}
+/// @nodoc
+class __$EndpointCopyWithImpl<$Res>
+    implements _$EndpointCopyWith<$Res> {
+  __$EndpointCopyWithImpl(this._self, this._then);
+
+  final _Endpoint _self;
+  final $Res Function(_Endpoint) _then;
+
+/// Create a copy of Endpoint
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? ip = null,Object? port = null,}) {
+  return _then(_Endpoint(
+ip: null == ip ? _self.ip : ip // ignore: cast_nullable_to_non_nullable
+as String,port: null == port ? _self.port : port // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+// dart format on

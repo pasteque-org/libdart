@@ -6,8 +6,8 @@ part of 'consumed_inputs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConsumedInputsImpl _$$ConsumedInputsImplFromJson(Map<String, dynamic> json) =>
-    _$ConsumedInputsImpl(
+_ConsumedInputs _$ConsumedInputsFromJson(Map<String, dynamic> json) =>
+    _ConsumedInputs(
       amount: (json['amount'] as num?)?.toInt(),
       from: json['from'] as String?,
       tokenAddress: json['tokenAddress'] as String?,
@@ -18,8 +18,7 @@ _$ConsumedInputsImpl _$$ConsumedInputsImplFromJson(Map<String, dynamic> json) =>
       state: json['state'] as String?,
     );
 
-Map<String, dynamic> _$$ConsumedInputsImplToJson(
-        _$ConsumedInputsImpl instance) =>
+Map<String, dynamic> _$ConsumedInputsToJson(_ConsumedInputs instance) =>
     <String, dynamic>{
       'amount': instance.amount,
       'from': instance.from,

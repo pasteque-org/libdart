@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,206 +10,190 @@ part of 'ledger.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Ledger _$LedgerFromJson(Map<String, dynamic> json) {
-  return _Ledger.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Ledger {
-  TokenLedger? get token => throw _privateConstructorUsedError;
-  UCOLedger? get uco => throw _privateConstructorUsedError;
+
+ TokenLedger? get token; UCOLedger? get uco;
+/// Create a copy of Ledger
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LedgerCopyWith<Ledger> get copyWith => _$LedgerCopyWithImpl<Ledger>(this as Ledger, _$identity);
 
   /// Serializes this Ledger to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Ledger
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $LedgerCopyWith<Ledger> get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Ledger&&(identical(other.token, token) || other.token == token)&&(identical(other.uco, uco) || other.uco == uco));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,token,uco);
+
+@override
+String toString() {
+  return 'Ledger(token: $token, uco: $uco)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $LedgerCopyWith<$Res> {
-  factory $LedgerCopyWith(Ledger value, $Res Function(Ledger) then) =
-      _$LedgerCopyWithImpl<$Res, Ledger>;
-  @useResult
-  $Res call({TokenLedger? token, UCOLedger? uco});
+abstract mixin class $LedgerCopyWith<$Res>  {
+  factory $LedgerCopyWith(Ledger value, $Res Function(Ledger) _then) = _$LedgerCopyWithImpl;
+@useResult
+$Res call({
+ TokenLedger? token, UCOLedger? uco
+});
 
-  $TokenLedgerCopyWith<$Res>? get token;
-  $UCOLedgerCopyWith<$Res>? get uco;
+
+$TokenLedgerCopyWith<$Res>? get token;$UCOLedgerCopyWith<$Res>? get uco;
+
 }
-
 /// @nodoc
-class _$LedgerCopyWithImpl<$Res, $Val extends Ledger>
+class _$LedgerCopyWithImpl<$Res>
     implements $LedgerCopyWith<$Res> {
-  _$LedgerCopyWithImpl(this._value, this._then);
+  _$LedgerCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Ledger _self;
+  final $Res Function(Ledger) _then;
 
-  /// Create a copy of Ledger
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? token = freezed,
-    Object? uco = freezed,
-  }) {
-    return _then(_value.copyWith(
-      token: freezed == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as TokenLedger?,
-      uco: freezed == uco
-          ? _value.uco
-          : uco // ignore: cast_nullable_to_non_nullable
-              as UCOLedger?,
-    ) as $Val);
+/// Create a copy of Ledger
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? token = freezed,Object? uco = freezed,}) {
+  return _then(_self.copyWith(
+token: freezed == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
+as TokenLedger?,uco: freezed == uco ? _self.uco : uco // ignore: cast_nullable_to_non_nullable
+as UCOLedger?,
+  ));
+}
+/// Create a copy of Ledger
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TokenLedgerCopyWith<$Res>? get token {
+    if (_self.token == null) {
+    return null;
   }
 
-  /// Create a copy of Ledger
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TokenLedgerCopyWith<$Res>? get token {
-    if (_value.token == null) {
-      return null;
-    }
-
-    return $TokenLedgerCopyWith<$Res>(_value.token!, (value) {
-      return _then(_value.copyWith(token: value) as $Val);
-    });
+  return $TokenLedgerCopyWith<$Res>(_self.token!, (value) {
+    return _then(_self.copyWith(token: value));
+  });
+}/// Create a copy of Ledger
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UCOLedgerCopyWith<$Res>? get uco {
+    if (_self.uco == null) {
+    return null;
   }
 
-  /// Create a copy of Ledger
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UCOLedgerCopyWith<$Res>? get uco {
-    if (_value.uco == null) {
-      return null;
-    }
-
-    return $UCOLedgerCopyWith<$Res>(_value.uco!, (value) {
-      return _then(_value.copyWith(uco: value) as $Val);
-    });
-  }
+  return $UCOLedgerCopyWith<$Res>(_self.uco!, (value) {
+    return _then(_self.copyWith(uco: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$LedgerImplCopyWith<$Res> implements $LedgerCopyWith<$Res> {
-  factory _$$LedgerImplCopyWith(
-          _$LedgerImpl value, $Res Function(_$LedgerImpl) then) =
-      __$$LedgerImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({TokenLedger? token, UCOLedger? uco});
-
-  @override
-  $TokenLedgerCopyWith<$Res>? get token;
-  @override
-  $UCOLedgerCopyWith<$Res>? get uco;
-}
-
-/// @nodoc
-class __$$LedgerImplCopyWithImpl<$Res>
-    extends _$LedgerCopyWithImpl<$Res, _$LedgerImpl>
-    implements _$$LedgerImplCopyWith<$Res> {
-  __$$LedgerImplCopyWithImpl(
-      _$LedgerImpl _value, $Res Function(_$LedgerImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Ledger
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? token = freezed,
-    Object? uco = freezed,
-  }) {
-    return _then(_$LedgerImpl(
-      token: freezed == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as TokenLedger?,
-      uco: freezed == uco
-          ? _value.uco
-          : uco // ignore: cast_nullable_to_non_nullable
-              as UCOLedger?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$LedgerImpl extends _Ledger {
-  const _$LedgerImpl({this.token, this.uco}) : super._();
 
-  factory _$LedgerImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LedgerImplFromJson(json);
+class _Ledger extends Ledger {
+  const _Ledger({this.token, this.uco}): super._();
+  factory _Ledger.fromJson(Map<String, dynamic> json) => _$LedgerFromJson(json);
 
-  @override
-  final TokenLedger? token;
-  @override
-  final UCOLedger? uco;
+@override final  TokenLedger? token;
+@override final  UCOLedger? uco;
 
-  @override
-  String toString() {
-    return 'Ledger(token: $token, uco: $uco)';
-  }
+/// Create a copy of Ledger
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LedgerCopyWith<_Ledger> get copyWith => __$LedgerCopyWithImpl<_Ledger>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LedgerImpl &&
-            (identical(other.token, token) || other.token == token) &&
-            (identical(other.uco, uco) || other.uco == uco));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, token, uco);
-
-  /// Create a copy of Ledger
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LedgerImplCopyWith<_$LedgerImpl> get copyWith =>
-      __$$LedgerImplCopyWithImpl<_$LedgerImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LedgerImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$LedgerToJson(this, );
 }
 
-abstract class _Ledger extends Ledger {
-  const factory _Ledger({final TokenLedger? token, final UCOLedger? uco}) =
-      _$LedgerImpl;
-  const _Ledger._() : super._();
-
-  factory _Ledger.fromJson(Map<String, dynamic> json) = _$LedgerImpl.fromJson;
-
-  @override
-  TokenLedger? get token;
-  @override
-  UCOLedger? get uco;
-
-  /// Create a copy of Ledger
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LedgerImplCopyWith<_$LedgerImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Ledger&&(identical(other.token, token) || other.token == token)&&(identical(other.uco, uco) || other.uco == uco));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,token,uco);
+
+@override
+String toString() {
+  return 'Ledger(token: $token, uco: $uco)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$LedgerCopyWith<$Res> implements $LedgerCopyWith<$Res> {
+  factory _$LedgerCopyWith(_Ledger value, $Res Function(_Ledger) _then) = __$LedgerCopyWithImpl;
+@override @useResult
+$Res call({
+ TokenLedger? token, UCOLedger? uco
+});
+
+
+@override $TokenLedgerCopyWith<$Res>? get token;@override $UCOLedgerCopyWith<$Res>? get uco;
+
+}
+/// @nodoc
+class __$LedgerCopyWithImpl<$Res>
+    implements _$LedgerCopyWith<$Res> {
+  __$LedgerCopyWithImpl(this._self, this._then);
+
+  final _Ledger _self;
+  final $Res Function(_Ledger) _then;
+
+/// Create a copy of Ledger
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? token = freezed,Object? uco = freezed,}) {
+  return _then(_Ledger(
+token: freezed == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
+as TokenLedger?,uco: freezed == uco ? _self.uco : uco // ignore: cast_nullable_to_non_nullable
+as UCOLedger?,
+  ));
+}
+
+/// Create a copy of Ledger
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TokenLedgerCopyWith<$Res>? get token {
+    if (_self.token == null) {
+    return null;
+  }
+
+  return $TokenLedgerCopyWith<$Res>(_self.token!, (value) {
+    return _then(_self.copyWith(token: value));
+  });
+}/// Create a copy of Ledger
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UCOLedgerCopyWith<$Res>? get uco {
+    if (_self.uco == null) {
+    return null;
+  }
+
+  return $UCOLedgerCopyWith<$Res>(_self.uco!, (value) {
+    return _then(_self.copyWith(uco: value));
+  });
+}
+}
+
+// dart format on

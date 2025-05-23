@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,174 +10,142 @@ part of 'uco_transfer.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UCOTransfer _$UCOTransferFromJson(Map<String, dynamic> json) {
-  return _UCOTransfer.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UCOTransfer {
-  int? get amount => throw _privateConstructorUsedError;
-  String? get to => throw _privateConstructorUsedError;
+
+ int? get amount; String? get to;
+/// Create a copy of UCOTransfer
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UCOTransferCopyWith<UCOTransfer> get copyWith => _$UCOTransferCopyWithImpl<UCOTransfer>(this as UCOTransfer, _$identity);
 
   /// Serializes this UCOTransfer to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of UCOTransfer
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $UCOTransferCopyWith<UCOTransfer> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UCOTransfer&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.to, to) || other.to == to));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,amount,to);
+
+@override
+String toString() {
+  return 'UCOTransfer(amount: $amount, to: $to)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UCOTransferCopyWith<$Res> {
-  factory $UCOTransferCopyWith(
-          UCOTransfer value, $Res Function(UCOTransfer) then) =
-      _$UCOTransferCopyWithImpl<$Res, UCOTransfer>;
-  @useResult
-  $Res call({int? amount, String? to});
-}
+abstract mixin class $UCOTransferCopyWith<$Res>  {
+  factory $UCOTransferCopyWith(UCOTransfer value, $Res Function(UCOTransfer) _then) = _$UCOTransferCopyWithImpl;
+@useResult
+$Res call({
+ int? amount, String? to
+});
 
+
+
+
+}
 /// @nodoc
-class _$UCOTransferCopyWithImpl<$Res, $Val extends UCOTransfer>
+class _$UCOTransferCopyWithImpl<$Res>
     implements $UCOTransferCopyWith<$Res> {
-  _$UCOTransferCopyWithImpl(this._value, this._then);
+  _$UCOTransferCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final UCOTransfer _self;
+  final $Res Function(UCOTransfer) _then;
 
-  /// Create a copy of UCOTransfer
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? amount = freezed,
-    Object? to = freezed,
-  }) {
-    return _then(_value.copyWith(
-      amount: freezed == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      to: freezed == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of UCOTransfer
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? amount = freezed,Object? to = freezed,}) {
+  return _then(_self.copyWith(
+amount: freezed == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
+as int?,to: freezed == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UCOTransferImplCopyWith<$Res>
-    implements $UCOTransferCopyWith<$Res> {
-  factory _$$UCOTransferImplCopyWith(
-          _$UCOTransferImpl value, $Res Function(_$UCOTransferImpl) then) =
-      __$$UCOTransferImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int? amount, String? to});
 }
 
-/// @nodoc
-class __$$UCOTransferImplCopyWithImpl<$Res>
-    extends _$UCOTransferCopyWithImpl<$Res, _$UCOTransferImpl>
-    implements _$$UCOTransferImplCopyWith<$Res> {
-  __$$UCOTransferImplCopyWithImpl(
-      _$UCOTransferImpl _value, $Res Function(_$UCOTransferImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UCOTransfer
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? amount = freezed,
-    Object? to = freezed,
-  }) {
-    return _then(_$UCOTransferImpl(
-      amount: freezed == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      to: freezed == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$UCOTransferImpl extends _UCOTransfer {
-  const _$UCOTransferImpl({this.amount, this.to}) : super._();
 
-  factory _$UCOTransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UCOTransferImplFromJson(json);
+class _UCOTransfer extends UCOTransfer {
+  const _UCOTransfer({this.amount, this.to}): super._();
+  factory _UCOTransfer.fromJson(Map<String, dynamic> json) => _$UCOTransferFromJson(json);
 
-  @override
-  final int? amount;
-  @override
-  final String? to;
+@override final  int? amount;
+@override final  String? to;
 
-  @override
-  String toString() {
-    return 'UCOTransfer(amount: $amount, to: $to)';
-  }
+/// Create a copy of UCOTransfer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UCOTransferCopyWith<_UCOTransfer> get copyWith => __$UCOTransferCopyWithImpl<_UCOTransfer>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UCOTransferImpl &&
-            (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.to, to) || other.to == to));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, amount, to);
-
-  /// Create a copy of UCOTransfer
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UCOTransferImplCopyWith<_$UCOTransferImpl> get copyWith =>
-      __$$UCOTransferImplCopyWithImpl<_$UCOTransferImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UCOTransferImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$UCOTransferToJson(this, );
 }
 
-abstract class _UCOTransfer extends UCOTransfer {
-  const factory _UCOTransfer({final int? amount, final String? to}) =
-      _$UCOTransferImpl;
-  const _UCOTransfer._() : super._();
-
-  factory _UCOTransfer.fromJson(Map<String, dynamic> json) =
-      _$UCOTransferImpl.fromJson;
-
-  @override
-  int? get amount;
-  @override
-  String? get to;
-
-  /// Create a copy of UCOTransfer
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UCOTransferImplCopyWith<_$UCOTransferImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UCOTransfer&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.to, to) || other.to == to));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,amount,to);
+
+@override
+String toString() {
+  return 'UCOTransfer(amount: $amount, to: $to)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UCOTransferCopyWith<$Res> implements $UCOTransferCopyWith<$Res> {
+  factory _$UCOTransferCopyWith(_UCOTransfer value, $Res Function(_UCOTransfer) _then) = __$UCOTransferCopyWithImpl;
+@override @useResult
+$Res call({
+ int? amount, String? to
+});
+
+
+
+
+}
+/// @nodoc
+class __$UCOTransferCopyWithImpl<$Res>
+    implements _$UCOTransferCopyWith<$Res> {
+  __$UCOTransferCopyWithImpl(this._self, this._then);
+
+  final _UCOTransfer _self;
+  final $Res Function(_UCOTransfer) _then;
+
+/// Create a copy of UCOTransfer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? amount = freezed,Object? to = freezed,}) {
+  return _then(_UCOTransfer(
+amount: freezed == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
+as int?,to: freezed == to ? _self.to : to // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,190 +10,148 @@ part of 'cross_validation_stamp.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CrossValidationStamp _$CrossValidationStampFromJson(Map<String, dynamic> json) {
-  return _CrossValidationStamp.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CrossValidationStamp {
-  /// Node public key
-  String? get nodePublicKey => throw _privateConstructorUsedError;
 
-  /// Signature of the validation stamp
-  String? get signature => throw _privateConstructorUsedError;
+/// The public key of the node that performed the cross-validation.
+ String? get nodePublicKey;/// The signature of the cross-validating node over the content of the [ValidationStamp]
+/// (or a hash of it) that this stamp is approving.
+ String? get signature;
+/// Create a copy of CrossValidationStamp
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CrossValidationStampCopyWith<CrossValidationStamp> get copyWith => _$CrossValidationStampCopyWithImpl<CrossValidationStamp>(this as CrossValidationStamp, _$identity);
 
   /// Serializes this CrossValidationStamp to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of CrossValidationStamp
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $CrossValidationStampCopyWith<CrossValidationStamp> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CrossValidationStamp&&(identical(other.nodePublicKey, nodePublicKey) || other.nodePublicKey == nodePublicKey)&&(identical(other.signature, signature) || other.signature == signature));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,nodePublicKey,signature);
+
+@override
+String toString() {
+  return 'CrossValidationStamp(nodePublicKey: $nodePublicKey, signature: $signature)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $CrossValidationStampCopyWith<$Res> {
-  factory $CrossValidationStampCopyWith(CrossValidationStamp value,
-          $Res Function(CrossValidationStamp) then) =
-      _$CrossValidationStampCopyWithImpl<$Res, CrossValidationStamp>;
-  @useResult
-  $Res call({String? nodePublicKey, String? signature});
-}
+abstract mixin class $CrossValidationStampCopyWith<$Res>  {
+  factory $CrossValidationStampCopyWith(CrossValidationStamp value, $Res Function(CrossValidationStamp) _then) = _$CrossValidationStampCopyWithImpl;
+@useResult
+$Res call({
+ String? nodePublicKey, String? signature
+});
 
+
+
+
+}
 /// @nodoc
-class _$CrossValidationStampCopyWithImpl<$Res,
-        $Val extends CrossValidationStamp>
+class _$CrossValidationStampCopyWithImpl<$Res>
     implements $CrossValidationStampCopyWith<$Res> {
-  _$CrossValidationStampCopyWithImpl(this._value, this._then);
+  _$CrossValidationStampCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final CrossValidationStamp _self;
+  final $Res Function(CrossValidationStamp) _then;
 
-  /// Create a copy of CrossValidationStamp
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? nodePublicKey = freezed,
-    Object? signature = freezed,
-  }) {
-    return _then(_value.copyWith(
-      nodePublicKey: freezed == nodePublicKey
-          ? _value.nodePublicKey
-          : nodePublicKey // ignore: cast_nullable_to_non_nullable
-              as String?,
-      signature: freezed == signature
-          ? _value.signature
-          : signature // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of CrossValidationStamp
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? nodePublicKey = freezed,Object? signature = freezed,}) {
+  return _then(_self.copyWith(
+nodePublicKey: freezed == nodePublicKey ? _self.nodePublicKey : nodePublicKey // ignore: cast_nullable_to_non_nullable
+as String?,signature: freezed == signature ? _self.signature : signature // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$CrossValidationStampImplCopyWith<$Res>
-    implements $CrossValidationStampCopyWith<$Res> {
-  factory _$$CrossValidationStampImplCopyWith(_$CrossValidationStampImpl value,
-          $Res Function(_$CrossValidationStampImpl) then) =
-      __$$CrossValidationStampImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? nodePublicKey, String? signature});
 }
 
-/// @nodoc
-class __$$CrossValidationStampImplCopyWithImpl<$Res>
-    extends _$CrossValidationStampCopyWithImpl<$Res, _$CrossValidationStampImpl>
-    implements _$$CrossValidationStampImplCopyWith<$Res> {
-  __$$CrossValidationStampImplCopyWithImpl(_$CrossValidationStampImpl _value,
-      $Res Function(_$CrossValidationStampImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of CrossValidationStamp
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? nodePublicKey = freezed,
-    Object? signature = freezed,
-  }) {
-    return _then(_$CrossValidationStampImpl(
-      nodePublicKey: freezed == nodePublicKey
-          ? _value.nodePublicKey
-          : nodePublicKey // ignore: cast_nullable_to_non_nullable
-              as String?,
-      signature: freezed == signature
-          ? _value.signature
-          : signature // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$CrossValidationStampImpl extends _CrossValidationStamp {
-  const _$CrossValidationStampImpl({this.nodePublicKey, this.signature})
-      : super._();
 
-  factory _$CrossValidationStampImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CrossValidationStampImplFromJson(json);
+class _CrossValidationStamp extends CrossValidationStamp {
+  const _CrossValidationStamp({this.nodePublicKey, this.signature}): super._();
+  factory _CrossValidationStamp.fromJson(Map<String, dynamic> json) => _$CrossValidationStampFromJson(json);
 
-  /// Node public key
-  @override
-  final String? nodePublicKey;
+/// The public key of the node that performed the cross-validation.
+@override final  String? nodePublicKey;
+/// The signature of the cross-validating node over the content of the [ValidationStamp]
+/// (or a hash of it) that this stamp is approving.
+@override final  String? signature;
 
-  /// Signature of the validation stamp
-  @override
-  final String? signature;
+/// Create a copy of CrossValidationStamp
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CrossValidationStampCopyWith<_CrossValidationStamp> get copyWith => __$CrossValidationStampCopyWithImpl<_CrossValidationStamp>(this, _$identity);
 
-  @override
-  String toString() {
-    return 'CrossValidationStamp(nodePublicKey: $nodePublicKey, signature: $signature)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CrossValidationStampImpl &&
-            (identical(other.nodePublicKey, nodePublicKey) ||
-                other.nodePublicKey == nodePublicKey) &&
-            (identical(other.signature, signature) ||
-                other.signature == signature));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, nodePublicKey, signature);
-
-  /// Create a copy of CrossValidationStamp
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CrossValidationStampImplCopyWith<_$CrossValidationStampImpl>
-      get copyWith =>
-          __$$CrossValidationStampImplCopyWithImpl<_$CrossValidationStampImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CrossValidationStampImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$CrossValidationStampToJson(this, );
 }
 
-abstract class _CrossValidationStamp extends CrossValidationStamp {
-  const factory _CrossValidationStamp(
-      {final String? nodePublicKey,
-      final String? signature}) = _$CrossValidationStampImpl;
-  const _CrossValidationStamp._() : super._();
-
-  factory _CrossValidationStamp.fromJson(Map<String, dynamic> json) =
-      _$CrossValidationStampImpl.fromJson;
-
-  /// Node public key
-  @override
-  String? get nodePublicKey;
-
-  /// Signature of the validation stamp
-  @override
-  String? get signature;
-
-  /// Create a copy of CrossValidationStamp
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CrossValidationStampImplCopyWith<_$CrossValidationStampImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CrossValidationStamp&&(identical(other.nodePublicKey, nodePublicKey) || other.nodePublicKey == nodePublicKey)&&(identical(other.signature, signature) || other.signature == signature));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,nodePublicKey,signature);
+
+@override
+String toString() {
+  return 'CrossValidationStamp(nodePublicKey: $nodePublicKey, signature: $signature)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$CrossValidationStampCopyWith<$Res> implements $CrossValidationStampCopyWith<$Res> {
+  factory _$CrossValidationStampCopyWith(_CrossValidationStamp value, $Res Function(_CrossValidationStamp) _then) = __$CrossValidationStampCopyWithImpl;
+@override @useResult
+$Res call({
+ String? nodePublicKey, String? signature
+});
+
+
+
+
+}
+/// @nodoc
+class __$CrossValidationStampCopyWithImpl<$Res>
+    implements _$CrossValidationStampCopyWith<$Res> {
+  __$CrossValidationStampCopyWithImpl(this._self, this._then);
+
+  final _CrossValidationStamp _self;
+  final $Res Function(_CrossValidationStamp) _then;
+
+/// Create a copy of CrossValidationStamp
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? nodePublicKey = freezed,Object? signature = freezed,}) {
+  return _then(_CrossValidationStamp(
+nodePublicKey: freezed == nodePublicKey ? _self.nodePublicKey : nodePublicKey // ignore: cast_nullable_to_non_nullable
+as String?,signature: freezed == signature ? _self.signature : signature // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

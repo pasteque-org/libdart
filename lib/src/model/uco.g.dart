@@ -6,12 +6,12 @@ part of 'uco.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UcoImpl _$$UcoImplFromJson(Map<String, dynamic> json) => _$UcoImpl(
-      eur: (json['eur'] as num?)?.toDouble(),
-      usd: (json['usd'] as num?)?.toDouble(),
-    );
+_Uco _$UcoFromJson(Map<String, dynamic> json) => _Uco(
+  eur: (json['eur'] as num?)?.toDouble(),
+  usd: (json['usd'] as num?)?.toDouble(),
+);
 
-Map<String, dynamic> _$$UcoImplToJson(_$UcoImpl instance) => <String, dynamic>{
-      'eur': instance.eur,
-      'usd': instance.usd,
-    };
+Map<String, dynamic> _$UcoToJson(_Uco instance) => <String, dynamic>{
+  'eur': instance.eur,
+  'usd': instance.usd,
+};

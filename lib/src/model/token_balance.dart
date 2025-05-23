@@ -5,19 +5,23 @@ part 'token_balance.g.dart';
 
 /// [TokenBalance] represents a token ledger balance.
 @freezed
-class TokenBalance with _$TokenBalance {
+abstract class TokenBalance with _$TokenBalance {
+  /// Creates an instance of [TokenBalance].
+  ///
+  /// All parameters are optional and nullable.
   const factory TokenBalance({
     /// Address of the token
-    String? address,
+    final String? address,
 
     /// Amount of token
-    int? amount,
+    final int? amount,
 
     /// ID of the token
-    int? tokenId,
+    final int? tokenId,
   }) = _TokenBalance;
   const TokenBalance._();
 
-  factory TokenBalance.fromJson(Map<String, dynamic> json) =>
+  /// Creates a [TokenBalance] instance from a JSON map.
+  factory TokenBalance.fromJson(final Map<String, dynamic> json) =>
       _$TokenBalanceFromJson(json);
 }

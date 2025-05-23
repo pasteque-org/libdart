@@ -1,6 +1,7 @@
-/// Package archEthic aims to provide a easy way to create Archethic transaction and to send them over the network.
+/// Package Archethic aims to provide a easy way to create Archethic transaction and to send them over the network.
 ///
 /// This implementation is based on Official Archethic Javascript library for Node and Browser.
+// ignore: unnecessary_library_name
 library archethic;
 
 export 'src/model/address.dart';
@@ -13,7 +14,6 @@ export 'src/model/crypto/aes_auth_encrypt_infos.dart';
 export 'src/model/crypto/key_pair.dart';
 export 'src/model/crypto/secret.dart';
 export 'src/model/data.dart';
-export 'src/model/error.dart';
 export 'src/model/exception/archethic_exception.dart';
 export 'src/model/exception/archethic_json_rpc_exception.dart';
 export 'src/model/hosting_ref.dart';

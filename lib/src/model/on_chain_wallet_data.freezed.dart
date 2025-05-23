@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,180 +10,148 @@ part of 'on_chain_wallet_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-OnChainWalletData _$OnChainWalletDataFromJson(Map<String, dynamic> json) {
-  return _OnChainWalletData.fromJson(json);
-}
 
 /// @nodoc
 mixin _$OnChainWalletData {
-  String? get encodedWalletKey => throw _privateConstructorUsedError;
-  String? get encryptedWallet => throw _privateConstructorUsedError;
+
+/// The encoded key that can be used (potentially after decryption with a user's master key)
+/// to decrypt the [encryptedWallet]. This might be an encrypted symmetric key.
+ String? get encodedWalletKey;/// The main wallet data, stored in an encrypted format on the blockchain.
+ String? get encryptedWallet;
+/// Create a copy of OnChainWalletData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$OnChainWalletDataCopyWith<OnChainWalletData> get copyWith => _$OnChainWalletDataCopyWithImpl<OnChainWalletData>(this as OnChainWalletData, _$identity);
 
   /// Serializes this OnChainWalletData to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of OnChainWalletData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $OnChainWalletDataCopyWith<OnChainWalletData> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnChainWalletData&&(identical(other.encodedWalletKey, encodedWalletKey) || other.encodedWalletKey == encodedWalletKey)&&(identical(other.encryptedWallet, encryptedWallet) || other.encryptedWallet == encryptedWallet));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,encodedWalletKey,encryptedWallet);
+
+@override
+String toString() {
+  return 'OnChainWalletData(encodedWalletKey: $encodedWalletKey, encryptedWallet: $encryptedWallet)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $OnChainWalletDataCopyWith<$Res> {
-  factory $OnChainWalletDataCopyWith(
-          OnChainWalletData value, $Res Function(OnChainWalletData) then) =
-      _$OnChainWalletDataCopyWithImpl<$Res, OnChainWalletData>;
-  @useResult
-  $Res call({String? encodedWalletKey, String? encryptedWallet});
-}
+abstract mixin class $OnChainWalletDataCopyWith<$Res>  {
+  factory $OnChainWalletDataCopyWith(OnChainWalletData value, $Res Function(OnChainWalletData) _then) = _$OnChainWalletDataCopyWithImpl;
+@useResult
+$Res call({
+ String? encodedWalletKey, String? encryptedWallet
+});
 
+
+
+
+}
 /// @nodoc
-class _$OnChainWalletDataCopyWithImpl<$Res, $Val extends OnChainWalletData>
+class _$OnChainWalletDataCopyWithImpl<$Res>
     implements $OnChainWalletDataCopyWith<$Res> {
-  _$OnChainWalletDataCopyWithImpl(this._value, this._then);
+  _$OnChainWalletDataCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final OnChainWalletData _self;
+  final $Res Function(OnChainWalletData) _then;
 
-  /// Create a copy of OnChainWalletData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? encodedWalletKey = freezed,
-    Object? encryptedWallet = freezed,
-  }) {
-    return _then(_value.copyWith(
-      encodedWalletKey: freezed == encodedWalletKey
-          ? _value.encodedWalletKey
-          : encodedWalletKey // ignore: cast_nullable_to_non_nullable
-              as String?,
-      encryptedWallet: freezed == encryptedWallet
-          ? _value.encryptedWallet
-          : encryptedWallet // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of OnChainWalletData
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? encodedWalletKey = freezed,Object? encryptedWallet = freezed,}) {
+  return _then(_self.copyWith(
+encodedWalletKey: freezed == encodedWalletKey ? _self.encodedWalletKey : encodedWalletKey // ignore: cast_nullable_to_non_nullable
+as String?,encryptedWallet: freezed == encryptedWallet ? _self.encryptedWallet : encryptedWallet // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$OnChainWalletDataImplCopyWith<$Res>
-    implements $OnChainWalletDataCopyWith<$Res> {
-  factory _$$OnChainWalletDataImplCopyWith(_$OnChainWalletDataImpl value,
-          $Res Function(_$OnChainWalletDataImpl) then) =
-      __$$OnChainWalletDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? encodedWalletKey, String? encryptedWallet});
 }
 
-/// @nodoc
-class __$$OnChainWalletDataImplCopyWithImpl<$Res>
-    extends _$OnChainWalletDataCopyWithImpl<$Res, _$OnChainWalletDataImpl>
-    implements _$$OnChainWalletDataImplCopyWith<$Res> {
-  __$$OnChainWalletDataImplCopyWithImpl(_$OnChainWalletDataImpl _value,
-      $Res Function(_$OnChainWalletDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of OnChainWalletData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? encodedWalletKey = freezed,
-    Object? encryptedWallet = freezed,
-  }) {
-    return _then(_$OnChainWalletDataImpl(
-      encodedWalletKey: freezed == encodedWalletKey
-          ? _value.encodedWalletKey
-          : encodedWalletKey // ignore: cast_nullable_to_non_nullable
-              as String?,
-      encryptedWallet: freezed == encryptedWallet
-          ? _value.encryptedWallet
-          : encryptedWallet // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$OnChainWalletDataImpl extends _OnChainWalletData {
-  const _$OnChainWalletDataImpl({this.encodedWalletKey, this.encryptedWallet})
-      : super._();
 
-  factory _$OnChainWalletDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OnChainWalletDataImplFromJson(json);
+class _OnChainWalletData extends OnChainWalletData {
+  const _OnChainWalletData({this.encodedWalletKey, this.encryptedWallet}): super._();
+  factory _OnChainWalletData.fromJson(Map<String, dynamic> json) => _$OnChainWalletDataFromJson(json);
 
-  @override
-  final String? encodedWalletKey;
-  @override
-  final String? encryptedWallet;
+/// The encoded key that can be used (potentially after decryption with a user's master key)
+/// to decrypt the [encryptedWallet]. This might be an encrypted symmetric key.
+@override final  String? encodedWalletKey;
+/// The main wallet data, stored in an encrypted format on the blockchain.
+@override final  String? encryptedWallet;
 
-  @override
-  String toString() {
-    return 'OnChainWalletData(encodedWalletKey: $encodedWalletKey, encryptedWallet: $encryptedWallet)';
-  }
+/// Create a copy of OnChainWalletData
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$OnChainWalletDataCopyWith<_OnChainWalletData> get copyWith => __$OnChainWalletDataCopyWithImpl<_OnChainWalletData>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OnChainWalletDataImpl &&
-            (identical(other.encodedWalletKey, encodedWalletKey) ||
-                other.encodedWalletKey == encodedWalletKey) &&
-            (identical(other.encryptedWallet, encryptedWallet) ||
-                other.encryptedWallet == encryptedWallet));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, encodedWalletKey, encryptedWallet);
-
-  /// Create a copy of OnChainWalletData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OnChainWalletDataImplCopyWith<_$OnChainWalletDataImpl> get copyWith =>
-      __$$OnChainWalletDataImplCopyWithImpl<_$OnChainWalletDataImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OnChainWalletDataImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$OnChainWalletDataToJson(this, );
 }
 
-abstract class _OnChainWalletData extends OnChainWalletData {
-  const factory _OnChainWalletData(
-      {final String? encodedWalletKey,
-      final String? encryptedWallet}) = _$OnChainWalletDataImpl;
-  const _OnChainWalletData._() : super._();
-
-  factory _OnChainWalletData.fromJson(Map<String, dynamic> json) =
-      _$OnChainWalletDataImpl.fromJson;
-
-  @override
-  String? get encodedWalletKey;
-  @override
-  String? get encryptedWallet;
-
-  /// Create a copy of OnChainWalletData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OnChainWalletDataImplCopyWith<_$OnChainWalletDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnChainWalletData&&(identical(other.encodedWalletKey, encodedWalletKey) || other.encodedWalletKey == encodedWalletKey)&&(identical(other.encryptedWallet, encryptedWallet) || other.encryptedWallet == encryptedWallet));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,encodedWalletKey,encryptedWallet);
+
+@override
+String toString() {
+  return 'OnChainWalletData(encodedWalletKey: $encodedWalletKey, encryptedWallet: $encryptedWallet)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$OnChainWalletDataCopyWith<$Res> implements $OnChainWalletDataCopyWith<$Res> {
+  factory _$OnChainWalletDataCopyWith(_OnChainWalletData value, $Res Function(_OnChainWalletData) _then) = __$OnChainWalletDataCopyWithImpl;
+@override @useResult
+$Res call({
+ String? encodedWalletKey, String? encryptedWallet
+});
+
+
+
+
+}
+/// @nodoc
+class __$OnChainWalletDataCopyWithImpl<$Res>
+    implements _$OnChainWalletDataCopyWith<$Res> {
+  __$OnChainWalletDataCopyWithImpl(this._self, this._then);
+
+  final _OnChainWalletData _self;
+  final $Res Function(_OnChainWalletData) _then;
+
+/// Create a copy of OnChainWalletData
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? encodedWalletKey = freezed,Object? encryptedWallet = freezed,}) {
+  return _then(_OnChainWalletData(
+encodedWalletKey: freezed == encodedWalletKey ? _self.encodedWalletKey : encodedWalletKey // ignore: cast_nullable_to_non_nullable
+as String?,encryptedWallet: freezed == encryptedWallet ? _self.encryptedWallet : encryptedWallet // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

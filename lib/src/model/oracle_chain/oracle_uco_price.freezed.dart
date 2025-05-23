@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,195 +10,166 @@ part of 'oracle_uco_price.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-OracleUcoPrice _$OracleUcoPriceFromJson(Map<String, dynamic> json) {
-  return _OracleUcoPrice.fromJson(json);
-}
 
 /// @nodoc
 mixin _$OracleUcoPrice {
-  Uco? get uco => throw _privateConstructorUsedError;
-  int? get timestamp => throw _privateConstructorUsedError;
+
+ Uco? get uco; int? get timestamp;
+/// Create a copy of OracleUcoPrice
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$OracleUcoPriceCopyWith<OracleUcoPrice> get copyWith => _$OracleUcoPriceCopyWithImpl<OracleUcoPrice>(this as OracleUcoPrice, _$identity);
 
   /// Serializes this OracleUcoPrice to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of OracleUcoPrice
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $OracleUcoPriceCopyWith<OracleUcoPrice> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OracleUcoPrice&&(identical(other.uco, uco) || other.uco == uco)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uco,timestamp);
+
+@override
+String toString() {
+  return 'OracleUcoPrice(uco: $uco, timestamp: $timestamp)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $OracleUcoPriceCopyWith<$Res> {
-  factory $OracleUcoPriceCopyWith(
-          OracleUcoPrice value, $Res Function(OracleUcoPrice) then) =
-      _$OracleUcoPriceCopyWithImpl<$Res, OracleUcoPrice>;
-  @useResult
-  $Res call({Uco? uco, int? timestamp});
+abstract mixin class $OracleUcoPriceCopyWith<$Res>  {
+  factory $OracleUcoPriceCopyWith(OracleUcoPrice value, $Res Function(OracleUcoPrice) _then) = _$OracleUcoPriceCopyWithImpl;
+@useResult
+$Res call({
+ Uco? uco, int? timestamp
+});
 
-  $UcoCopyWith<$Res>? get uco;
+
+$UcoCopyWith<$Res>? get uco;
+
 }
-
 /// @nodoc
-class _$OracleUcoPriceCopyWithImpl<$Res, $Val extends OracleUcoPrice>
+class _$OracleUcoPriceCopyWithImpl<$Res>
     implements $OracleUcoPriceCopyWith<$Res> {
-  _$OracleUcoPriceCopyWithImpl(this._value, this._then);
+  _$OracleUcoPriceCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final OracleUcoPrice _self;
+  final $Res Function(OracleUcoPrice) _then;
 
-  /// Create a copy of OracleUcoPrice
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uco = freezed,
-    Object? timestamp = freezed,
-  }) {
-    return _then(_value.copyWith(
-      uco: freezed == uco
-          ? _value.uco
-          : uco // ignore: cast_nullable_to_non_nullable
-              as Uco?,
-      timestamp: freezed == timestamp
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+/// Create a copy of OracleUcoPrice
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? uco = freezed,Object? timestamp = freezed,}) {
+  return _then(_self.copyWith(
+uco: freezed == uco ? _self.uco : uco // ignore: cast_nullable_to_non_nullable
+as Uco?,timestamp: freezed == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+/// Create a copy of OracleUcoPrice
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UcoCopyWith<$Res>? get uco {
+    if (_self.uco == null) {
+    return null;
   }
 
-  /// Create a copy of OracleUcoPrice
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UcoCopyWith<$Res>? get uco {
-    if (_value.uco == null) {
-      return null;
-    }
-
-    return $UcoCopyWith<$Res>(_value.uco!, (value) {
-      return _then(_value.copyWith(uco: value) as $Val);
-    });
-  }
+  return $UcoCopyWith<$Res>(_self.uco!, (value) {
+    return _then(_self.copyWith(uco: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$OracleUcoPriceImplCopyWith<$Res>
-    implements $OracleUcoPriceCopyWith<$Res> {
-  factory _$$OracleUcoPriceImplCopyWith(_$OracleUcoPriceImpl value,
-          $Res Function(_$OracleUcoPriceImpl) then) =
-      __$$OracleUcoPriceImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Uco? uco, int? timestamp});
-
-  @override
-  $UcoCopyWith<$Res>? get uco;
-}
-
-/// @nodoc
-class __$$OracleUcoPriceImplCopyWithImpl<$Res>
-    extends _$OracleUcoPriceCopyWithImpl<$Res, _$OracleUcoPriceImpl>
-    implements _$$OracleUcoPriceImplCopyWith<$Res> {
-  __$$OracleUcoPriceImplCopyWithImpl(
-      _$OracleUcoPriceImpl _value, $Res Function(_$OracleUcoPriceImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of OracleUcoPrice
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uco = freezed,
-    Object? timestamp = freezed,
-  }) {
-    return _then(_$OracleUcoPriceImpl(
-      uco: freezed == uco
-          ? _value.uco
-          : uco // ignore: cast_nullable_to_non_nullable
-              as Uco?,
-      timestamp: freezed == timestamp
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$OracleUcoPriceImpl extends _OracleUcoPrice {
-  const _$OracleUcoPriceImpl({this.uco, this.timestamp}) : super._();
 
-  factory _$OracleUcoPriceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OracleUcoPriceImplFromJson(json);
+class _OracleUcoPrice extends OracleUcoPrice {
+  const _OracleUcoPrice({this.uco, this.timestamp}): super._();
+  factory _OracleUcoPrice.fromJson(Map<String, dynamic> json) => _$OracleUcoPriceFromJson(json);
 
-  @override
-  final Uco? uco;
-  @override
-  final int? timestamp;
+@override final  Uco? uco;
+@override final  int? timestamp;
 
-  @override
-  String toString() {
-    return 'OracleUcoPrice(uco: $uco, timestamp: $timestamp)';
-  }
+/// Create a copy of OracleUcoPrice
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$OracleUcoPriceCopyWith<_OracleUcoPrice> get copyWith => __$OracleUcoPriceCopyWithImpl<_OracleUcoPrice>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OracleUcoPriceImpl &&
-            (identical(other.uco, uco) || other.uco == uco) &&
-            (identical(other.timestamp, timestamp) ||
-                other.timestamp == timestamp));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, uco, timestamp);
-
-  /// Create a copy of OracleUcoPrice
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OracleUcoPriceImplCopyWith<_$OracleUcoPriceImpl> get copyWith =>
-      __$$OracleUcoPriceImplCopyWithImpl<_$OracleUcoPriceImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OracleUcoPriceImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$OracleUcoPriceToJson(this, );
 }
 
-abstract class _OracleUcoPrice extends OracleUcoPrice {
-  const factory _OracleUcoPrice({final Uco? uco, final int? timestamp}) =
-      _$OracleUcoPriceImpl;
-  const _OracleUcoPrice._() : super._();
-
-  factory _OracleUcoPrice.fromJson(Map<String, dynamic> json) =
-      _$OracleUcoPriceImpl.fromJson;
-
-  @override
-  Uco? get uco;
-  @override
-  int? get timestamp;
-
-  /// Create a copy of OracleUcoPrice
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OracleUcoPriceImplCopyWith<_$OracleUcoPriceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OracleUcoPrice&&(identical(other.uco, uco) || other.uco == uco)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,uco,timestamp);
+
+@override
+String toString() {
+  return 'OracleUcoPrice(uco: $uco, timestamp: $timestamp)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$OracleUcoPriceCopyWith<$Res> implements $OracleUcoPriceCopyWith<$Res> {
+  factory _$OracleUcoPriceCopyWith(_OracleUcoPrice value, $Res Function(_OracleUcoPrice) _then) = __$OracleUcoPriceCopyWithImpl;
+@override @useResult
+$Res call({
+ Uco? uco, int? timestamp
+});
+
+
+@override $UcoCopyWith<$Res>? get uco;
+
+}
+/// @nodoc
+class __$OracleUcoPriceCopyWithImpl<$Res>
+    implements _$OracleUcoPriceCopyWith<$Res> {
+  __$OracleUcoPriceCopyWithImpl(this._self, this._then);
+
+  final _OracleUcoPrice _self;
+  final $Res Function(_OracleUcoPrice) _then;
+
+/// Create a copy of OracleUcoPrice
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? uco = freezed,Object? timestamp = freezed,}) {
+  return _then(_OracleUcoPrice(
+uco: freezed == uco ? _self.uco : uco // ignore: cast_nullable_to_non_nullable
+as Uco?,timestamp: freezed == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+/// Create a copy of OracleUcoPrice
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UcoCopyWith<$Res>? get uco {
+    if (_self.uco == null) {
+    return null;
+  }
+
+  return $UcoCopyWith<$Res>(_self.uco!, (value) {
+    return _then(_self.copyWith(uco: value));
+  });
+}
+}
+
+// dart format on

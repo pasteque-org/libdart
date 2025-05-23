@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,165 +10,142 @@ part of 'uco.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Uco _$UcoFromJson(Map<String, dynamic> json) {
-  return _Uco.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Uco {
-  double? get eur => throw _privateConstructorUsedError;
-  double? get usd => throw _privateConstructorUsedError;
+
+ double? get eur; double? get usd;
+/// Create a copy of Uco
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UcoCopyWith<Uco> get copyWith => _$UcoCopyWithImpl<Uco>(this as Uco, _$identity);
 
   /// Serializes this Uco to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of Uco
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $UcoCopyWith<Uco> get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Uco&&(identical(other.eur, eur) || other.eur == eur)&&(identical(other.usd, usd) || other.usd == usd));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,eur,usd);
+
+@override
+String toString() {
+  return 'Uco(eur: $eur, usd: $usd)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UcoCopyWith<$Res> {
-  factory $UcoCopyWith(Uco value, $Res Function(Uco) then) =
-      _$UcoCopyWithImpl<$Res, Uco>;
-  @useResult
-  $Res call({double? eur, double? usd});
-}
+abstract mixin class $UcoCopyWith<$Res>  {
+  factory $UcoCopyWith(Uco value, $Res Function(Uco) _then) = _$UcoCopyWithImpl;
+@useResult
+$Res call({
+ double? eur, double? usd
+});
 
+
+
+
+}
 /// @nodoc
-class _$UcoCopyWithImpl<$Res, $Val extends Uco> implements $UcoCopyWith<$Res> {
-  _$UcoCopyWithImpl(this._value, this._then);
+class _$UcoCopyWithImpl<$Res>
+    implements $UcoCopyWith<$Res> {
+  _$UcoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Uco _self;
+  final $Res Function(Uco) _then;
 
-  /// Create a copy of Uco
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? eur = freezed,
-    Object? usd = freezed,
-  }) {
-    return _then(_value.copyWith(
-      eur: freezed == eur
-          ? _value.eur
-          : eur // ignore: cast_nullable_to_non_nullable
-              as double?,
-      usd: freezed == usd
-          ? _value.usd
-          : usd // ignore: cast_nullable_to_non_nullable
-              as double?,
-    ) as $Val);
-  }
+/// Create a copy of Uco
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? eur = freezed,Object? usd = freezed,}) {
+  return _then(_self.copyWith(
+eur: freezed == eur ? _self.eur : eur // ignore: cast_nullable_to_non_nullable
+as double?,usd: freezed == usd ? _self.usd : usd // ignore: cast_nullable_to_non_nullable
+as double?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UcoImplCopyWith<$Res> implements $UcoCopyWith<$Res> {
-  factory _$$UcoImplCopyWith(_$UcoImpl value, $Res Function(_$UcoImpl) then) =
-      __$$UcoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({double? eur, double? usd});
 }
 
-/// @nodoc
-class __$$UcoImplCopyWithImpl<$Res> extends _$UcoCopyWithImpl<$Res, _$UcoImpl>
-    implements _$$UcoImplCopyWith<$Res> {
-  __$$UcoImplCopyWithImpl(_$UcoImpl _value, $Res Function(_$UcoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Uco
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? eur = freezed,
-    Object? usd = freezed,
-  }) {
-    return _then(_$UcoImpl(
-      eur: freezed == eur
-          ? _value.eur
-          : eur // ignore: cast_nullable_to_non_nullable
-              as double?,
-      usd: freezed == usd
-          ? _value.usd
-          : usd // ignore: cast_nullable_to_non_nullable
-              as double?,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$UcoImpl extends _Uco {
-  const _$UcoImpl({this.eur, this.usd}) : super._();
 
-  factory _$UcoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UcoImplFromJson(json);
+class _Uco extends Uco {
+  const _Uco({this.eur, this.usd}): super._();
+  factory _Uco.fromJson(Map<String, dynamic> json) => _$UcoFromJson(json);
 
-  @override
-  final double? eur;
-  @override
-  final double? usd;
+@override final  double? eur;
+@override final  double? usd;
 
-  @override
-  String toString() {
-    return 'Uco(eur: $eur, usd: $usd)';
-  }
+/// Create a copy of Uco
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UcoCopyWith<_Uco> get copyWith => __$UcoCopyWithImpl<_Uco>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UcoImpl &&
-            (identical(other.eur, eur) || other.eur == eur) &&
-            (identical(other.usd, usd) || other.usd == usd));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, eur, usd);
-
-  /// Create a copy of Uco
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UcoImplCopyWith<_$UcoImpl> get copyWith =>
-      __$$UcoImplCopyWithImpl<_$UcoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UcoImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$UcoToJson(this, );
 }
 
-abstract class _Uco extends Uco {
-  const factory _Uco({final double? eur, final double? usd}) = _$UcoImpl;
-  const _Uco._() : super._();
-
-  factory _Uco.fromJson(Map<String, dynamic> json) = _$UcoImpl.fromJson;
-
-  @override
-  double? get eur;
-  @override
-  double? get usd;
-
-  /// Create a copy of Uco
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UcoImplCopyWith<_$UcoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Uco&&(identical(other.eur, eur) || other.eur == eur)&&(identical(other.usd, usd) || other.usd == usd));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,eur,usd);
+
+@override
+String toString() {
+  return 'Uco(eur: $eur, usd: $usd)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UcoCopyWith<$Res> implements $UcoCopyWith<$Res> {
+  factory _$UcoCopyWith(_Uco value, $Res Function(_Uco) _then) = __$UcoCopyWithImpl;
+@override @useResult
+$Res call({
+ double? eur, double? usd
+});
+
+
+
+
+}
+/// @nodoc
+class __$UcoCopyWithImpl<$Res>
+    implements _$UcoCopyWith<$Res> {
+  __$UcoCopyWithImpl(this._self, this._then);
+
+  final _Uco _self;
+  final $Res Function(_Uco) _then;
+
+/// Create a copy of Uco
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? eur = freezed,Object? usd = freezed,}) {
+  return _then(_Uco(
+eur: freezed == eur ? _self.eur : eur // ignore: cast_nullable_to_non_nullable
+as double?,usd: freezed == usd ? _self.usd : usd // ignore: cast_nullable_to_non_nullable
+as double?,
+  ));
+}
+
+
+}
+
+// dart format on

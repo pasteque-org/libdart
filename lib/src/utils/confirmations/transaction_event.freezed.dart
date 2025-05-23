@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,2685 +10,667 @@ part of 'transaction_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$TransactionError {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TransactionError);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'TransactionError()';
+}
+
+
 }
 
 /// @nodoc
-abstract class $TransactionErrorCopyWith<$Res> {
-  factory $TransactionErrorCopyWith(
-          TransactionError value, $Res Function(TransactionError) then) =
-      _$TransactionErrorCopyWithImpl<$Res, TransactionError>;
+class $TransactionErrorCopyWith<$Res>  {
+$TransactionErrorCopyWith(TransactionError _, $Res Function(TransactionError) __);
 }
 
-/// @nodoc
-class _$TransactionErrorCopyWithImpl<$Res, $Val extends TransactionError>
-    implements $TransactionErrorCopyWith<$Res> {
-  _$TransactionErrorCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$TransactionTimeoutImplCopyWith<$Res> {
-  factory _$$TransactionTimeoutImplCopyWith(_$TransactionTimeoutImpl value,
-          $Res Function(_$TransactionTimeoutImpl) then) =
-      __$$TransactionTimeoutImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$TransactionTimeoutImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res, _$TransactionTimeoutImpl>
-    implements _$$TransactionTimeoutImplCopyWith<$Res> {
-  __$$TransactionTimeoutImplCopyWithImpl(_$TransactionTimeoutImpl _value,
-      $Res Function(_$TransactionTimeoutImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-}
 
 /// @nodoc
 
-class _$TransactionTimeoutImpl extends _TransactionTimeout {
-  const _$TransactionTimeoutImpl() : super._();
 
-  @override
-  String toString() {
-    return 'TransactionError.timeout()';
-  }
+class _TransactionTimeout extends TransactionError {
+  const _TransactionTimeout(): super._();
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TransactionTimeoutImpl);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return timeout();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return timeout?.call();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (timeout != null) {
-      return timeout();
-    }
-    return orElse();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return timeout(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return timeout?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (timeout != null) {
-      return timeout(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionTimeout);
 }
 
-abstract class _TransactionTimeout extends TransactionError {
-  const factory _TransactionTimeout() = _$TransactionTimeoutImpl;
-  const _TransactionTimeout._() : super._();
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'TransactionError.timeout()';
 }
 
-/// @nodoc
-abstract class _$$TransactionConnectionErrorImplCopyWith<$Res> {
-  factory _$$TransactionConnectionErrorImplCopyWith(
-          _$TransactionConnectionErrorImpl value,
-          $Res Function(_$TransactionConnectionErrorImpl) then) =
-      __$$TransactionConnectionErrorImplCopyWithImpl<$Res>;
+
 }
 
-/// @nodoc
-class __$$TransactionConnectionErrorImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res,
-        _$TransactionConnectionErrorImpl>
-    implements _$$TransactionConnectionErrorImplCopyWith<$Res> {
-  __$$TransactionConnectionErrorImplCopyWithImpl(
-      _$TransactionConnectionErrorImpl _value,
-      $Res Function(_$TransactionConnectionErrorImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-}
+
 
 /// @nodoc
 
-class _$TransactionConnectionErrorImpl extends _TransactionConnectionError {
-  const _$TransactionConnectionErrorImpl() : super._();
 
-  @override
-  String toString() {
-    return 'TransactionError.connectivity()';
-  }
+class _TransactionConnectionError extends TransactionError {
+  const _TransactionConnectionError(): super._();
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionConnectionErrorImpl);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return connectivity();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return connectivity?.call();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (connectivity != null) {
-      return connectivity();
-    }
-    return orElse();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return connectivity(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return connectivity?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (connectivity != null) {
-      return connectivity(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionConnectionError);
 }
 
-abstract class _TransactionConnectionError extends TransactionError {
-  const factory _TransactionConnectionError() =
-      _$TransactionConnectionErrorImpl;
-  const _TransactionConnectionError._() : super._();
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'TransactionError.connectivity()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _TransactionConsensusNotReachedError extends TransactionError {
+  const _TransactionConsensusNotReachedError(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionConsensusNotReachedError);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'TransactionError.consensusNotReached()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _TransactionInvalid extends TransactionError {
+  const _TransactionInvalid(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionInvalid);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'TransactionError.invalidTransaction()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _TransactionInvalidConfirmation extends TransactionError {
+  const _TransactionInvalidConfirmation(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionInvalidConfirmation);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'TransactionError.invalidConfirmation()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _TransactionInsufficientFunds extends TransactionError {
+  const _TransactionInsufficientFunds(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionInsufficientFunds);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'TransactionError.insufficientFunds()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _TransactionServiceNotFound extends TransactionError {
+  const _TransactionServiceNotFound(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionServiceNotFound);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'TransactionError.serviceNotFound()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _TransactionServiceAlreadyExists extends TransactionError {
+  const _TransactionServiceAlreadyExists(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionServiceAlreadyExists);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'TransactionError.serviceAlreadyExists()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _TransactionUserRejected extends TransactionError {
+  const _TransactionUserRejected(): super._();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionUserRejected);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'TransactionError.userRejected()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _TransactionUnknownAccount extends TransactionError {
+  const _TransactionUnknownAccount({required this.accountName}): super._();
+  
+
+ final  String accountName;
+
+/// Create a copy of TransactionError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TransactionUnknownAccountCopyWith<_TransactionUnknownAccount> get copyWith => __$TransactionUnknownAccountCopyWithImpl<_TransactionUnknownAccount>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionUnknownAccount&&(identical(other.accountName, accountName) || other.accountName == accountName));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,accountName);
+
+@override
+String toString() {
+  return 'TransactionError.unknownAccount(accountName: $accountName)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$TransactionConsensusNotReachedErrorImplCopyWith<$Res> {
-  factory _$$TransactionConsensusNotReachedErrorImplCopyWith(
-          _$TransactionConsensusNotReachedErrorImpl value,
-          $Res Function(_$TransactionConsensusNotReachedErrorImpl) then) =
-      __$$TransactionConsensusNotReachedErrorImplCopyWithImpl<$Res>;
+abstract mixin class _$TransactionUnknownAccountCopyWith<$Res> implements $TransactionErrorCopyWith<$Res> {
+  factory _$TransactionUnknownAccountCopyWith(_TransactionUnknownAccount value, $Res Function(_TransactionUnknownAccount) _then) = __$TransactionUnknownAccountCopyWithImpl;
+@useResult
+$Res call({
+ String accountName
+});
+
+
+
+
+}
+/// @nodoc
+class __$TransactionUnknownAccountCopyWithImpl<$Res>
+    implements _$TransactionUnknownAccountCopyWith<$Res> {
+  __$TransactionUnknownAccountCopyWithImpl(this._self, this._then);
+
+  final _TransactionUnknownAccount _self;
+  final $Res Function(_TransactionUnknownAccount) _then;
+
+/// Create a copy of TransactionError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? accountName = null,}) {
+  return _then(_TransactionUnknownAccount(
+accountName: null == accountName ? _self.accountName : accountName // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-class __$$TransactionConsensusNotReachedErrorImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res,
-        _$TransactionConsensusNotReachedErrorImpl>
-    implements _$$TransactionConsensusNotReachedErrorImplCopyWith<$Res> {
-  __$$TransactionConsensusNotReachedErrorImplCopyWithImpl(
-      _$TransactionConsensusNotReachedErrorImpl _value,
-      $Res Function(_$TransactionConsensusNotReachedErrorImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$TransactionConsensusNotReachedErrorImpl
-    extends _TransactionConsensusNotReachedError {
-  const _$TransactionConsensusNotReachedErrorImpl() : super._();
 
-  @override
-  String toString() {
-    return 'TransactionError.consensusNotReached()';
-  }
+class _TransactionRPCError extends TransactionError {
+  const _TransactionRPCError({required this.code, required this.message, this.data}): super._();
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionConsensusNotReachedErrorImpl);
-  }
+ final  int code;
+ final  String message;
+ final  Object? data;
 
-  @override
-  int get hashCode => runtimeType.hashCode;
+/// Create a copy of TransactionError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TransactionRPCErrorCopyWith<_TransactionRPCError> get copyWith => __$TransactionRPCErrorCopyWithImpl<_TransactionRPCError>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return consensusNotReached();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return consensusNotReached?.call();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (consensusNotReached != null) {
-      return consensusNotReached();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return consensusNotReached(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return consensusNotReached?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (consensusNotReached != null) {
-      return consensusNotReached(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionRPCError&&(identical(other.code, code) || other.code == code)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.data, data));
 }
 
-abstract class _TransactionConsensusNotReachedError extends TransactionError {
-  const factory _TransactionConsensusNotReachedError() =
-      _$TransactionConsensusNotReachedErrorImpl;
-  const _TransactionConsensusNotReachedError._() : super._();
+
+@override
+int get hashCode => Object.hash(runtimeType,code,message,const DeepCollectionEquality().hash(data));
+
+@override
+String toString() {
+  return 'TransactionError.rpcError(code: $code, message: $message, data: $data)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$TransactionInvalidImplCopyWith<$Res> {
-  factory _$$TransactionInvalidImplCopyWith(_$TransactionInvalidImpl value,
-          $Res Function(_$TransactionInvalidImpl) then) =
-      __$$TransactionInvalidImplCopyWithImpl<$Res>;
+abstract mixin class _$TransactionRPCErrorCopyWith<$Res> implements $TransactionErrorCopyWith<$Res> {
+  factory _$TransactionRPCErrorCopyWith(_TransactionRPCError value, $Res Function(_TransactionRPCError) _then) = __$TransactionRPCErrorCopyWithImpl;
+@useResult
+$Res call({
+ int code, String message, Object? data
+});
+
+
+
+
+}
+/// @nodoc
+class __$TransactionRPCErrorCopyWithImpl<$Res>
+    implements _$TransactionRPCErrorCopyWith<$Res> {
+  __$TransactionRPCErrorCopyWithImpl(this._self, this._then);
+
+  final _TransactionRPCError _self;
+  final $Res Function(_TransactionRPCError) _then;
+
+/// Create a copy of TransactionError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? code = null,Object? message = null,Object? data = freezed,}) {
+  return _then(_TransactionRPCError(
+code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as int,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,data: freezed == data ? _self.data : data ,
+  ));
 }
 
-/// @nodoc
-class __$$TransactionInvalidImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res, _$TransactionInvalidImpl>
-    implements _$$TransactionInvalidImplCopyWith<$Res> {
-  __$$TransactionInvalidImplCopyWithImpl(_$TransactionInvalidImpl _value,
-      $Res Function(_$TransactionInvalidImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$TransactionInvalidImpl extends _TransactionInvalid {
-  const _$TransactionInvalidImpl() : super._();
 
-  @override
-  String toString() {
-    return 'TransactionError.invalidTransaction()';
-  }
+class _TransactionOtherError extends TransactionError {
+  const _TransactionOtherError({this.code, this.data, this.message}): super._();
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TransactionInvalidImpl);
-  }
+ final  int? code;
+ final  Object? data;
+ final  String? message;
 
-  @override
-  int get hashCode => runtimeType.hashCode;
+/// Create a copy of TransactionError
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TransactionOtherErrorCopyWith<_TransactionOtherError> get copyWith => __$TransactionOtherErrorCopyWithImpl<_TransactionOtherError>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return invalidTransaction();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return invalidTransaction?.call();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (invalidTransaction != null) {
-      return invalidTransaction();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return invalidTransaction(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return invalidTransaction?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (invalidTransaction != null) {
-      return invalidTransaction(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionOtherError&&(identical(other.code, code) || other.code == code)&&const DeepCollectionEquality().equals(other.data, data)&&(identical(other.message, message) || other.message == message));
 }
 
-abstract class _TransactionInvalid extends TransactionError {
-  const factory _TransactionInvalid() = _$TransactionInvalidImpl;
-  const _TransactionInvalid._() : super._();
+
+@override
+int get hashCode => Object.hash(runtimeType,code,const DeepCollectionEquality().hash(data),message);
+
+@override
+String toString() {
+  return 'TransactionError.other(code: $code, data: $data, message: $message)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$TransactionInvalidConfirmationImplCopyWith<$Res> {
-  factory _$$TransactionInvalidConfirmationImplCopyWith(
-          _$TransactionInvalidConfirmationImpl value,
-          $Res Function(_$TransactionInvalidConfirmationImpl) then) =
-      __$$TransactionInvalidConfirmationImplCopyWithImpl<$Res>;
-}
+abstract mixin class _$TransactionOtherErrorCopyWith<$Res> implements $TransactionErrorCopyWith<$Res> {
+  factory _$TransactionOtherErrorCopyWith(_TransactionOtherError value, $Res Function(_TransactionOtherError) _then) = __$TransactionOtherErrorCopyWithImpl;
+@useResult
+$Res call({
+ int? code, Object? data, String? message
+});
 
+
+
+
+}
 /// @nodoc
-class __$$TransactionInvalidConfirmationImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res,
-        _$TransactionInvalidConfirmationImpl>
-    implements _$$TransactionInvalidConfirmationImplCopyWith<$Res> {
-  __$$TransactionInvalidConfirmationImplCopyWithImpl(
-      _$TransactionInvalidConfirmationImpl _value,
-      $Res Function(_$TransactionInvalidConfirmationImpl) _then)
-      : super(_value, _then);
+class __$TransactionOtherErrorCopyWithImpl<$Res>
+    implements _$TransactionOtherErrorCopyWith<$Res> {
+  __$TransactionOtherErrorCopyWithImpl(this._self, this._then);
 
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
+  final _TransactionOtherError _self;
+  final $Res Function(_TransactionOtherError) _then;
+
+/// Create a copy of TransactionError
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? code = freezed,Object? data = freezed,Object? message = freezed,}) {
+  return _then(_TransactionOtherError(
+code: freezed == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as int?,data: freezed == data ? _self.data : data ,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
 
-class _$TransactionInvalidConfirmationImpl
-    extends _TransactionInvalidConfirmation {
-  const _$TransactionInvalidConfirmationImpl() : super._();
-
-  @override
-  String toString() {
-    return 'TransactionError.invalidConfirmation()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionInvalidConfirmationImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return invalidConfirmation();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return invalidConfirmation?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (invalidConfirmation != null) {
-      return invalidConfirmation();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return invalidConfirmation(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return invalidConfirmation?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (invalidConfirmation != null) {
-      return invalidConfirmation(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TransactionInvalidConfirmation extends TransactionError {
-  const factory _TransactionInvalidConfirmation() =
-      _$TransactionInvalidConfirmationImpl;
-  const _TransactionInvalidConfirmation._() : super._();
-}
-
-/// @nodoc
-abstract class _$$TransactionInsufficientFundsImplCopyWith<$Res> {
-  factory _$$TransactionInsufficientFundsImplCopyWith(
-          _$TransactionInsufficientFundsImpl value,
-          $Res Function(_$TransactionInsufficientFundsImpl) then) =
-      __$$TransactionInsufficientFundsImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$TransactionInsufficientFundsImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res,
-        _$TransactionInsufficientFundsImpl>
-    implements _$$TransactionInsufficientFundsImplCopyWith<$Res> {
-  __$$TransactionInsufficientFundsImplCopyWithImpl(
-      _$TransactionInsufficientFundsImpl _value,
-      $Res Function(_$TransactionInsufficientFundsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$TransactionInsufficientFundsImpl extends _TransactionInsufficientFunds {
-  const _$TransactionInsufficientFundsImpl() : super._();
-
-  @override
-  String toString() {
-    return 'TransactionError.insufficientFunds()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionInsufficientFundsImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return insufficientFunds();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return insufficientFunds?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (insufficientFunds != null) {
-      return insufficientFunds();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return insufficientFunds(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return insufficientFunds?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (insufficientFunds != null) {
-      return insufficientFunds(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TransactionInsufficientFunds extends TransactionError {
-  const factory _TransactionInsufficientFunds() =
-      _$TransactionInsufficientFundsImpl;
-  const _TransactionInsufficientFunds._() : super._();
-}
-
-/// @nodoc
-abstract class _$$TransactionServiceNotFoundImplCopyWith<$Res> {
-  factory _$$TransactionServiceNotFoundImplCopyWith(
-          _$TransactionServiceNotFoundImpl value,
-          $Res Function(_$TransactionServiceNotFoundImpl) then) =
-      __$$TransactionServiceNotFoundImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$TransactionServiceNotFoundImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res,
-        _$TransactionServiceNotFoundImpl>
-    implements _$$TransactionServiceNotFoundImplCopyWith<$Res> {
-  __$$TransactionServiceNotFoundImplCopyWithImpl(
-      _$TransactionServiceNotFoundImpl _value,
-      $Res Function(_$TransactionServiceNotFoundImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$TransactionServiceNotFoundImpl extends _TransactionServiceNotFound {
-  const _$TransactionServiceNotFoundImpl() : super._();
-
-  @override
-  String toString() {
-    return 'TransactionError.serviceNotFound()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionServiceNotFoundImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return serviceNotFound();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return serviceNotFound?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (serviceNotFound != null) {
-      return serviceNotFound();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return serviceNotFound(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return serviceNotFound?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (serviceNotFound != null) {
-      return serviceNotFound(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TransactionServiceNotFound extends TransactionError {
-  const factory _TransactionServiceNotFound() =
-      _$TransactionServiceNotFoundImpl;
-  const _TransactionServiceNotFound._() : super._();
-}
-
-/// @nodoc
-abstract class _$$TransactionServiceAlreadyExistsImplCopyWith<$Res> {
-  factory _$$TransactionServiceAlreadyExistsImplCopyWith(
-          _$TransactionServiceAlreadyExistsImpl value,
-          $Res Function(_$TransactionServiceAlreadyExistsImpl) then) =
-      __$$TransactionServiceAlreadyExistsImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$TransactionServiceAlreadyExistsImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res,
-        _$TransactionServiceAlreadyExistsImpl>
-    implements _$$TransactionServiceAlreadyExistsImplCopyWith<$Res> {
-  __$$TransactionServiceAlreadyExistsImplCopyWithImpl(
-      _$TransactionServiceAlreadyExistsImpl _value,
-      $Res Function(_$TransactionServiceAlreadyExistsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$TransactionServiceAlreadyExistsImpl
-    extends _TransactionServiceAlreadyExists {
-  const _$TransactionServiceAlreadyExistsImpl() : super._();
-
-  @override
-  String toString() {
-    return 'TransactionError.serviceAlreadyExists()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionServiceAlreadyExistsImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return serviceAlreadyExists();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return serviceAlreadyExists?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (serviceAlreadyExists != null) {
-      return serviceAlreadyExists();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return serviceAlreadyExists(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return serviceAlreadyExists?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (serviceAlreadyExists != null) {
-      return serviceAlreadyExists(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TransactionServiceAlreadyExists extends TransactionError {
-  const factory _TransactionServiceAlreadyExists() =
-      _$TransactionServiceAlreadyExistsImpl;
-  const _TransactionServiceAlreadyExists._() : super._();
-}
-
-/// @nodoc
-abstract class _$$TransactionUserRejectedImplCopyWith<$Res> {
-  factory _$$TransactionUserRejectedImplCopyWith(
-          _$TransactionUserRejectedImpl value,
-          $Res Function(_$TransactionUserRejectedImpl) then) =
-      __$$TransactionUserRejectedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$TransactionUserRejectedImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res, _$TransactionUserRejectedImpl>
-    implements _$$TransactionUserRejectedImplCopyWith<$Res> {
-  __$$TransactionUserRejectedImplCopyWithImpl(
-      _$TransactionUserRejectedImpl _value,
-      $Res Function(_$TransactionUserRejectedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$TransactionUserRejectedImpl extends _TransactionUserRejected {
-  const _$TransactionUserRejectedImpl() : super._();
-
-  @override
-  String toString() {
-    return 'TransactionError.userRejected()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionUserRejectedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return userRejected();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return userRejected?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (userRejected != null) {
-      return userRejected();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return userRejected(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return userRejected?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (userRejected != null) {
-      return userRejected(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TransactionUserRejected extends TransactionError {
-  const factory _TransactionUserRejected() = _$TransactionUserRejectedImpl;
-  const _TransactionUserRejected._() : super._();
-}
-
-/// @nodoc
-abstract class _$$TransactionUnknownAccountImplCopyWith<$Res> {
-  factory _$$TransactionUnknownAccountImplCopyWith(
-          _$TransactionUnknownAccountImpl value,
-          $Res Function(_$TransactionUnknownAccountImpl) then) =
-      __$$TransactionUnknownAccountImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String accountName});
-}
-
-/// @nodoc
-class __$$TransactionUnknownAccountImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res,
-        _$TransactionUnknownAccountImpl>
-    implements _$$TransactionUnknownAccountImplCopyWith<$Res> {
-  __$$TransactionUnknownAccountImplCopyWithImpl(
-      _$TransactionUnknownAccountImpl _value,
-      $Res Function(_$TransactionUnknownAccountImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? accountName = null,
-  }) {
-    return _then(_$TransactionUnknownAccountImpl(
-      accountName: null == accountName
-          ? _value.accountName
-          : accountName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$TransactionUnknownAccountImpl extends _TransactionUnknownAccount {
-  const _$TransactionUnknownAccountImpl({required this.accountName})
-      : super._();
-
-  @override
-  final String accountName;
-
-  @override
-  String toString() {
-    return 'TransactionError.unknownAccount(accountName: $accountName)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionUnknownAccountImpl &&
-            (identical(other.accountName, accountName) ||
-                other.accountName == accountName));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, accountName);
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TransactionUnknownAccountImplCopyWith<_$TransactionUnknownAccountImpl>
-      get copyWith => __$$TransactionUnknownAccountImplCopyWithImpl<
-          _$TransactionUnknownAccountImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return unknownAccount(accountName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return unknownAccount?.call(accountName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (unknownAccount != null) {
-      return unknownAccount(accountName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return unknownAccount(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return unknownAccount?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (unknownAccount != null) {
-      return unknownAccount(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TransactionUnknownAccount extends TransactionError {
-  const factory _TransactionUnknownAccount(
-      {required final String accountName}) = _$TransactionUnknownAccountImpl;
-  const _TransactionUnknownAccount._() : super._();
-
-  String get accountName;
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransactionUnknownAccountImplCopyWith<_$TransactionUnknownAccountImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$TransactionRPCErrorImplCopyWith<$Res> {
-  factory _$$TransactionRPCErrorImplCopyWith(_$TransactionRPCErrorImpl value,
-          $Res Function(_$TransactionRPCErrorImpl) then) =
-      __$$TransactionRPCErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int code, String message, Object? data});
-}
-
-/// @nodoc
-class __$$TransactionRPCErrorImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res, _$TransactionRPCErrorImpl>
-    implements _$$TransactionRPCErrorImplCopyWith<$Res> {
-  __$$TransactionRPCErrorImplCopyWithImpl(_$TransactionRPCErrorImpl _value,
-      $Res Function(_$TransactionRPCErrorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? code = null,
-    Object? message = null,
-    Object? data = freezed,
-  }) {
-    return _then(_$TransactionRPCErrorImpl(
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as int,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      data: freezed == data ? _value.data : data,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$TransactionRPCErrorImpl extends _TransactionRPCError {
-  const _$TransactionRPCErrorImpl(
-      {required this.code, required this.message, this.data})
-      : super._();
-
-  @override
-  final int code;
-  @override
-  final String message;
-  @override
-  final Object? data;
-
-  @override
-  String toString() {
-    return 'TransactionError.rpcError(code: $code, message: $message, data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionRPCErrorImpl &&
-            (identical(other.code, code) || other.code == code) &&
-            (identical(other.message, message) || other.message == message) &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, code, message, const DeepCollectionEquality().hash(data));
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TransactionRPCErrorImplCopyWith<_$TransactionRPCErrorImpl> get copyWith =>
-      __$$TransactionRPCErrorImplCopyWithImpl<_$TransactionRPCErrorImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return rpcError(code, message, data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return rpcError?.call(code, message, data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (rpcError != null) {
-      return rpcError(code, message, data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return rpcError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return rpcError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (rpcError != null) {
-      return rpcError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TransactionRPCError extends TransactionError {
-  const factory _TransactionRPCError(
-      {required final int code,
-      required final String message,
-      final Object? data}) = _$TransactionRPCErrorImpl;
-  const _TransactionRPCError._() : super._();
-
-  int get code;
-  String get message;
-  Object? get data;
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransactionRPCErrorImplCopyWith<_$TransactionRPCErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$TransactionOtherErrorImplCopyWith<$Res> {
-  factory _$$TransactionOtherErrorImplCopyWith(
-          _$TransactionOtherErrorImpl value,
-          $Res Function(_$TransactionOtherErrorImpl) then) =
-      __$$TransactionOtherErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int? code, Object? data, String? message});
-}
-
-/// @nodoc
-class __$$TransactionOtherErrorImplCopyWithImpl<$Res>
-    extends _$TransactionErrorCopyWithImpl<$Res, _$TransactionOtherErrorImpl>
-    implements _$$TransactionOtherErrorImplCopyWith<$Res> {
-  __$$TransactionOtherErrorImplCopyWithImpl(_$TransactionOtherErrorImpl _value,
-      $Res Function(_$TransactionOtherErrorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? code = freezed,
-    Object? data = freezed,
-    Object? message = freezed,
-  }) {
-    return _then(_$TransactionOtherErrorImpl(
-      code: freezed == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as int?,
-      data: freezed == data ? _value.data : data,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$TransactionOtherErrorImpl extends _TransactionOtherError {
-  const _$TransactionOtherErrorImpl({this.code, this.data, this.message})
-      : super._();
-
-  @override
-  final int? code;
-  @override
-  final Object? data;
-  @override
-  final String? message;
-
-  @override
-  String toString() {
-    return 'TransactionError.other(code: $code, data: $data, message: $message)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionOtherErrorImpl &&
-            (identical(other.code, code) || other.code == code) &&
-            const DeepCollectionEquality().equals(other.data, data) &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, code, const DeepCollectionEquality().hash(data), message);
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TransactionOtherErrorImplCopyWith<_$TransactionOtherErrorImpl>
-      get copyWith => __$$TransactionOtherErrorImplCopyWithImpl<
-          _$TransactionOtherErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() timeout,
-    required TResult Function() connectivity,
-    required TResult Function() consensusNotReached,
-    required TResult Function() invalidTransaction,
-    required TResult Function() invalidConfirmation,
-    required TResult Function() insufficientFunds,
-    required TResult Function() serviceNotFound,
-    required TResult Function() serviceAlreadyExists,
-    required TResult Function() userRejected,
-    required TResult Function(String accountName) unknownAccount,
-    required TResult Function(int code, String message, Object? data) rpcError,
-    required TResult Function(int? code, Object? data, String? message) other,
-  }) {
-    return other(code, data, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? timeout,
-    TResult? Function()? connectivity,
-    TResult? Function()? consensusNotReached,
-    TResult? Function()? invalidTransaction,
-    TResult? Function()? invalidConfirmation,
-    TResult? Function()? insufficientFunds,
-    TResult? Function()? serviceNotFound,
-    TResult? Function()? serviceAlreadyExists,
-    TResult? Function()? userRejected,
-    TResult? Function(String accountName)? unknownAccount,
-    TResult? Function(int code, String message, Object? data)? rpcError,
-    TResult? Function(int? code, Object? data, String? message)? other,
-  }) {
-    return other?.call(code, data, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? timeout,
-    TResult Function()? connectivity,
-    TResult Function()? consensusNotReached,
-    TResult Function()? invalidTransaction,
-    TResult Function()? invalidConfirmation,
-    TResult Function()? insufficientFunds,
-    TResult Function()? serviceNotFound,
-    TResult Function()? serviceAlreadyExists,
-    TResult Function()? userRejected,
-    TResult Function(String accountName)? unknownAccount,
-    TResult Function(int code, String message, Object? data)? rpcError,
-    TResult Function(int? code, Object? data, String? message)? other,
-    required TResult orElse(),
-  }) {
-    if (other != null) {
-      return other(code, data, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TransactionTimeout value) timeout,
-    required TResult Function(_TransactionConnectionError value) connectivity,
-    required TResult Function(_TransactionConsensusNotReachedError value)
-        consensusNotReached,
-    required TResult Function(_TransactionInvalid value) invalidTransaction,
-    required TResult Function(_TransactionInvalidConfirmation value)
-        invalidConfirmation,
-    required TResult Function(_TransactionInsufficientFunds value)
-        insufficientFunds,
-    required TResult Function(_TransactionServiceNotFound value)
-        serviceNotFound,
-    required TResult Function(_TransactionServiceAlreadyExists value)
-        serviceAlreadyExists,
-    required TResult Function(_TransactionUserRejected value) userRejected,
-    required TResult Function(_TransactionUnknownAccount value) unknownAccount,
-    required TResult Function(_TransactionRPCError value) rpcError,
-    required TResult Function(_TransactionOtherError value) other,
-  }) {
-    return other(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TransactionTimeout value)? timeout,
-    TResult? Function(_TransactionConnectionError value)? connectivity,
-    TResult? Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult? Function(_TransactionInvalid value)? invalidTransaction,
-    TResult? Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult? Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult? Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult? Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult? Function(_TransactionUserRejected value)? userRejected,
-    TResult? Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult? Function(_TransactionRPCError value)? rpcError,
-    TResult? Function(_TransactionOtherError value)? other,
-  }) {
-    return other?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TransactionTimeout value)? timeout,
-    TResult Function(_TransactionConnectionError value)? connectivity,
-    TResult Function(_TransactionConsensusNotReachedError value)?
-        consensusNotReached,
-    TResult Function(_TransactionInvalid value)? invalidTransaction,
-    TResult Function(_TransactionInvalidConfirmation value)?
-        invalidConfirmation,
-    TResult Function(_TransactionInsufficientFunds value)? insufficientFunds,
-    TResult Function(_TransactionServiceNotFound value)? serviceNotFound,
-    TResult Function(_TransactionServiceAlreadyExists value)?
-        serviceAlreadyExists,
-    TResult Function(_TransactionUserRejected value)? userRejected,
-    TResult Function(_TransactionUnknownAccount value)? unknownAccount,
-    TResult Function(_TransactionRPCError value)? rpcError,
-    TResult Function(_TransactionOtherError value)? other,
-    required TResult orElse(),
-  }) {
-    if (other != null) {
-      return other(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TransactionOtherError extends TransactionError {
-  const factory _TransactionOtherError(
-      {final int? code,
-      final Object? data,
-      final String? message}) = _$TransactionOtherErrorImpl;
-  const _TransactionOtherError._() : super._();
-
-  int? get code;
-  Object? get data;
-  String? get message;
-
-  /// Create a copy of TransactionError
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransactionOtherErrorImplCopyWith<_$TransactionOtherErrorImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$TransactionConfirmation {
-  String get transactionAddress => throw _privateConstructorUsedError;
-  int get nbConfirmations => throw _privateConstructorUsedError;
-  int get maxConfirmations => throw _privateConstructorUsedError;
-  double get ratio => throw _privateConstructorUsedError;
-  bool get ratioEqualIncluded => throw _privateConstructorUsedError;
 
-  /// Create a copy of TransactionConfirmation
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $TransactionConfirmationCopyWith<TransactionConfirmation> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get transactionAddress; int get nbConfirmations; int get maxConfirmations; double get ratio; bool get ratioEqualIncluded;
+/// Create a copy of TransactionConfirmation
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TransactionConfirmationCopyWith<TransactionConfirmation> get copyWith => _$TransactionConfirmationCopyWithImpl<TransactionConfirmation>(this as TransactionConfirmation, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TransactionConfirmation&&(identical(other.transactionAddress, transactionAddress) || other.transactionAddress == transactionAddress)&&(identical(other.nbConfirmations, nbConfirmations) || other.nbConfirmations == nbConfirmations)&&(identical(other.maxConfirmations, maxConfirmations) || other.maxConfirmations == maxConfirmations)&&(identical(other.ratio, ratio) || other.ratio == ratio)&&(identical(other.ratioEqualIncluded, ratioEqualIncluded) || other.ratioEqualIncluded == ratioEqualIncluded));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,transactionAddress,nbConfirmations,maxConfirmations,ratio,ratioEqualIncluded);
+
+@override
+String toString() {
+  return 'TransactionConfirmation(transactionAddress: $transactionAddress, nbConfirmations: $nbConfirmations, maxConfirmations: $maxConfirmations, ratio: $ratio, ratioEqualIncluded: $ratioEqualIncluded)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $TransactionConfirmationCopyWith<$Res> {
-  factory $TransactionConfirmationCopyWith(TransactionConfirmation value,
-          $Res Function(TransactionConfirmation) then) =
-      _$TransactionConfirmationCopyWithImpl<$Res, TransactionConfirmation>;
-  @useResult
-  $Res call(
-      {String transactionAddress,
-      int nbConfirmations,
-      int maxConfirmations,
-      double ratio,
-      bool ratioEqualIncluded});
-}
+abstract mixin class $TransactionConfirmationCopyWith<$Res>  {
+  factory $TransactionConfirmationCopyWith(TransactionConfirmation value, $Res Function(TransactionConfirmation) _then) = _$TransactionConfirmationCopyWithImpl;
+@useResult
+$Res call({
+ String transactionAddress, int nbConfirmations, int maxConfirmations, double ratio, bool ratioEqualIncluded
+});
 
+
+
+
+}
 /// @nodoc
-class _$TransactionConfirmationCopyWithImpl<$Res,
-        $Val extends TransactionConfirmation>
+class _$TransactionConfirmationCopyWithImpl<$Res>
     implements $TransactionConfirmationCopyWith<$Res> {
-  _$TransactionConfirmationCopyWithImpl(this._value, this._then);
+  _$TransactionConfirmationCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final TransactionConfirmation _self;
+  final $Res Function(TransactionConfirmation) _then;
 
-  /// Create a copy of TransactionConfirmation
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? transactionAddress = null,
-    Object? nbConfirmations = null,
-    Object? maxConfirmations = null,
-    Object? ratio = null,
-    Object? ratioEqualIncluded = null,
-  }) {
-    return _then(_value.copyWith(
-      transactionAddress: null == transactionAddress
-          ? _value.transactionAddress
-          : transactionAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      nbConfirmations: null == nbConfirmations
-          ? _value.nbConfirmations
-          : nbConfirmations // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxConfirmations: null == maxConfirmations
-          ? _value.maxConfirmations
-          : maxConfirmations // ignore: cast_nullable_to_non_nullable
-              as int,
-      ratio: null == ratio
-          ? _value.ratio
-          : ratio // ignore: cast_nullable_to_non_nullable
-              as double,
-      ratioEqualIncluded: null == ratioEqualIncluded
-          ? _value.ratioEqualIncluded
-          : ratioEqualIncluded // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of TransactionConfirmation
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? transactionAddress = null,Object? nbConfirmations = null,Object? maxConfirmations = null,Object? ratio = null,Object? ratioEqualIncluded = null,}) {
+  return _then(_self.copyWith(
+transactionAddress: null == transactionAddress ? _self.transactionAddress : transactionAddress // ignore: cast_nullable_to_non_nullable
+as String,nbConfirmations: null == nbConfirmations ? _self.nbConfirmations : nbConfirmations // ignore: cast_nullable_to_non_nullable
+as int,maxConfirmations: null == maxConfirmations ? _self.maxConfirmations : maxConfirmations // ignore: cast_nullable_to_non_nullable
+as int,ratio: null == ratio ? _self.ratio : ratio // ignore: cast_nullable_to_non_nullable
+as double,ratioEqualIncluded: null == ratioEqualIncluded ? _self.ratioEqualIncluded : ratioEqualIncluded // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-abstract class _$$TransactionConfirmationImplCopyWith<$Res>
-    implements $TransactionConfirmationCopyWith<$Res> {
-  factory _$$TransactionConfirmationImplCopyWith(
-          _$TransactionConfirmationImpl value,
-          $Res Function(_$TransactionConfirmationImpl) then) =
-      __$$TransactionConfirmationImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String transactionAddress,
-      int nbConfirmations,
-      int maxConfirmations,
-      double ratio,
-      bool ratioEqualIncluded});
 }
 
-/// @nodoc
-class __$$TransactionConfirmationImplCopyWithImpl<$Res>
-    extends _$TransactionConfirmationCopyWithImpl<$Res,
-        _$TransactionConfirmationImpl>
-    implements _$$TransactionConfirmationImplCopyWith<$Res> {
-  __$$TransactionConfirmationImplCopyWithImpl(
-      _$TransactionConfirmationImpl _value,
-      $Res Function(_$TransactionConfirmationImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionConfirmation
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? transactionAddress = null,
-    Object? nbConfirmations = null,
-    Object? maxConfirmations = null,
-    Object? ratio = null,
-    Object? ratioEqualIncluded = null,
-  }) {
-    return _then(_$TransactionConfirmationImpl(
-      transactionAddress: null == transactionAddress
-          ? _value.transactionAddress
-          : transactionAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      nbConfirmations: null == nbConfirmations
-          ? _value.nbConfirmations
-          : nbConfirmations // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxConfirmations: null == maxConfirmations
-          ? _value.maxConfirmations
-          : maxConfirmations // ignore: cast_nullable_to_non_nullable
-              as int,
-      ratio: null == ratio
-          ? _value.ratio
-          : ratio // ignore: cast_nullable_to_non_nullable
-              as double,
-      ratioEqualIncluded: null == ratioEqualIncluded
-          ? _value.ratioEqualIncluded
-          : ratioEqualIncluded // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
 
 /// @nodoc
 
-class _$TransactionConfirmationImpl extends _TransactionConfirmation {
-  const _$TransactionConfirmationImpl(
-      {required this.transactionAddress,
-      this.nbConfirmations = 0,
-      this.maxConfirmations = 0,
-      this.ratio = 0.0,
-      this.ratioEqualIncluded = true})
-      : super._();
 
-  @override
-  final String transactionAddress;
-  @override
-  @JsonKey()
-  final int nbConfirmations;
-  @override
-  @JsonKey()
-  final int maxConfirmations;
-  @override
-  @JsonKey()
-  final double ratio;
-  @override
-  @JsonKey()
-  final bool ratioEqualIncluded;
+class _TransactionConfirmation extends TransactionConfirmation {
+  const _TransactionConfirmation({required this.transactionAddress, this.nbConfirmations = 0, this.maxConfirmations = 0, this.ratio = 0.0, this.ratioEqualIncluded = true}): super._();
+  
 
-  @override
-  String toString() {
-    return 'TransactionConfirmation(transactionAddress: $transactionAddress, nbConfirmations: $nbConfirmations, maxConfirmations: $maxConfirmations, ratio: $ratio, ratioEqualIncluded: $ratioEqualIncluded)';
-  }
+@override final  String transactionAddress;
+@override@JsonKey() final  int nbConfirmations;
+@override@JsonKey() final  int maxConfirmations;
+@override@JsonKey() final  double ratio;
+@override@JsonKey() final  bool ratioEqualIncluded;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionConfirmationImpl &&
-            (identical(other.transactionAddress, transactionAddress) ||
-                other.transactionAddress == transactionAddress) &&
-            (identical(other.nbConfirmations, nbConfirmations) ||
-                other.nbConfirmations == nbConfirmations) &&
-            (identical(other.maxConfirmations, maxConfirmations) ||
-                other.maxConfirmations == maxConfirmations) &&
-            (identical(other.ratio, ratio) || other.ratio == ratio) &&
-            (identical(other.ratioEqualIncluded, ratioEqualIncluded) ||
-                other.ratioEqualIncluded == ratioEqualIncluded));
-  }
+/// Create a copy of TransactionConfirmation
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TransactionConfirmationCopyWith<_TransactionConfirmation> get copyWith => __$TransactionConfirmationCopyWithImpl<_TransactionConfirmation>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, transactionAddress,
-      nbConfirmations, maxConfirmations, ratio, ratioEqualIncluded);
 
-  /// Create a copy of TransactionConfirmation
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TransactionConfirmationImplCopyWith<_$TransactionConfirmationImpl>
-      get copyWith => __$$TransactionConfirmationImplCopyWithImpl<
-          _$TransactionConfirmationImpl>(this, _$identity);
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TransactionConfirmation&&(identical(other.transactionAddress, transactionAddress) || other.transactionAddress == transactionAddress)&&(identical(other.nbConfirmations, nbConfirmations) || other.nbConfirmations == nbConfirmations)&&(identical(other.maxConfirmations, maxConfirmations) || other.maxConfirmations == maxConfirmations)&&(identical(other.ratio, ratio) || other.ratio == ratio)&&(identical(other.ratioEqualIncluded, ratioEqualIncluded) || other.ratioEqualIncluded == ratioEqualIncluded));
 }
 
-abstract class _TransactionConfirmation extends TransactionConfirmation {
-  const factory _TransactionConfirmation(
-      {required final String transactionAddress,
-      final int nbConfirmations,
-      final int maxConfirmations,
-      final double ratio,
-      final bool ratioEqualIncluded}) = _$TransactionConfirmationImpl;
-  const _TransactionConfirmation._() : super._();
 
-  @override
-  String get transactionAddress;
-  @override
-  int get nbConfirmations;
-  @override
-  int get maxConfirmations;
-  @override
-  double get ratio;
-  @override
-  bool get ratioEqualIncluded;
+@override
+int get hashCode => Object.hash(runtimeType,transactionAddress,nbConfirmations,maxConfirmations,ratio,ratioEqualIncluded);
 
-  /// Create a copy of TransactionConfirmation
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransactionConfirmationImplCopyWith<_$TransactionConfirmationImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'TransactionConfirmation(transactionAddress: $transactionAddress, nbConfirmations: $nbConfirmations, maxConfirmations: $maxConfirmations, ratio: $ratio, ratioEqualIncluded: $ratioEqualIncluded)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$TransactionConfirmationCopyWith<$Res> implements $TransactionConfirmationCopyWith<$Res> {
+  factory _$TransactionConfirmationCopyWith(_TransactionConfirmation value, $Res Function(_TransactionConfirmation) _then) = __$TransactionConfirmationCopyWithImpl;
+@override @useResult
+$Res call({
+ String transactionAddress, int nbConfirmations, int maxConfirmations, double ratio, bool ratioEqualIncluded
+});
+
+
+
+
+}
+/// @nodoc
+class __$TransactionConfirmationCopyWithImpl<$Res>
+    implements _$TransactionConfirmationCopyWith<$Res> {
+  __$TransactionConfirmationCopyWithImpl(this._self, this._then);
+
+  final _TransactionConfirmation _self;
+  final $Res Function(_TransactionConfirmation) _then;
+
+/// Create a copy of TransactionConfirmation
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? transactionAddress = null,Object? nbConfirmations = null,Object? maxConfirmations = null,Object? ratio = null,Object? ratioEqualIncluded = null,}) {
+  return _then(_TransactionConfirmation(
+transactionAddress: null == transactionAddress ? _self.transactionAddress : transactionAddress // ignore: cast_nullable_to_non_nullable
+as String,nbConfirmations: null == nbConfirmations ? _self.nbConfirmations : nbConfirmations // ignore: cast_nullable_to_non_nullable
+as int,maxConfirmations: null == maxConfirmations ? _self.maxConfirmations : maxConfirmations // ignore: cast_nullable_to_non_nullable
+as int,ratio: null == ratio ? _self.ratio : ratio // ignore: cast_nullable_to_non_nullable
+as double,ratioEqualIncluded: null == ratioEqualIncluded ? _self.ratioEqualIncluded : ratioEqualIncluded // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+// dart format on

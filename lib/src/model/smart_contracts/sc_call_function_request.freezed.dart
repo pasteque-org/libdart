@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,237 +10,176 @@ part of 'sc_call_function_request.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SCCallFunctionRequest _$SCCallFunctionRequestFromJson(
-    Map<String, dynamic> json) {
-  return _SCCallFunctionRequest.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SCCallFunctionRequest {
-  String get jsonrpc => throw _privateConstructorUsedError;
-  String get method => throw _privateConstructorUsedError;
-  int get id => throw _privateConstructorUsedError;
-  SCCallFunctionParams get params => throw _privateConstructorUsedError;
+
+/// The name of the JSON-RPC method to be invoked.
+ String get method;/// The parameters specific to the smart contract function call.
+ SCCallFunctionParams get params;/// The JSON-RPC version. Typically "2.0".
+ String get jsonrpc;/// A client-generated identifier for the request.
+/// The server should include this ID in its response.
+ int get id;
+/// Create a copy of SCCallFunctionRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SCCallFunctionRequestCopyWith<SCCallFunctionRequest> get copyWith => _$SCCallFunctionRequestCopyWithImpl<SCCallFunctionRequest>(this as SCCallFunctionRequest, _$identity);
 
   /// Serializes this SCCallFunctionRequest to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of SCCallFunctionRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $SCCallFunctionRequestCopyWith<SCCallFunctionRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SCCallFunctionRequest&&(identical(other.method, method) || other.method == method)&&(identical(other.params, params) || other.params == params)&&(identical(other.jsonrpc, jsonrpc) || other.jsonrpc == jsonrpc)&&(identical(other.id, id) || other.id == id));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,method,params,jsonrpc,id);
+
+@override
+String toString() {
+  return 'SCCallFunctionRequest(method: $method, params: $params, jsonrpc: $jsonrpc, id: $id)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SCCallFunctionRequestCopyWith<$Res> {
-  factory $SCCallFunctionRequestCopyWith(SCCallFunctionRequest value,
-          $Res Function(SCCallFunctionRequest) then) =
-      _$SCCallFunctionRequestCopyWithImpl<$Res, SCCallFunctionRequest>;
-  @useResult
-  $Res call(
-      {String jsonrpc, String method, int id, SCCallFunctionParams params});
+abstract mixin class $SCCallFunctionRequestCopyWith<$Res>  {
+  factory $SCCallFunctionRequestCopyWith(SCCallFunctionRequest value, $Res Function(SCCallFunctionRequest) _then) = _$SCCallFunctionRequestCopyWithImpl;
+@useResult
+$Res call({
+ String method, SCCallFunctionParams params, String jsonrpc, int id
+});
 
-  $SCCallFunctionParamsCopyWith<$Res> get params;
+
+$SCCallFunctionParamsCopyWith<$Res> get params;
+
 }
-
 /// @nodoc
-class _$SCCallFunctionRequestCopyWithImpl<$Res,
-        $Val extends SCCallFunctionRequest>
+class _$SCCallFunctionRequestCopyWithImpl<$Res>
     implements $SCCallFunctionRequestCopyWith<$Res> {
-  _$SCCallFunctionRequestCopyWithImpl(this._value, this._then);
+  _$SCCallFunctionRequestCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SCCallFunctionRequest _self;
+  final $Res Function(SCCallFunctionRequest) _then;
 
-  /// Create a copy of SCCallFunctionRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? jsonrpc = null,
-    Object? method = null,
-    Object? id = null,
-    Object? params = null,
-  }) {
-    return _then(_value.copyWith(
-      jsonrpc: null == jsonrpc
-          ? _value.jsonrpc
-          : jsonrpc // ignore: cast_nullable_to_non_nullable
-              as String,
-      method: null == method
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as String,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      params: null == params
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as SCCallFunctionParams,
-    ) as $Val);
-  }
-
-  /// Create a copy of SCCallFunctionRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $SCCallFunctionParamsCopyWith<$Res> get params {
-    return $SCCallFunctionParamsCopyWith<$Res>(_value.params, (value) {
-      return _then(_value.copyWith(params: value) as $Val);
-    });
-  }
+/// Create a copy of SCCallFunctionRequest
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? method = null,Object? params = null,Object? jsonrpc = null,Object? id = null,}) {
+  return _then(_self.copyWith(
+method: null == method ? _self.method : method // ignore: cast_nullable_to_non_nullable
+as String,params: null == params ? _self.params : params // ignore: cast_nullable_to_non_nullable
+as SCCallFunctionParams,jsonrpc: null == jsonrpc ? _self.jsonrpc : jsonrpc // ignore: cast_nullable_to_non_nullable
+as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+/// Create a copy of SCCallFunctionRequest
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SCCallFunctionParamsCopyWith<$Res> get params {
+  
+  return $SCCallFunctionParamsCopyWith<$Res>(_self.params, (value) {
+    return _then(_self.copyWith(params: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$SCCallFunctionRequestImplCopyWith<$Res>
-    implements $SCCallFunctionRequestCopyWith<$Res> {
-  factory _$$SCCallFunctionRequestImplCopyWith(
-          _$SCCallFunctionRequestImpl value,
-          $Res Function(_$SCCallFunctionRequestImpl) then) =
-      __$$SCCallFunctionRequestImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String jsonrpc, String method, int id, SCCallFunctionParams params});
-
-  @override
-  $SCCallFunctionParamsCopyWith<$Res> get params;
-}
-
-/// @nodoc
-class __$$SCCallFunctionRequestImplCopyWithImpl<$Res>
-    extends _$SCCallFunctionRequestCopyWithImpl<$Res,
-        _$SCCallFunctionRequestImpl>
-    implements _$$SCCallFunctionRequestImplCopyWith<$Res> {
-  __$$SCCallFunctionRequestImplCopyWithImpl(_$SCCallFunctionRequestImpl _value,
-      $Res Function(_$SCCallFunctionRequestImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SCCallFunctionRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? jsonrpc = null,
-    Object? method = null,
-    Object? id = null,
-    Object? params = null,
-  }) {
-    return _then(_$SCCallFunctionRequestImpl(
-      jsonrpc: null == jsonrpc
-          ? _value.jsonrpc
-          : jsonrpc // ignore: cast_nullable_to_non_nullable
-              as String,
-      method: null == method
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as String,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      params: null == params
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as SCCallFunctionParams,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$SCCallFunctionRequestImpl implements _SCCallFunctionRequest {
-  _$SCCallFunctionRequestImpl(
-      {this.jsonrpc = '2.0',
-      required this.method,
-      this.id = 1,
-      required this.params});
 
-  factory _$SCCallFunctionRequestImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SCCallFunctionRequestImplFromJson(json);
+class _SCCallFunctionRequest implements SCCallFunctionRequest {
+  const _SCCallFunctionRequest({required this.method, required this.params, this.jsonrpc = '2.0', this.id = 1});
+  factory _SCCallFunctionRequest.fromJson(Map<String, dynamic> json) => _$SCCallFunctionRequestFromJson(json);
 
-  @override
-  @JsonKey()
-  final String jsonrpc;
-  @override
-  final String method;
-  @override
-  @JsonKey()
-  final int id;
-  @override
-  final SCCallFunctionParams params;
+/// The name of the JSON-RPC method to be invoked.
+@override final  String method;
+/// The parameters specific to the smart contract function call.
+@override final  SCCallFunctionParams params;
+/// The JSON-RPC version. Typically "2.0".
+@override@JsonKey() final  String jsonrpc;
+/// A client-generated identifier for the request.
+/// The server should include this ID in its response.
+@override@JsonKey() final  int id;
 
-  @override
-  String toString() {
-    return 'SCCallFunctionRequest(jsonrpc: $jsonrpc, method: $method, id: $id, params: $params)';
-  }
+/// Create a copy of SCCallFunctionRequest
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SCCallFunctionRequestCopyWith<_SCCallFunctionRequest> get copyWith => __$SCCallFunctionRequestCopyWithImpl<_SCCallFunctionRequest>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SCCallFunctionRequestImpl &&
-            (identical(other.jsonrpc, jsonrpc) || other.jsonrpc == jsonrpc) &&
-            (identical(other.method, method) || other.method == method) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.params, params) || other.params == params));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, jsonrpc, method, id, params);
-
-  /// Create a copy of SCCallFunctionRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SCCallFunctionRequestImplCopyWith<_$SCCallFunctionRequestImpl>
-      get copyWith => __$$SCCallFunctionRequestImplCopyWithImpl<
-          _$SCCallFunctionRequestImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SCCallFunctionRequestImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SCCallFunctionRequestToJson(this, );
 }
 
-abstract class _SCCallFunctionRequest implements SCCallFunctionRequest {
-  factory _SCCallFunctionRequest(
-          {final String jsonrpc,
-          required final String method,
-          final int id,
-          required final SCCallFunctionParams params}) =
-      _$SCCallFunctionRequestImpl;
-
-  factory _SCCallFunctionRequest.fromJson(Map<String, dynamic> json) =
-      _$SCCallFunctionRequestImpl.fromJson;
-
-  @override
-  String get jsonrpc;
-  @override
-  String get method;
-  @override
-  int get id;
-  @override
-  SCCallFunctionParams get params;
-
-  /// Create a copy of SCCallFunctionRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SCCallFunctionRequestImplCopyWith<_$SCCallFunctionRequestImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SCCallFunctionRequest&&(identical(other.method, method) || other.method == method)&&(identical(other.params, params) || other.params == params)&&(identical(other.jsonrpc, jsonrpc) || other.jsonrpc == jsonrpc)&&(identical(other.id, id) || other.id == id));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,method,params,jsonrpc,id);
+
+@override
+String toString() {
+  return 'SCCallFunctionRequest(method: $method, params: $params, jsonrpc: $jsonrpc, id: $id)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SCCallFunctionRequestCopyWith<$Res> implements $SCCallFunctionRequestCopyWith<$Res> {
+  factory _$SCCallFunctionRequestCopyWith(_SCCallFunctionRequest value, $Res Function(_SCCallFunctionRequest) _then) = __$SCCallFunctionRequestCopyWithImpl;
+@override @useResult
+$Res call({
+ String method, SCCallFunctionParams params, String jsonrpc, int id
+});
+
+
+@override $SCCallFunctionParamsCopyWith<$Res> get params;
+
+}
+/// @nodoc
+class __$SCCallFunctionRequestCopyWithImpl<$Res>
+    implements _$SCCallFunctionRequestCopyWith<$Res> {
+  __$SCCallFunctionRequestCopyWithImpl(this._self, this._then);
+
+  final _SCCallFunctionRequest _self;
+  final $Res Function(_SCCallFunctionRequest) _then;
+
+/// Create a copy of SCCallFunctionRequest
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? method = null,Object? params = null,Object? jsonrpc = null,Object? id = null,}) {
+  return _then(_SCCallFunctionRequest(
+method: null == method ? _self.method : method // ignore: cast_nullable_to_non_nullable
+as String,params: null == params ? _self.params : params // ignore: cast_nullable_to_non_nullable
+as SCCallFunctionParams,jsonrpc: null == jsonrpc ? _self.jsonrpc : jsonrpc // ignore: cast_nullable_to_non_nullable
+as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+/// Create a copy of SCCallFunctionRequest
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SCCallFunctionParamsCopyWith<$Res> get params {
+  
+  return $SCCallFunctionParamsCopyWith<$Res>(_self.params, (value) {
+    return _then(_self.copyWith(params: value));
+  });
+}
+}
+
+// dart format on

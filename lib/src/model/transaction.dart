@@ -15,8 +15,9 @@ import 'package:archethic_lib_dart/src/model/transaction_input.dart';
 import 'package:archethic_lib_dart/src/model/uco_transfer.dart';
 import 'package:archethic_lib_dart/src/model/validation_stamp.dart';
 import 'package:archethic_lib_dart/src/utils/collection_utils.dart';
-import 'package:archethic_lib_dart/src/utils/crypto.dart' as crypto
-    show deriveKeyPair, sign, deriveAddress;
+import 'package:archethic_lib_dart/src/utils/crypto.dart'
+    as crypto
+    show deriveAddress, deriveKeyPair, sign;
 import 'package:archethic_lib_dart/src/utils/typed_encoding.dart'
     as typed_encoding;
 import 'package:archethic_lib_dart/src/utils/utils.dart';
@@ -25,9 +26,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'transaction.freezed.dart';
 part 'transaction.g.dart';
 
-const int kVersion = 4;
+/// Default version for new transactions.
+const kVersion = 4;
 
-const Map<String, int> txTypes = <String, int>{
+/// Mapping of transaction type names to their numerical identifiers.
+///
+/// This map provides a lookup for converting human-readable transaction types
+/// (e.g., 'transfer', 'keychain') into the integer codes used in the
+/// Archethic protocol.
+const txTypes = <String, int>{
   /// User based transaction types
   'keychain': 255,
   'keychain_access': 254,
@@ -49,59 +56,62 @@ const Map<String, int> txTypes = <String, int>{
   'mint_rewards': 8,
 };
 
-String? addressToJson(Address? address) => address?.address;
+/// Converts an [Address] object to its string representation for JSON serialization.
+/// Returns null if the input [address] is null.
+String? addressToJson(final Address? address) => address?.address;
 
-Address addressFromJson(String json) => Address(address: json);
+/// Converts a JSON string to an [Address] object.
+Address addressFromJson(final String json) => Address(address: json);
 
 /// [Transaction] represents a unitary transaction in the Archethic network.
 @freezed
-class Transaction with _$Transaction {
+sealed class Transaction with _$Transaction {
   const factory Transaction({
     ///  hash of the new generated public key for the given transaction
-    @AddressJsonConverter() Address? address,
+    @AddressJsonConverter() final Address? address,
 
     /// [Balance] represents a ledger balance
-    Balance? balance,
+    final Balance? balance,
 
     /// Length of the chain
-    int? chainLength,
+    final int? chainLength,
 
     /// Cross validation stamps: endorsements of the validation stamp from the coordinator
     @Default([]) final List<CrossValidationStamp> crossValidationStamps,
 
     /// Transaction data zone (identity, keychain, smart contract, etc.)
-    Data? data,
+    final Data? data,
 
     /// Represents the inputs from the transaction
     @Default([]) final List<TransactionInput> inputs,
 
     /// Signature from the device which originated the transaction (used in the Proof of work)
-    String? originSignature,
+    final String? originSignature,
 
     /// Previous address
-    @AddressJsonConverter() Address? previousAddress,
+    @AddressJsonConverter() final Address? previousAddress,
 
     /// Previous generated public key matching the previous signature
-    String? previousPublicKey,
+    final String? previousPublicKey,
 
     /// Signature from the previous public key
-    String? previousSignature,
+    final String? previousSignature,
 
     /// Transaction type
-    String? type,
+    final String? type,
 
     /// Coordinator work result
-    ValidationStamp? validationStamp,
+    final ValidationStamp? validationStamp,
 
     /// Version of the transaction (used for backward compatiblity)
-    @Default(kVersion) int version,
+    @Default(kVersion) final int version,
   }) = _Transaction;
   const Transaction._();
 
-  factory Transaction.fromJson(Map<String, dynamic> json) =>
+  factory Transaction.fromJson(final Map<String, dynamic> json) =>
       _$TransactionFromJson(json);
 
-  factory Transaction.fromNodeRPC(Map<String, dynamic> json) {
+  factory Transaction.fromNodeRPC(final Map<String, dynamic> json) {
     final data = json['data'] as Map<String, dynamic>?;
     data?.renameKey('actionRecipients', 'recipients');
 
@@ -120,7 +130,7 @@ class Transaction with _$Transaction {
           'content': data?.content ?? '',
           'code': data?.code ?? '',
           'ownerships': List<dynamic>.from(
-            data!.ownerships.map((Ownership x) {
+            data!.ownerships.map((final x) {
               return <String, Object?>{
                 'secret': x.secret ?? '',
                 'authorizedKeys': x.authorizedPublicKeys,
@@ -130,17 +140,14 @@ class Transaction with _$Transaction {
           'ledger': {
             'uco': {
               'transfers': List<dynamic>.from(
-                data!.ledger!.uco!.transfers.map((UCOTransfer x) {
-                  return {
-                    'to': x.to ?? '',
-                    'amount': x.amount ?? 0,
-                  };
+                data!.ledger!.uco!.transfers.map((final x) {
+                  return {'to': x.to ?? '', 'amount': x.amount ?? 0};
                 }),
               ),
             },
             'token': {
               'transfers': List<dynamic>.from(
-                data!.ledger!.token!.transfers.map((TokenTransfer x) {
+                data!.ledger!.token!.transfers.map((final x) {
                   return {
                     'to': x.to ?? '',
                     'amount': x.amount ?? 0,
@@ -152,15 +159,13 @@ class Transaction with _$Transaction {
             },
           },
           'recipients': List<dynamic>.from(
-            data!.recipients.map(
-              (Recipient x) {
-                return {
-                  'address': x.address ?? '',
-                  'action': x.action,
-                  'args': x.args,
-                };
-              },
-            ),
+            data!.recipients.map((final x) {
+              return {
+                'address': x.address ?? '',
+                'action': x.action,
+                'args': x.args,
+              };
+            }),
           ),
         },
         'previousPublicKey': previousPublicKey ?? '',
@@ -174,14 +179,15 @@ class Transaction with _$Transaction {
         'type': type,
         'data': {
           'content': data?.content ?? '',
-          'contract': data?.contract != null
-              ? {
-                  'bytecode': data!.contract!.bytecode!,
-                  'manifest': data!.contract!.manifest,
-                }
-              : null,
+          'contract':
+              data?.contract != null
+                  ? {
+                    'bytecode': data!.contract!.bytecode!,
+                    'manifest': data!.contract!.manifest,
+                  }
+                  : null,
           'ownerships': List<dynamic>.from(
-            data!.ownerships.map((Ownership x) {
+            data!.ownerships.map((final x) {
               return <String, Object?>{
                 'secret': x.secret ?? '',
                 'authorizedKeys': x.authorizedPublicKeys,
@@ -191,17 +197,14 @@ class Transaction with _$Transaction {
           'ledger': {
             'uco': {
               'transfers': List<dynamic>.from(
-                data!.ledger!.uco!.transfers.map((UCOTransfer x) {
-                  return {
-                    'to': x.to ?? '',
-                    'amount': x.amount ?? 0,
-                  };
+                data!.ledger!.uco!.transfers.map((final x) {
+                  return {'to': x.to ?? '', 'amount': x.amount ?? 0};
                 }),
               ),
             },
             'token': {
               'transfers': List<dynamic>.from(
-                data!.ledger!.token!.transfers.map((TokenTransfer x) {
+                data!.ledger!.token!.transfers.map((final x) {
                   return {
                     'to': x.to ?? '',
                     'amount': x.amount ?? 0,
@@ -213,15 +216,13 @@ class Transaction with _$Transaction {
             },
           },
           'recipients': List<dynamic>.from(
-            data!.recipients.map(
-              (Recipient x) {
-                return {
-                  'address': x.address ?? '',
-                  'action': x.action,
-                  'args': x.args,
-                };
-              },
-            ),
+            data!.recipients.map((final x) {
+              return {
+                'address': x.address ?? '',
+                'action': x.action,
+                'args': x.args,
+              };
+            }),
           ),
         },
         'previousPublicKey': previousPublicKey ?? '',
@@ -240,11 +241,11 @@ class Transaction with _$Transaction {
   /// - [curve] : Elliptic curve to use for the key generation
   /// - [hashAlgo] : Hash algorithm to use for the address generation
   ({Transaction transaction, KeyPair keyPair}) build(
-    String seed,
-    int index, {
-    String? curve = 'ed25519',
-    String? hashAlgo = 'sha256',
-    bool isSeedHexa = true,
+    final String seed,
+    final int index, {
+    final String? curve = 'ed25519',
+    final String? hashAlgo = 'sha256',
+    final bool isSeedHexa = true,
   }) {
     final keypair = crypto.deriveKeyPair(
       seed,
@@ -262,11 +263,7 @@ class Transaction with _$Transaction {
           isSeedHexa: isSeedHexa,
         ),
       ),
-      previousPublicKey: uint8ListToHex(
-        Uint8List.fromList(
-          keypair.publicKey!,
-        ),
-      ),
+      previousPublicKey: uint8ListToHex(Uint8List.fromList(keypair.publicKey!)),
     );
     return (
       transaction: transactionWithAddressAndPPK.copyWith(
@@ -277,50 +274,44 @@ class Transaction with _$Transaction {
           ),
         ),
       ),
-      keyPair: keypair
+      keyPair: keypair,
     );
   }
 
   /// Add smart contract code to the transaction
   ///
   /// - [code] : Smart contract code
-  Transaction setCode(String code) {
+  Transaction setCode(final String code) {
     assert(
       version <= 3,
       'Use with transaction version 3 or use setContract instead with version >= 4',
     );
-    return copyWith.data!(
-      code: code,
-    );
+    return copyWith.data!(code: code);
   }
 
   /// Add smart contract's definition to the transaction
   ///
   /// - [Contract] : Smart contract code
-  Transaction setContract(Contract contract) {
-    assert(
-      version > 3,
-      'Use only with transaction version >= 4',
-    );
-    return copyWith.data!(
-      contract: contract,
-    );
+  Transaction setContract(final Contract contract) {
+    assert(version > 3, 'Use only with transaction version >= 4');
+    return copyWith.data!(contract: contract);
   }
 
   /// Add a content to the transaction
   ///
   /// - [content] : Hosted content
-  Transaction setContent(String content) {
-    return copyWith.data!(
-      content: content,
-    );
+  Transaction setContent(final String content) {
+    return copyWith.data!(content: content);
   }
 
   /// Add an ownership with a secret and its authorized public keys
   ///
   /// - [secret] : Secret encrypted (hexadecimal)
   /// - [authorizedKeys] : List of authorizedKeys
-  Transaction addOwnership(String secret, List<AuthorizedKey> authorizedKeys) {
+  Transaction addOwnership(
+    final String secret,
+    final List<AuthorizedKey> authorizedKeys,
+  ) {
     if (!isHex(secret)) {
       throw const FormatException("'Secret' must be an hexadecimal string");
     }
@@ -351,33 +342,29 @@ class Transaction with _$Transaction {
       }
     }
 
-    final newOwnership = data!.ownerships
-      ..add(
-        Ownership(
-          secret: secret,
-          authorizedPublicKeys: newAuthorizedPublicKeys,
-        ),
-      );
+    final newOwnership =
+        data!.ownerships..add(
+          Ownership(
+            secret: secret,
+            authorizedPublicKeys: newAuthorizedPublicKeys,
+          ),
+        );
 
-    return copyWith.data!(
-      ownerships: newOwnership,
-    );
+    return copyWith.data!(ownerships: newOwnership);
   }
 
   /// Add a UCO transfer to the transaction
   ///
   /// - [to] : Address of the recipient (hexadecimal)
   /// - [amount] : Amount of UCO to transfer
-  Transaction addUCOTransfer(String to, int amount) {
+  Transaction addUCOTransfer(final String to, final int amount) {
     if (!isHex(to)) {
       throw const FormatException("'to' must be an hexadecimal string");
     }
 
-    final newUCOTransfer = data!.ledger!.uco!.transfers
+    final newUCOTransfers = List<UCOTransfer>.from(data!.ledger!.uco!.transfers)
       ..add(UCOTransfer(to: to, amount: amount));
-    return copyWith.data!.ledger!.uco!(
-      transfers: newUCOTransfer,
-    );
+    return copyWith.data!.ledger!.uco!(transfers: newUCOTransfers);
   }
 
   /// Add a token transfer to the transaction
@@ -387,10 +374,10 @@ class Transaction with _$Transaction {
   /// - [tokenAddress] : Address of token to spend (hexadecimal)
   /// - [tokenId] : ID of the token to use (default to 0)
   Transaction addTokenTransfer(
-    String to,
-    int amount,
-    String tokenAddress, {
-    int tokenId = 0,
+    final String to,
+    final int amount,
+    final String tokenAddress, {
+    final int tokenId = 0,
   }) {
     if (!isHex(to)) {
       throw const FormatException("'to' must be an hexadecimal string");
@@ -413,10 +400,10 @@ class Transaction with _$Transaction {
       tokenId: tokenId,
     );
 
-    final newTokenTransfer = data!.ledger!.token!.transfers..add(tokenTransfer);
-    return copyWith.data!.ledger!.token!(
-      transfers: newTokenTransfer,
-    );
+    final newTokenTransfers = List<TokenTransfer>.from(
+      data!.ledger!.token!.transfers,
+    )..add(tokenTransfer);
+    return copyWith.data!.ledger!.token!(transfers: newTokenTransfers);
   }
 
   /// Add recipient to the transaction (with a named action)
@@ -425,25 +412,24 @@ class Transaction with _$Transaction {
   /// - [action] : The named action
   /// - [args] : The arguments list for the named action (can only contain JSON valid data)
   Transaction addRecipient(
-    String to, {
-    String? action,
-    List<Object>? args,
+    final String to, {
+    final String? action,
+    final List<Object>? args,
   }) {
     if (!isHex(to)) {
       throw const FormatException("'to' must be an hexadecimal string");
     }
 
-    final newRecipient = data!.recipients.toList()
-      ..add(Recipient(address: to, action: action, args: args));
-    return copyWith.data!(
-      recipients: newRecipient,
-    );
+    final newRecipient =
+        data!.recipients.toList()
+          ..add(Recipient(address: to, action: action, args: args));
+    return copyWith.data!(recipients: newRecipient);
   }
 
   /// Set the transaction builder with Previous Publickey and Previous Signature
   Transaction setPreviousSignatureAndPreviousPublicKey(
-    String prevSign,
-    String prevPubKey,
+    final String prevSign,
+    final String prevPubKey,
   ) {
     if (!isHex(prevSign)) {
       throw const FormatException("'prevSign' must be an hexadecimal string");
@@ -456,7 +442,7 @@ class Transaction with _$Transaction {
   }
 
   /// Set the transaction builder with address (required for originSign)
-  Transaction setAddress(Address address) {
+  Transaction setAddress(final Address address) {
     if (!address.isValid()) {
       throw const FormatException(
         "'address' must contain an hexadecimal string",
@@ -466,7 +452,7 @@ class Transaction with _$Transaction {
   }
 
   /// Set the the transaction with an origin private key
-  Transaction setOriginSignature(String originSignature) {
+  Transaction setOriginSignature(final String originSignature) {
     if (!isHex(originSignature)) {
       throw const FormatException(
         "'originSignature' must be an hexadecimal string",
@@ -476,24 +462,29 @@ class Transaction with _$Transaction {
   }
 
   /// Sign the transaction with an origin private key
-  Transaction originSign(String privateKey) {
+  Transaction originSign(final String privateKey) {
     if (!isHex(privateKey)) {
       throw const FormatException("'privateKey' must be an hexadecimal string");
     }
     return copyWith(
-      originSignature:
-          uint8ListToHex(crypto.sign(originSignaturePayload(), privateKey)),
+      originSignature: uint8ListToHex(
+        crypto.sign(originSignaturePayload(), privateKey),
+      ),
     );
   }
 
+  /// Generates the payload that needs to be signed by the origin key.
+  ///
+  /// This payload is an extension of the [previousSignaturePayload]
+  /// and includes the `previousPublicKey` and `previousSignature` itself.
   Uint8List originSignaturePayload() {
     final payloadForPreviousSignature = previousSignaturePayload();
     return concatUint8List(<Uint8List>[
       payloadForPreviousSignature,
       Uint8List.fromList(hexToUint8List(previousPublicKey!)),
-      Uint8List.fromList(
-        <int>[Uint8List.fromList(hexToUint8List(previousSignature!)).length],
-      ),
+      Uint8List.fromList(<int>[
+        Uint8List.fromList(hexToUint8List(previousSignature!)).length,
+      ]),
       Uint8List.fromList(hexToUint8List(previousSignature!)),
     ]);
   }
@@ -528,18 +519,17 @@ class Transaction with _$Transaction {
       }
 
       newAuthorizedPublicKeys.sort(
-        (AuthorizedKey a, AuthorizedKey b) =>
-            a.publicKey!.compareTo(b.publicKey!),
+        (final a, final b) => a.publicKey!.compareTo(b.publicKey!),
       );
 
       for (final authorizedKey in newAuthorizedPublicKeys) {
         authorizedKeysBuffer
-            .add(Uint8List.fromList(hexToUint8List(authorizedKey.publicKey!)));
-        authorizedKeysBuffer.add(
-          Uint8List.fromList(
-            hexToUint8List(authorizedKey.encryptedSecretKey!),
-          ),
-        );
+          ..add(Uint8List.fromList(hexToUint8List(authorizedKey.publicKey!)))
+          ..add(
+            Uint8List.fromList(
+              hexToUint8List(authorizedKey.encryptedSecretKey!),
+            ),
+          );
       }
 
       ownershipsBuffers = concatUint8List(<Uint8List>[
@@ -567,8 +557,9 @@ class Transaction with _$Transaction {
     var tokenTransfersBuffers = Uint8List(0);
     if (data!.ledger!.token!.transfers.isNotEmpty) {
       for (final tokenTransfer in data!.ledger!.token!.transfers) {
-        final bufTokenId =
-            Uint8List.fromList(toByteArray(tokenTransfer.tokenId!));
+        final bufTokenId = Uint8List.fromList(
+          toByteArray(tokenTransfer.tokenId!),
+        );
 
         tokenTransfersBuffers = concatUint8List(<Uint8List>[
           tokenTransfersBuffers,
@@ -594,48 +585,47 @@ class Transaction with _$Transaction {
           ]);
         } else {
           if (version <= 3) {
-            final _args = recipient.args! as List<dynamic>;
-            final serializedArgs =
-                _args.map((arg) => typed_encoding.serialize(arg)).toList();
-            recipientsBuffers = concatUint8List(
-              <Uint8List>[
-                recipientsBuffers,
-                // 1 = named action
-                Uint8List.fromList([1]),
-                hexToUint8List(recipient.address!),
-                toByteArray(recipient.action!.length),
-                Uint8List.fromList(utf8.encode(recipient.action!)),
-                Uint8List.fromList([serializedArgs.length]),
-                ...serializedArgs,
-              ],
-            );
+            final args = recipient.args! as List<dynamic>;
+            final serializedArgs = args.map(typed_encoding.serialize).toList();
+            recipientsBuffers = concatUint8List(<Uint8List>[
+              recipientsBuffers,
+              // 1 = named action
+              Uint8List.fromList([1]),
+              hexToUint8List(recipient.address!),
+              toByteArray(recipient.action!.length),
+              Uint8List.fromList(utf8.encode(recipient.action!)),
+              Uint8List.fromList([serializedArgs.length]),
+              ...serializedArgs,
+            ]);
           } else {
-            final _args = recipient.args! as Map<String, dynamic>;
-            final serializedArgs = typed_encoding.serialize(_args);
-            recipientsBuffers = concatUint8List(
-              <Uint8List>[
-                recipientsBuffers,
-                // 1 = named action
-                Uint8List.fromList([1]),
-                hexToUint8List(recipient.address!),
-                toByteArray(recipient.action!.length),
-                Uint8List.fromList(utf8.encode(recipient.action!)),
-                serializedArgs,
-              ],
-            );
+            final args = recipient.args! as Map<String, dynamic>;
+            final serializedArgs = typed_encoding.serialize(args);
+            recipientsBuffers = concatUint8List(<Uint8List>[
+              recipientsBuffers,
+              // 1 = named action
+              Uint8List.fromList([1]),
+              hexToUint8List(recipient.address!),
+              toByteArray(recipient.action!.length),
+              Uint8List.fromList(utf8.encode(recipient.action!)),
+              serializedArgs,
+            ]);
           }
         }
       }
     }
 
-    final bufOwnershipLength =
-        Uint8List.fromList(toByteArray(data!.ownerships.length));
-    final bufUCOTransferLength =
-        Uint8List.fromList(toByteArray(data!.ledger!.uco!.transfers.length));
-    final bufTokenTransferLength =
-        Uint8List.fromList(toByteArray(data!.ledger!.token!.transfers.length));
-    final bufRecipientLength =
-        Uint8List.fromList(toByteArray(data!.recipients.length));
+    final bufOwnershipLength = Uint8List.fromList(
+      toByteArray(data!.ownerships.length),
+    );
+    final bufUCOTransferLength = Uint8List.fromList(
+      toByteArray(data!.ledger!.uco!.transfers.length),
+    );
+    final bufTokenTransferLength = Uint8List.fromList(
+      toByteArray(data!.ledger!.token!.transfers.length),
+    );
+    final bufRecipientLength = Uint8List.fromList(
+      toByteArray(data!.recipients.length),
+    );
 
     if (version <= 3) {
       final bufCodeSize = toByteArray(data!.code!.length, length: 4);
@@ -695,6 +685,9 @@ class Transaction with _$Transaction {
     ]);
   }
 
+  /// Initializes a [Data] object with default empty values.
+  ///
+  /// This is useful for creating a new transaction data structure.
   static Data initData() {
     return Data.fromJson(<String, dynamic>{
       'code': '',
@@ -708,18 +701,24 @@ class Transaction with _$Transaction {
     });
   }
 
-  static const String kTransactionQueryAllFields =
+  /// A GraphQL query fragment string that requests all available fields for a Transaction.
+  /// Useful for fetching comprehensive transaction details.
+  static const kTransactionQueryAllFields =
       ' address, balance { token { address, amount }, uco }, chainLength, crossValidationStamps { nodePublicKey, signature }, data { content,  ownerships {  authorizedPublicKeys { encryptedSecretKey, publicKey } secret } ledger { uco { transfers { amount, to } }, token { transfers { amount, to, tokenAddress, tokenId } } } recipients, actionRecipients { action address args } } inputs { amount, from, tokenAddress, spent, tokenId, timestamp, type, }, originSignature, previousAddress, previousPublicKey, previousSignature, type, validationStamp { proofOfIntegrity, proofOfWork, signature, timestamp, ledgerOperations { fee, unspentOutputs { state } } }, version';
 
-  static const String kTransactionInputQueryAllFields =
+  /// A GraphQL query fragment string for fetching all fields of a TransactionInput.
+  static const kTransactionInputQueryAllFields =
       'amount, from, tokenAddress, spent, tokenId, timestamp, type';
 
-  static const String kBalanceQueryAllFields =
+  /// A GraphQL query fragment string for fetching all fields of a Balance.
+  static const kBalanceQueryAllFields =
       ' token { address, amount, tokenId }, uco ';
 
-  static const String kContractQueryAllFields =
+  /// A GraphQL query fragment string for fetching contract-related data fields.
+  static const kContractQueryAllFields =
       ' data { code,  contract { bytecode, manifest { abi { functions, state } } } } ';
 
-  static const String kUnspentOutputQueryFieldsWithoutState =
+  /// A GraphQL query fragment string for fetching unspent output fields, excluding state.
+  static const kUnspentOutputQueryFieldsWithoutState =
       '  amount, from, timestamp, tokenAddress, tokenId, type';
 }
